@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B2FD6C2190A9CD40069E89F /* SDMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2FD6C1190A9CD40069E89F /* SDMainTableViewController.m */; };
 		2B961E06190A8FD6000A6A2D /* iOS SDK V3.0使用说明.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2B961D7A190A8FD6000A6A2D /* iOS SDK V3.0使用说明.pdf */; };
 		2B961E07190A8FD6000A6A2D /* 人人网开放平台安全支付1.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2B961D7B190A8FD6000A6A2D /* 人人网开放平台安全支付1.0.pdf */; };
 		2B961E08190A8FD6000A6A2D /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B961D7E190A8FD6000A6A2D /* FMDatabase.m */; };
@@ -107,6 +108,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B2FD6C0190A9CD40069E89F /* SDMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDMainTableViewController.h; path = ViewControllers/SDMainTableViewController.h; sourceTree = "<group>"; };
+		2B2FD6C1190A9CD40069E89F /* SDMainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDMainTableViewController.m; path = ViewControllers/SDMainTableViewController.m; sourceTree = "<group>"; };
 		2B961D7A190A8FD6000A6A2D /* iOS SDK V3.0使用说明.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "iOS SDK V3.0使用说明.pdf"; sourceTree = "<group>"; };
 		2B961D7B190A8FD6000A6A2D /* 人人网开放平台安全支付1.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "人人网开放平台安全支付1.0.pdf"; sourceTree = "<group>"; };
 		2B961D7D190A8FD6000A6A2D /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -279,6 +282,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B2FD6BF190A9CA00069E89F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B2FD6C0190A9CD40069E89F /* SDMainTableViewController.h */,
+				2B2FD6C1190A9CD40069E89F /* SDMainTableViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		2B961D78190A8FD6000A6A2D /* RENREN SDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +593,7 @@
 		2BDBDC85190A70D500BEFD09 /* shudong */ = {
 			isa = PBXGroup;
 			children = (
+				2B2FD6BF190A9CA00069E89F /* ViewControllers */,
 				2B961D78190A8FD6000A6A2D /* RENREN SDK */,
 				2BDBDC8E190A70D500BEFD09 /* SDAppDelegate.h */,
 				2BDBDC8F190A70D500BEFD09 /* SDAppDelegate.m */,
@@ -808,6 +821,7 @@
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,
 				2B961E48190A8FD6000A6A2D /* RODialogView.m in Sources */,
 				2B961E0B190A8FD6000A6A2D /* NSObject+SBJSON.m in Sources */,
+				2B2FD6C2190A9CD40069E89F /* SDMainTableViewController.m in Sources */,
 				2B961E4C190A8FD6000A6A2D /* ROPublishPhotoDialogModel.m in Sources */,
 				2B961E2E190A8FD6000A6A2D /* ROCheckNavigationViewController.m in Sources */,
 				2B961E18190A8FD6000A6A2D /* ROPayError.m in Sources */,
