@@ -8,6 +8,7 @@
 
 #import "SDAppDelegate.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloud/AVNetworkActivityIndicatorManager.h>
 
 @implementation SDAppDelegate
 
@@ -18,6 +19,8 @@
                       clientKey:@"jm3k9sp67oydhl32cp2c5babelxz9uvg1m82k09enmgbt687"];
 
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [[AVNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+
 
     return YES;
 }
