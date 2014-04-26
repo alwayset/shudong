@@ -17,6 +17,7 @@
 @synthesize photoImageView = _photoImageView;
 @synthesize captionTextView = _captionTextView;
 @synthesize captionLimitLabel = _captionLimitLabel;
+
 - (void)dealloc
 {
     self.dialogModel = nil;
@@ -88,7 +89,7 @@
         _captionLimitLabel.backgroundColor = [UIColor clearColor];
         _captionLimitLabel.font = [UIFont systemFontOfSize:12];
         _captionLimitLabel.textColor = [UIColor darkGrayColor];
-        _captionLimitLabel.textAlignment = UITextAlignmentRight;
+        _captionLimitLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_captionLimitLabel];
         
         _headBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"head-frame.png"]];
