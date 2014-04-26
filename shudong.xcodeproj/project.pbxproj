@@ -107,7 +107,6 @@
 		2BDBDC73190A70D500BEFD09 = {
 			isa = PBXGroup;
 			children = (
-				840A33CB190A938C0062458D /* images */,
 				2BDBDC85190A70D500BEFD09 /* shudong */,
 				2BDBDCA4190A70D600BEFD09 /* shudongTests */,
 				2BDBDC7E190A70D500BEFD09 /* Frameworks */,
@@ -140,6 +139,7 @@
 		2BDBDC85190A70D500BEFD09 /* shudong */ = {
 			isa = PBXGroup;
 			children = (
+				840A33CB190A938C0062458D /* images */,
 				2BDBDC8E190A70D500BEFD09 /* SDAppDelegate.h */,
 				2BDBDC8F190A70D500BEFD09 /* SDAppDelegate.m */,
 				2BDBDC91190A70D500BEFD09 /* Main.storyboard */,
@@ -196,6 +196,7 @@
 				840A33E5190B8CD60062458D /* sixin@2x.png */,
 			);
 			name = images;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
