@@ -585,7 +585,11 @@
 		2BDBDC85190A70D500BEFD09 /* shudong */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				2B53ED0E190B88410057A654 /* RENREN SDK */,
+=======
+				840A33CB190A938C0062458D /* images */,
+>>>>>>> origin/这是main的branch
 				2BDBDC8E190A70D500BEFD09 /* SDAppDelegate.h */,
 				2BDBDC8F190A70D500BEFD09 /* SDAppDelegate.m */,
 				2BDBDC91190A70D500BEFD09 /* Main.storyboard */,
@@ -628,6 +632,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
+		840A33CB190A938C0062458D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				840A33ED190B8E250062458D /* post.png */,
+				840A33EE190B8E250062458D /* post@2x.png */,
+				840A33DF190B8CD60062458D /* 123.jpg */,
+				840A33E0190B8CD60062458D /* activity.png */,
+				840A33E1190B8CD60062458D /* activity@2x.png */,
+				840A33E2190B8CD60062458D /* home.png */,
+				840A33E3190B8CD60062458D /* home@2x.png */,
+				840A33E4190B8CD60062458D /* sixin.png */,
+				840A33E5190B8CD60062458D /* sixin@2x.png */,
+			);
+			name = images;
+			path = ..;
+			sourceTree = "<group>";
+		};
+>>>>>>> origin/这是main的branch
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
