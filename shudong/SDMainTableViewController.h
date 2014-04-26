@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SDMainTableViewController : UITableViewController
+@interface SDMainTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+
+@property (nonatomic, strong) IBOutlet UITableView *tableview;
 
 @end

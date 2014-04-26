@@ -174,7 +174,7 @@
         tipsLabel.font = [UIFont boldSystemFontOfSize:18];
         tipsLabel.backgroundColor = [UIColor clearColor];
         tipsLabel.textColor = [UIColor whiteColor];
-        tipsLabel.textAlignment = UITextAlignmentCenter;
+        tipsLabel.textAlignment = NSTextAlignmentCenter;
         tipsLabel.text = tipsText;
     }
     UIActivityIndicatorView *activity = nil;
@@ -228,7 +228,7 @@
        // tipsLabel.adjustsFontSizeToFitWidth = YES;
         tipsLabel.font = [UIFont boldSystemFontOfSize:18];
         tipsLabel.textColor = [UIColor whiteColor];
-        tipsLabel.textAlignment = UITextAlignmentCenter;
+        tipsLabel.textAlignment = NSTextAlignmentCenter;
         tipsLabel.text = tipsText;
     }
      CGPoint c = CGPointMake(view.frame.size.width*0.5, view.frame.size.height*0.5);
