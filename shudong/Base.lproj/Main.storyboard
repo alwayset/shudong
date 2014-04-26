@@ -117,7 +117,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="私信" image="home.png" id="dDh-9T-8IC">
+                    <tabBarItem key="tabBarItem" title="私信" image="sixin.png" id="dDh-9T-8IC">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="20" vertical="0.0"/>
                     </tabBarItem>
                 </viewController>
@@ -152,7 +152,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="消息" image="home.png" id="KMt-x4-sIA">
+                    <tabBarItem key="tabBarItem" title="消息" image="activity.png" id="KMt-x4-sIA">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="-15" vertical="0.0"/>
                     </tabBarItem>
                 </viewController>
@@ -163,7 +163,9 @@
     </scenes>
     <resources>
         <image name="123.jpg" width="375" height="500"/>
+        <image name="activity.png" width="22" height="22"/>
         <image name="home.png" width="22" height="22"/>
+        <image name="sixin.png" width="22" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
