@@ -39,7 +39,7 @@
     [button setBackgroundColor:[UIColor colorWithRed:32.0/255.0 green:35.0/255.0 blue:44.0/255.0 alpha:1]];
     [button.layer setCornerRadius:button.frame.size.height / 2];
     [button.layer setBorderColor:[UIColor whiteColor].CGColor];
-    [button.layer setBorderWidth:2.0f];
+    [button.layer setBorderWidth:1.0f];
     
     //self.alpha = 0.8;
     
