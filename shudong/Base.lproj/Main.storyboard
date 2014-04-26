@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="320" id="o2l-gc-vbZ">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="86" width="320" height="320"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o2l-gc-vbZ" id="ecY-LW-war">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
@@ -41,12 +41,22 @@
                                     <outlet property="delegate" destination="5xU-7h-wj8" id="uQF-se-X42"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="7kx-tv-p7f">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="I8Z-02-eWC">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="4bN-Vw-gGc"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="首页" image="home.png" id="o39-kr-DBU">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="-5" vertical="0.0"/>
                     </tabBarItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableview" destination="F7o-5j-4xS" id="28D-al-Mym"/>
                         <outlet property="view" destination="BaV-w4-chy" id="n0s-ij-bEQ"/>
