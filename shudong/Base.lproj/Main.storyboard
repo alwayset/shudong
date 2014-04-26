@@ -108,7 +108,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="123.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="X1y-Q3-a8L">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="123.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="X1y-Q3-a8L">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
@@ -162,7 +162,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="123.jpg" width="375" height="500"/>
+        <image name="123.jpeg" width="640" height="1136"/>
         <image name="activity.png" width="22" height="22"/>
         <image name="home.png" width="22" height="22"/>
         <image name="sixin.png" width="22" height="22"/>
