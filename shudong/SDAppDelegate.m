@@ -8,15 +8,26 @@
 
 #import "SDAppDelegate.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "SDUtils.h"
+//subclasses
+#import "SDPost.h"
+#import "SDHole.h"
 
 @implementation SDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [SDUtils initEverything];
+    
     [AVOSCloud setApplicationId:@"s945n7d9l5jhkt3xzyab3kwf8z7be91o3dht4mgwtdees0tq"
                       clientKey:@"jm3k9sp67oydhl32cp2c5babelxz9uvg1m82k09enmgbt687"];
 
+    [SDPost registerSubclass];
+    [SDHole registerSubclass];
+    
+    
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     return YES;

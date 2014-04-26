@@ -7,8 +7,20 @@
 //
 
 #import "SDMainTableViewController.h"
+#import "SDPost.h"
+#import "SDHole.h"
+#import "Constants.h"
 
-@interface SDMainTableViewController ()
+@interface SDMainTableViewController () {
+    NSMutableArray *dataSource;
+    
+    
+    NSArray *myHoles;
+    
+}
+
+
+
 
 @end
 
@@ -17,8 +29,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
     
+    [super viewDidLoad];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -56,6 +68,48 @@
     return cell;
 }
 
+
+- (void)loadPosts {
+    if (myHoles != nil) {
+        
+    } else {
+        [[SDUtils sharedInstance] loadMyHoles];
+    }
+}
+
+
+
+/***** query ******/
+
+- (AVQuery *)postQuery {
+    
+    
+    AVQuery *postQuery = [SDPost query];
+    postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;
+    postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
+    [postQuery whereKey:@"holes" containedIn:myHoles];
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            dataSource = [NSMutableArray arrayWithArray:objects];
+        } else {
+            //do nothing by far
+        }
+    }];
+    
+    return nil;
+}
+
+
+
+#pragma mark Delegate Methods
+- (void)didLoadMyHoles:(NSArray *)holes {
+    myHoles = holes;
+    
+    
+}
+
+
+/**********/
 
 /*
 // Override to support conditional editing of the table view.

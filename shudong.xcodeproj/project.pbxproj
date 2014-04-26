@@ -90,6 +90,10 @@
 		2B70BA08190B970F0028E684 /* ROImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B70B9BD190B970E0028E684 /* ROImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2B70BA09190B970F0028E684 /* ROPublishPhotoDialogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B70B9C0190B970E0028E684 /* ROPublishPhotoDialogModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2B70BA0A190B970F0028E684 /* ROPublishPhotoInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B70B9C2190B970E0028E684 /* ROPublishPhotoInternal.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2BD76075190BAFCD00C60FCE /* SDStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */; };
+		2BD76079190BC24700C60FCE /* SDPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD76078190BC24700C60FCE /* SDPost.m */; };
+		2BD7607C190BC34F00C60FCE /* SDHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD7607B190BC34F00C60FCE /* SDHole.m */; };
+		2BD76080190BC73B00C60FCE /* SDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD7607F190BC73B00C60FCE /* SDUtils.m */; };
 		2BDBDC80190A70D500BEFD09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BDBDC7F190A70D500BEFD09 /* Foundation.framework */; };
 		2BDBDC82190A70D500BEFD09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BDBDC81190A70D500BEFD09 /* CoreGraphics.framework */; };
 		2BDBDC84190A70D500BEFD09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BDBDC83190A70D500BEFD09 /* UIKit.framework */; };
@@ -253,6 +257,14 @@
 		2B70B9C0190B970E0028E684 /* ROPublishPhotoDialogModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROPublishPhotoDialogModel.m; sourceTree = "<group>"; };
 		2B70B9C1190B970E0028E684 /* ROPublishPhotoInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ROPublishPhotoInternal.h; sourceTree = "<group>"; };
 		2B70B9C2190B970E0028E684 /* ROPublishPhotoInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ROPublishPhotoInternal.m; sourceTree = "<group>"; };
+		2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SDStoryboard.storyboard; path = ../SDStoryboard.storyboard; sourceTree = "<group>"; };
+		2BD76077190BC24700C60FCE /* SDPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPost.h; sourceTree = "<group>"; };
+		2BD76078190BC24700C60FCE /* SDPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPost.m; sourceTree = "<group>"; };
+		2BD7607A190BC34F00C60FCE /* SDHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDHole.h; sourceTree = "<group>"; };
+		2BD7607B190BC34F00C60FCE /* SDHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDHole.m; sourceTree = "<group>"; };
+		2BD7607D190BC6AA00C60FCE /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2BD7607E190BC73B00C60FCE /* SDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUtils.h; sourceTree = "<group>"; };
+		2BD7607F190BC73B00C60FCE /* SDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUtils.m; sourceTree = "<group>"; };
 		2BDBDC7C190A70D500BEFD09 /* shudong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shudong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BDBDC7F190A70D500BEFD09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2BDBDC81190A70D500BEFD09 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -263,7 +275,6 @@
 		2BDBDC8D190A70D500BEFD09 /* shudong-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "shudong-Prefix.pch"; sourceTree = "<group>"; };
 		2BDBDC8E190A70D500BEFD09 /* SDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDAppDelegate.h; sourceTree = "<group>"; };
 		2BDBDC8F190A70D500BEFD09 /* SDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDAppDelegate.m; sourceTree = "<group>"; };
-		2BDBDC92190A70D500BEFD09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BDBDC94190A70D500BEFD09 /* SDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDViewController.h; sourceTree = "<group>"; };
 		2BDBDC95190A70D500BEFD09 /* SDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDViewController.m; sourceTree = "<group>"; };
 		2BDBDC97190A70D500BEFD09 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -569,6 +580,17 @@
 			path = UploadPhotoDialog;
 			sourceTree = "<group>";
 		};
+		2BD76076190BC22B00C60FCE /* data model */ = {
+			isa = PBXGroup;
+			children = (
+				2BD76077190BC24700C60FCE /* SDPost.h */,
+				2BD76078190BC24700C60FCE /* SDPost.m */,
+				2BD7607A190BC34F00C60FCE /* SDHole.h */,
+				2BD7607B190BC34F00C60FCE /* SDHole.m */,
+			);
+			name = "data model";
+			sourceTree = "<group>";
+		};
 		2BDBDC73190A70D500BEFD09 = {
 			isa = PBXGroup;
 			children = (
@@ -605,17 +627,21 @@
 		2BDBDC85190A70D500BEFD09 /* shudong */ = {
 			isa = PBXGroup;
 			children = (
+				2BD76076190BC22B00C60FCE /* data model */,
+				2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */,
 				2B70B935190B970E0028E684 /* RENREN SDK */,
 				840A33CB190A938C0062458D /* images */,
 				2BDBDC8E190A70D500BEFD09 /* SDAppDelegate.h */,
 				2BDBDC8F190A70D500BEFD09 /* SDAppDelegate.m */,
-				2BDBDC91190A70D500BEFD09 /* Main.storyboard */,
 				2BDBDC94190A70D500BEFD09 /* SDViewController.h */,
 				2BDBDC95190A70D500BEFD09 /* SDViewController.m */,
 				2BDBDC97190A70D500BEFD09 /* Images.xcassets */,
 				2BDBDC86190A70D500BEFD09 /* Supporting Files */,
 				2B338363190B94570068962C /* SDMainTableViewController.h */,
 				2B338364190B94570068962C /* SDMainTableViewController.m */,
+				2BD7607D190BC6AA00C60FCE /* Constants.h */,
+				2BD7607E190BC73B00C60FCE /* SDUtils.h */,
+				2BD7607F190BC73B00C60FCE /* SDUtils.m */,
 			);
 			path = shudong;
 			sourceTree = "<group>";
@@ -756,6 +782,7 @@
 				2BDBDC98190A70D500BEFD09 /* Images.xcassets in Resources */,
 				2B70B9DE190B970F0028E684 /* input-frame.png in Resources */,
 				2B33835A190B94080068962C /* post.png in Resources */,
+				2BD76075190BAFCD00C60FCE /* SDStoryboard.storyboard in Resources */,
 				2B33835F190B94080068962C /* home.png in Resources */,
 				2B70B9DC190B970F0028E684 /* head-frame.png in Resources */,
 				2B70BA03190B970F0028E684 /* ROCheckOrderCell.xib in Resources */,
@@ -837,6 +864,7 @@
 				2B70BA08190B970F0028E684 /* ROImageView.m in Sources */,
 				2B70BA07190B970F0028E684 /* ROGlobalStyle.m in Sources */,
 				2B70B9D3190B970F0028E684 /* ROWebDialogViewController.m in Sources */,
+				2BD76080190BC73B00C60FCE /* SDUtils.m in Sources */,
 				2B70BA05190B970F0028E684 /* RODialogView.m in Sources */,
 				2B70B9EA190B970F0028E684 /* ROBaseNavigationViewController.m in Sources */,
 				2B70B9C8190B970F0028E684 /* NSObject+SBJSON.m in Sources */,
@@ -867,6 +895,7 @@
 				2B70B9F0190B970F0028E684 /* ROPayOrderInfo.m in Sources */,
 				2B70B9D4190B970F0028E684 /* ROError.m in Sources */,
 				2B70B9FA190B970F0028E684 /* ROCreateAlbumResponseItem.m in Sources */,
+				2BD76079190BC24700C60FCE /* SDPost.m in Sources */,
 				2B70B9CB190B970F0028E684 /* SBJsonBase.m in Sources */,
 				2B70B9FC190B970F0028E684 /* ROPublishPhotoResponseItem.m in Sources */,
 				2B70B9EC190B970F0028E684 /* ROPayNavigationViewController.m in Sources */,
@@ -884,6 +913,7 @@
 				2B70B9F6190B970F0028E684 /* ROPublishPhotoRequestParam.m in Sources */,
 				2B70B9C9190B970F0028E684 /* NSString+SBJSON.m in Sources */,
 				2B70B9CF190B970F0028E684 /* RenrenPay.m in Sources */,
+				2BD7607C190BC34F00C60FCE /* SDHole.m in Sources */,
 				2B70B9D1190B970F0028E684 /* ROCheckDialogViewController.m in Sources */,
 				2B70B9F4190B970F0028E684 /* ROGetFriendsRequestParam.m in Sources */,
 			);
@@ -914,14 +944,6 @@
 				2BDBDC89190A70D500BEFD09 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2BDBDC91190A70D500BEFD09 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2BDBDC92190A70D500BEFD09 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		2BDBDCA7190A70D600BEFD09 /* InfoPlist.strings */ = {
