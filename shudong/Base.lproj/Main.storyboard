@@ -53,7 +53,7 @@
         <scene sceneID="gfh-iN-Jdf">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="Jqk-Um-uob" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="Eq9-yQ-Eiy">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
