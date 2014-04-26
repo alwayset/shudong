@@ -12,4 +12,7 @@
 
 #define NUMBER_OF_POSTS_PER_LOAD 15
 
+
+#define DidLoadMyHolesNotif @"did_load_my_holes"
+
 #endif

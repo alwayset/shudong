@@ -10,7 +10,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "SDUtils.h"
 
-@interface SDMainTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UtilsDelegate>
+@interface SDMainTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 
 @property (nonatomic, strong) IBOutlet UITableView *tableview;

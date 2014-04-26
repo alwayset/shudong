@@ -10,13 +10,8 @@
 #import <AVOSCloud/AVOSCloud.h>
 
 
-@protocol UtilsDelegate
-@optional
-
-- (void)didLoadMyHoles:(NSArray *)myHoles;
 
 
-@end
 
 
 @interface SDUtils : NSObject

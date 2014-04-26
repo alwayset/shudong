@@ -14,9 +14,6 @@
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
     
-    
-    NSArray *myHoles;
-    
 }
 
 
@@ -31,6 +28,10 @@
 {
     
     [super viewDidLoad];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadPosts) name:DidLoadMyHolesNotif object:nil];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -70,7 +71,17 @@
 
 
 - (void)loadPosts {
-    if (myHoles != nil) {
+    if ([SDUtils sharedInstance].myHoles != nil) {
+        
+        
+        [[self postQuery] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                dataSource = [NSMutableArray arrayWithArray:objects];
+            } else {
+                //do nothing by far
+            }
+        }];
+        
         
     } else {
         [[SDUtils sharedInstance] loadMyHoles];
@@ -87,14 +98,8 @@
     AVQuery *postQuery = [SDPost query];
     postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;
     postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
-    [postQuery whereKey:@"holes" containedIn:myHoles];
-    [postQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            dataSource = [NSMutableArray arrayWithArray:objects];
-        } else {
-            //do nothing by far
-        }
-    }];
+    [postQuery whereKey:@"holes" containedIn:[SDUtils sharedInstance].myHoles];
+
     
     return nil;
 }
@@ -102,11 +107,6 @@
 
 
 #pragma mark Delegate Methods
-- (void)didLoadMyHoles:(NSArray *)holes {
-    myHoles = holes;
-    
-    
-}
 
 
 /**********/
