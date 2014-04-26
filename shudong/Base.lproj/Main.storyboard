@@ -58,7 +58,7 @@
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.15686274510000001" green="0.1960784314" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.80784313730000001" green="0.54901960780000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="5xU-7h-wj8" kind="relationship" relationship="viewControllers" id="HWr-sC-z3X"/>
@@ -117,7 +117,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="私信" image="home.png" id="dDh-9T-8IC">
+                    <tabBarItem key="tabBarItem" title="私信" image="sixin.png" id="dDh-9T-8IC">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="20" vertical="0.0"/>
                     </tabBarItem>
                 </viewController>
@@ -152,7 +152,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="消息" image="home.png" id="KMt-x4-sIA">
+                    <tabBarItem key="tabBarItem" title="消息" image="activity.png" id="KMt-x4-sIA">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="-15" vertical="0.0"/>
                     </tabBarItem>
                 </viewController>
@@ -163,7 +163,9 @@
     </scenes>
     <resources>
         <image name="123.jpg" width="375" height="500"/>
+        <image name="activity.png" width="22" height="22"/>
         <image name="home.png" width="22" height="22"/>
+        <image name="sixin.png" width="22" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
