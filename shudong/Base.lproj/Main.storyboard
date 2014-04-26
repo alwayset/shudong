@@ -118,7 +118,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="私信" image="sixin.png" id="dDh-9T-8IC">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="20" vertical="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="30" vertical="0.0"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8U-94-TKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -153,7 +153,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="消息" image="activity.png" id="KMt-x4-sIA">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="-15" vertical="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="-30" vertical="0.0"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="re8-vx-9rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
