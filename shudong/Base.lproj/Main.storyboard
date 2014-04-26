@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="664" y="-503"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="gfh-iN-Jdf">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="Jqk-Um-uob" sceneMemberID="viewController">

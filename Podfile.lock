@@ -1,10 +1,14 @@
 PODS:
   - AVOSCloud (2.5.1)
+  - AVOSCloudUI (2.1.2):
+    - AVOSCloud
 
 DEPENDENCIES:
   - AVOSCloud
+  - AVOSCloudUI
 
 SPEC CHECKSUMS:
   AVOSCloud: c79aac5bba1b59bedf44105380c32d0db074f620
+  AVOSCloudUI: b0cae4f018d7d5ccc20544a893a7fab294beb7fa
 
 COCOAPODS: 0.32.1
