@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="664" y="-503"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="gfh-iN-Jdf">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="Jqk-Um-uob" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.15686274510000001" green="0.1960784314" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.15686274510000001" green="0.1960784314" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="5xU-7h-wj8" kind="relationship" relationship="viewControllers" id="HWr-sC-z3X"/>

@@ -591,6 +591,8 @@
 				2BDBDC91190A70D500BEFD09 /* Main.storyboard */,
 				2BDBDC94190A70D500BEFD09 /* SDViewController.h */,
 				2BDBDC95190A70D500BEFD09 /* SDViewController.m */,
+				840A33DB190B85BE0062458D /* SDTabViewController.h */,
+				840A33DC190B85BE0062458D /* SDTabViewController.m */,
 				2BDBDC97190A70D500BEFD09 /* Images.xcassets */,
 				2BDBDC86190A70D500BEFD09 /* Supporting Files */,
 			);
