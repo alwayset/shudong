@@ -110,6 +110,12 @@
 		2BDBDCA1190A70D600BEFD09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BDBDC83190A70D500BEFD09 /* UIKit.framework */; };
 		2BDBDCA9190A70D600BEFD09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BDBDCA7190A70D600BEFD09 /* InfoPlist.strings */; };
 		2BDBDCAB190A70D600BEFD09 /* shudongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDBDCAA190A70D600BEFD09 /* shudongTests.m */; };
+		840A34E6190E8DA00062458D /* beautifulBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34E4190E8DA00062458D /* beautifulBackground.png */; };
+		840A34E7190E8DA00062458D /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34E5190E8DA00062458D /* welcome.png */; };
+		840A34E9190E8EFC0062458D /* renren.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34E8190E8EFC0062458D /* renren.png */; };
+		840A34EC190E8F470062458D /* renrenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34EA190E8F470062458D /* renrenButton.png */; };
+		840A34ED190E8F470062458D /* renrenButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34EB190E8F470062458D /* renrenButton@2x.png */; };
+		840A34F0190E908D0062458D /* SDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A34EF190E908D0062458D /* SDLoginViewController.m */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -294,6 +300,13 @@
 		2BDBDCAA190A70D600BEFD09 /* shudongTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shudongTests.m; sourceTree = "<group>"; };
 		32DE6D10F85344DDBFC9682B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A55B3F1630C404793F4267D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		840A34E4190E8DA00062458D /* beautifulBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = beautifulBackground.png; path = images/beautifulBackground.png; sourceTree = "<group>"; };
+		840A34E5190E8DA00062458D /* welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = welcome.png; path = images/welcome.png; sourceTree = "<group>"; };
+		840A34E8190E8EFC0062458D /* renren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = renren.png; path = images/renren.png; sourceTree = "<group>"; };
+		840A34EA190E8F470062458D /* renrenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = renrenButton.png; path = images/renrenButton.png; sourceTree = "<group>"; };
+		840A34EB190E8F470062458D /* renrenButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "renrenButton@2x.png"; path = "images/renrenButton@2x.png"; sourceTree = "<group>"; };
+		840A34EE190E908D0062458D /* SDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLoginViewController.h; sourceTree = "<group>"; };
+		840A34EF190E908D0062458D /* SDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -665,6 +678,8 @@
 				2BD7607D190BC6AA00C60FCE /* Constants.h */,
 				2BD7607E190BC73B00C60FCE /* SDUtils.h */,
 				2BD7607F190BC73B00C60FCE /* SDUtils.m */,
+				840A34EE190E908D0062458D /* SDLoginViewController.h */,
+				840A34EF190E908D0062458D /* SDLoginViewController.m */,
 			);
 			path = shudong;
 			sourceTree = "<group>";
@@ -701,6 +716,11 @@
 		840A33CB190A938C0062458D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				840A34EA190E8F470062458D /* renrenButton.png */,
+				840A34EB190E8F470062458D /* renrenButton@2x.png */,
+				840A34E8190E8EFC0062458D /* renren.png */,
+				840A34E4190E8DA00062458D /* beautifulBackground.png */,
+				840A34E5190E8DA00062458D /* welcome.png */,
 				2B338351190B94080068962C /* post.png */,
 				2B338352190B94080068962C /* post@2x.png */,
 				2B338353190B94080068962C /* 123.jpg */,
@@ -804,16 +824,19 @@
 				2B70B9E4190B970F0028E684 /* renren-logo-top-bar.png in Resources */,
 				2BDBDC98190A70D500BEFD09 /* Images.xcassets in Resources */,
 				2B70B9DE190B970F0028E684 /* input-frame.png in Resources */,
+				840A34E6190E8DA00062458D /* beautifulBackground.png in Resources */,
 				2B33835A190B94080068962C /* post.png in Resources */,
 				2BD76075190BAFCD00C60FCE /* SDStoryboard.storyboard in Resources */,
 				2B33835F190B94080068962C /* home.png in Resources */,
 				2B70B9DC190B970F0028E684 /* head-frame.png in Resources */,
 				2B70BA03190B970F0028E684 /* ROCheckOrderCell.xib in Resources */,
+				840A34E7190E8DA00062458D /* welcome.png in Resources */,
 				2B33835B190B94080068962C /* post@2x.png in Resources */,
 				2B70B9DA190B970F0028E684 /* close_selected.png in Resources */,
 				2B70B9DD190B970F0028E684 /* head-frame@2x.png in Resources */,
 				2B70B9C4190B970E0028E684 /* 人人网开放平台安全支付1.0.pdf in Resources */,
 				2B70B9D8190B970F0028E684 /* close.png in Resources */,
+				840A34EC190E8F470062458D /* renrenButton.png in Resources */,
 				2B33835D190B94080068962C /* activity.png in Resources */,
 				2B70B9D9190B970F0028E684 /* close@2x.png in Resources */,
 				2B70B9DB190B970F0028E684 /* close_selected@2x.png in Resources */,
@@ -824,8 +847,10 @@
 				2B70B9E9190B970F0028E684 /* small-button-normal@2x.png in Resources */,
 				2B70B9D7190B970F0028E684 /* bottom-bar@2x.png in Resources */,
 				2B33835E190B94080068962C /* activity@2x.png in Resources */,
+				840A34ED190E8F470062458D /* renrenButton@2x.png in Resources */,
 				2B70B9C3190B970E0028E684 /* iOS SDK V3.0使用说明.pdf in Resources */,
 				2B70B9E1190B970F0028E684 /* PayLogo@2x.png in Resources */,
+				840A34E9190E8EFC0062458D /* renren.png in Resources */,
 				2BDBDC8A190A70D500BEFD09 /* InfoPlist.strings in Resources */,
 				2B70B9E0190B970F0028E684 /* PayLogo.png in Resources */,
 				2B70B9E6190B970F0028E684 /* RepairButton.png in Resources */,
@@ -920,6 +945,7 @@
 				2B70BA06190B970F0028E684 /* ROCloseButton.m in Sources */,
 				2B70B9F0190B970F0028E684 /* ROPayOrderInfo.m in Sources */,
 				2B70B9D4190B970F0028E684 /* ROError.m in Sources */,
+				840A34F0190E908D0062458D /* SDLoginViewController.m in Sources */,
 				2B70B9FA190B970F0028E684 /* ROCreateAlbumResponseItem.m in Sources */,
 				2BD76079190BC24700C60FCE /* SDPost.m in Sources */,
 				2B70B9CB190B970F0028E684 /* SBJsonBase.m in Sources */,

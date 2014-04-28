@@ -33,6 +33,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadPosts) name:DidLoadMyHolesNotif object:nil];
     
+    self.selectedRow = -1;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -67,7 +68,11 @@
     // Return the number of rows in the section.
     return 3;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.selectedRow == indexPath.row) return 568;
+    else return 320;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -78,7 +83,21 @@
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.selectedRow == indexPath.row) {
+        self.selectedRow = -1;
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        
+    } else {
+        self.selectedRow = indexPath.row;
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+    
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
+}
 - (void)loadPosts {
     if ([SDUtils sharedInstance].myHoles != nil) {
         

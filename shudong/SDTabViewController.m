@@ -8,6 +8,7 @@
 
 #import "SDTabViewController.h"
 #import "SDAddPostViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
 @interface SDTabViewController ()
 
 @end
@@ -27,6 +28,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    
+    
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
@@ -61,6 +66,10 @@
     }
     
     [self.view addSubview:button];
+    //if (![AVUser currentUser]) {
+    //    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SDLoginViewController"];
+    //    [self.navigationController presentViewController:vc animated:YES completion:nil];
+    //}
 
 }
 

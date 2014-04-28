@@ -14,5 +14,5 @@
 
 
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
-
+@property (nonatomic) int selectedRow;
 @end
