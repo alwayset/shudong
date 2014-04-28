@@ -14,6 +14,7 @@
 @dynamic text, image, poster;
 @dynamic likeCount, commentCount;
 @dynamic holes;
+@dynamic picId;
 
 + (NSString *)parseClassName {
     return @"Post";

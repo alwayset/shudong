@@ -17,5 +17,6 @@
 @property (nonatomic) NSNumber *likeCount;
 @property (nonatomic) NSNumber *commentCount;
 @property (nonatomic) NSArray *holes;
+@property (nonatomic) NSNumber *picId;
 
 @end

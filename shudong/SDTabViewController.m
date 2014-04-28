@@ -7,7 +7,7 @@
 //
 
 #import "SDTabViewController.h"
-
+#import "SDAddPostViewController.h"
 @interface SDTabViewController ()
 
 @end
@@ -41,6 +41,9 @@
     [button.layer setBorderColor:[UIColor whiteColor].CGColor];
     [button.layer setBorderWidth:1.0f];
     
+    
+    [button addTarget:self action:@selector(addPost) forControlEvents:UIControlEventTouchUpInside];
+    
     //self.alpha = 0.8;
     
     //[button setBackgroundColor:[UIColor redColor]];
@@ -65,6 +68,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addPost {
+    SDAddPostViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"add"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 /*

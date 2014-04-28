@@ -14,7 +14,7 @@
 
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
-    
+    UIRefreshControl *refresh;
 }
 
 
@@ -42,7 +42,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     self.navigationItem.title = @"树洞";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = YES;
