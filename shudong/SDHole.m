@@ -8,6 +8,30 @@
 
 #import "SDHole.h"
 
+/* 
+ 
+ daxue
+    jie
+    yuan
+ dazhuan
+    jie
+ zhongzhuan
+    jie
+ gaozhong
+    jie
+    ban
+ chuzhong
+    jie
+ xiaoxue
+    jie
+ 
+ 
+ 
+ 
+ */
+
+
+
 @implementation SDHole
 @dynamic name, memberCount, postCount;
 @dynamic posts;

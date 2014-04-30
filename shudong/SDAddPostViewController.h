@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVOSCloud/AVOSCloud.h>
+#import "SDChooseHoleTableViewController.h"
+#import "SDPost.h"
+#import "SDHole.h"
+#import "SDUtils.h"
 
-@interface SDAddPostViewController : UIViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate>
+@protocol AddPostDelegate
+
+- (void)didFinishPreparingNewPostToUpload:(SDPost *)newPost;
+
+@end
+
+@interface SDAddPostViewController : UIViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate, ChooseHoleDelegate>
 
 @end

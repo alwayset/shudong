@@ -31,4 +31,8 @@
 
 - (void)loadMyHoles;
 
+
+
++ (void)log:(NSString *)message;
+
 @end

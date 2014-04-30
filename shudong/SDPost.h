@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVOSCloud/AVOSCloud.h>
+#import "SDHole.h"
 
 @interface SDPost : AVObject <AVSubclassing>
 
@@ -16,7 +17,15 @@
 @property (nonatomic) AVUser *poster;
 @property (nonatomic) NSNumber *likeCount;
 @property (nonatomic) NSNumber *commentCount;
-@property (nonatomic) NSArray *holes;
 @property (nonatomic) NSNumber *picId;
+@property (nonatomic) AVRelation *holes;
+
+@property (nonatomic, copy) SDHole *cat1; //university
+@property (nonatomic, copy) SDHole *cat2; //gaozhong
+@property (nonatomic, copy) SDHole *cat3; //chuzhong
+@property (nonatomic, copy) SDHole *cat4; //xiaoxue
+@property (nonatomic, copy) SDHole *cat5; //dazhuan
+@property (nonatomic, copy) SDHole *cat6; //zhongzhuan
+
 
 @end

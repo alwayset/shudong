@@ -40,10 +40,9 @@ static SDUtils *singletonInstance;
     holeQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
     [holeQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
         if (!error) {
-            
+
             myHoles = [NSArray arrayWithArray:results];
-            
-            
+            [[NSNotificationCenter defaultCenter] postNotificationName:DidLoadMyHolesNotif object:nil];
         } else {
             [SDUtils showErrALertWithText:@"载入失败"];
         }
@@ -57,7 +56,9 @@ static SDUtils *singletonInstance;
 
 
 
-
++ (void)log:(NSString *)message {
+    NSLog(message);
+}
 
 
 

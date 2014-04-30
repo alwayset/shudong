@@ -7,11 +7,12 @@
 //
 
 #import "SDAddPostViewController.h"
-#import <AVOSCloud/AVOSCloud.h>
-#import "SDPost.h"
-#import "SDHole.h"
-#import "SDUtils.h"
-@interface SDAddPostViewController ()
+
+@interface SDAddPostViewController () {
+    
+    id <AddPostDelegate> delegate;
+    
+}
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *postButton;
 @property (strong, nonatomic) IBOutlet UIImageView *background;
 @property (strong, nonatomic) IBOutlet UITextView *contentText;
@@ -82,33 +83,7 @@
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-- (IBAction)post:(id)sender {
-    SDPost *newPost = [SDPost object];
-    newPost.text = _contentText.text;
-    newPost.poster = [AVUser currentUser];
-    newPost.commentCount = @0;
-    newPost.likeCount = @0;
-    if (_isUsingSystemBackground) {
-        newPost.picId = _selectedPicId;
-    } else {
-        CGFloat compression = 0.9f;
-        CGFloat maxCompression = 0.1f;
-        int maxFileSize = 70*1024;
-        
-        //original
-        NSData *imageData = UIImageJPEGRepresentation(_background.image, compression);
-        while ([imageData length] > maxFileSize && compression > maxCompression)
-        {
-            compression -= 0.1;
-            imageData = UIImageJPEGRepresentation(_background.image, compression);
-        }
-        AVFile *newFile = [AVFile fileWithData:imageData];
-        newPost.image = newFile;
-        
-    }
-    
-    
-}
+
 
 #pragma mark UIImagePicker Delegate methods
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -157,6 +132,39 @@
 }
 - (void)keyboardWillDisappear {
     //调整两个按钮的位置
+    
+}
+
+-(void)didFinishChoosingHoles:(NSArray *)targetHoles{
+    SDPost *newPost = [SDPost object];
+    newPost.text = _contentText.text;
+    newPost.poster = [AVUser currentUser];
+    newPost.commentCount = @0;
+    newPost.likeCount = @0;
+    if (_isUsingSystemBackground) {
+        newPost.picId = _selectedPicId;
+    } else {
+        CGFloat compression = 0.9f;
+        CGFloat maxCompression = 0.1f;
+        int maxFileSize = 70*1024;
+        
+        //original
+        NSData *imageData = UIImageJPEGRepresentation(_background.image, compression);
+        while ([imageData length] > maxFileSize && compression > maxCompression)
+        {
+            compression -= 0.1;
+            imageData = UIImageJPEGRepresentation(_background.image, compression);
+        }
+        AVFile *newFile = [AVFile fileWithData:imageData];
+        newPost.image = newFile;
+        
+    }
+    for (SDHole *eachHole in targetHoles) {
+        [newPost.holes addObject:eachHole];
+    }
+    
+    [delegate didFinishPreparingNewPostToUpload:newPost];
+    
     
 }
 

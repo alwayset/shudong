@@ -11,6 +11,7 @@
 #import "SDHole.h"
 #import "Constants.h"
 #import "SDPostTableViewCell.h"
+#import "SDLoginViewController.h"
 
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
@@ -19,20 +20,18 @@
 
 
 
-
 @end
 
 @implementation SDMainTableViewController
-
 
 - (void)viewDidLoad
 {
     
     [super viewDidLoad];
     
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadPosts) name:DidLoadMyHolesNotif object:nil];
     
+    self.selectedRow = -1;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -45,6 +44,19 @@
     self.navigationItem.title = @"树洞";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = YES;
+    
+    
+    if (![AVUser currentUser]) {
+        
+        
+        SDLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
+        [self presentViewController:vc animated:NO completion:^{
+            //do nothing for now
+        }];
+        
+        
+
+    }
 }
 
 
@@ -67,7 +79,11 @@
     // Return the number of rows in the section.
     return 3;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.selectedRow == indexPath.row) return 568;
+    else return 320;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -78,7 +94,21 @@
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.selectedRow == indexPath.row) {
+        self.selectedRow = -1;
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+        
+    } else {
+        self.selectedRow = indexPath.row;
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+    
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
+}
 - (void)loadPosts {
     if ([SDUtils sharedInstance].myHoles != nil) {
         
@@ -99,6 +129,9 @@
 
 
 
+
+
+
 /***** query ******/
 
 - (AVQuery *)postQuery {
@@ -109,13 +142,24 @@
     postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
     [postQuery whereKey:@"holes" containedIn:[SDUtils sharedInstance].myHoles];
 
-    
     return nil;
 }
 
 
 
 #pragma mark Delegate Methods
+
+
+-(void)didFinishPreparingNewPostToUpload:(SDPost *)newPost {
+    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            
+        } else {
+            [SDUtils showErrALertWithText:@"发送失败,请检查网络状态"];
+        }
+    }];
+}
+
 
 
 /**********/

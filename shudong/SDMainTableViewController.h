@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <AVOSCloud/AVOSCloud.h>
 #import "SDUtils.h"
-
-@interface SDMainTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+#import "SDPost.h"
+#import "SDAddPostViewController.h"
+@interface SDMainTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, AddPostDelegate>
 
 
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
-
+@property (nonatomic) int selectedRow;
 @end

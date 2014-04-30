@@ -15,4 +15,12 @@
 
 #define DidLoadMyHolesNotif @"did_load_my_holes"
 
+
+
+//renren
+#define RR_APP_ID @"267400"
+#define RR_API_KEY @"201d20f5e4f3429d9ad1fec1254e9d80"
+#define RR_SECRET @"3dffcbf149d142eb926d9d1ec6dd7dc9"
+
+
 #endif

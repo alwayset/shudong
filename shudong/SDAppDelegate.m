@@ -12,6 +12,7 @@
 //subclasses
 #import "SDPost.h"
 #import "SDHole.h"
+#import <RennSDK/RennSDK.h>
 
 @implementation SDAppDelegate
 
@@ -20,6 +21,8 @@
     // Override point for customization after application launch.
     
     [SDUtils initEverything];
+    
+    
     
     [AVOSCloud setApplicationId:@"s945n7d9l5jhkt3xzyab3kwf8z7be91o3dht4mgwtdees0tq"
                       clientKey:@"jm3k9sp67oydhl32cp2c5babelxz9uvg1m82k09enmgbt687"];
@@ -58,6 +61,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [RennClient  handleOpenURL:url];
 }
 
 @end
