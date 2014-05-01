@@ -85,18 +85,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
     if (self.selectedRow == indexPath.row) {
         self.selectedRow = -1;
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-        
     } else {
         self.selectedRow = indexPath.row;
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
     }
-    
-    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    if (self.selectedRow >=0) [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    else [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [self.navigationController setNavigationBarHidden:!(self.navigationController.navigationBarHidden) animated:YES];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+     */
 }
 - (void)loadPosts {
     if ([SDUtils sharedInstance].myHoles != nil) {
