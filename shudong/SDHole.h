@@ -14,6 +14,8 @@
 @property (nonatomic) NSNumber *memberCount;
 @property (nonatomic) NSNumber *postCount;
 @property (nonatomic) AVRelation *posts;
+@property (nonatomic) NSArray *depts;
+@property (nonatomic) NSArray *years;
 
 
 @end

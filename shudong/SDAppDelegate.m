@@ -12,6 +12,7 @@
 //subclasses
 #import "SDPost.h"
 #import "SDHole.h"
+#import "SDUser.h"
 #import <RennSDK/RennSDK.h>
 
 @implementation SDAppDelegate
@@ -29,6 +30,7 @@
 
     [SDPost registerSubclass];
     [SDHole registerSubclass];
+    [SDUser registerSubclass];
     
     
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];

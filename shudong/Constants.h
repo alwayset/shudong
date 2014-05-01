@@ -23,4 +23,8 @@
 #define RR_SECRET @"3dffcbf149d142eb926d9d1ec6dd7dc9"
 
 
+
+#define HOLE_TYPE_SCHOOL 1
+#define HOLE_TYPE_DEPT 2
+#define HOLE_TYPE_YEAR 3
 #endif

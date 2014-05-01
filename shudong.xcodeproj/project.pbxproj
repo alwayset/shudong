@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B02072019104B3100B72E35 /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B02071F19104B3100B72E35 /* RennSDK.framework */; };
 		2B33835A190B94080068962C /* post.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B338351190B94080068962C /* post.png */; };
 		2B33835B190B94080068962C /* post@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B338352190B94080068962C /* post@2x.png */; };
 		2B33835C190B94080068962C /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B338353190B94080068962C /* 123.jpg */; };
@@ -21,13 +20,14 @@
 		2B572166190FEF3A00EE5964 /* SDHoleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B572165190FEF3A00EE5964 /* SDHoleTableViewCell.m */; };
 		2B572169190FEFD000EE5964 /* SDChooseHoleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B572168190FEFD000EE5964 /* SDChooseHoleTableViewController.m */; };
 		2B57216C191006BF00EE5964 /* SDUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B57216B191006BF00EE5964 /* SDUser.m */; };
-		2B5721781910359500EE5964 /* RennSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B5721771910359500EE5964 /* RennSDK.bundle */; };
-		2B57218719103C4600EE5964 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B57217C19103C4600EE5964 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2B57218819103C4600EE5964 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B57217E19103C4600EE5964 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2B57218919103C4600EE5964 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B57218019103C4600EE5964 /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2B57218A19103C4600EE5964 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B57218219103C4600EE5964 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2B57218B19103C4600EE5964 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B57218419103C4600EE5964 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		2B57218C19103C4600EE5964 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B57218619103C4600EE5964 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B5F590019120A6F0077FE43 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F58F319120A6F0077FE43 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B5F590119120A6F0077FE43 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F58F519120A6F0077FE43 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B5F590219120A6F0077FE43 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F58F719120A6F0077FE43 /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B5F590319120A6F0077FE43 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F58F919120A6F0077FE43 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B5F590419120A6F0077FE43 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F58FB19120A6F0077FE43 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B5F590519120A6F0077FE43 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F58FD19120A6F0077FE43 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B5F590619120A6F0077FE43 /* RennSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B5F58FE19120A6F0077FE43 /* RennSDK.bundle */; };
+		2B5F590719120A6F0077FE43 /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B5F58FF19120A6F0077FE43 /* RennSDK.framework */; };
 		2B63EE77190B859D00E30B09 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B63EE76190B859D00E30B09 /* libsqlite3.0.dylib */; };
 		2B72D648190E37800065D66C /* SDAddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72D647190E37800065D66C /* SDAddPostViewController.m */; };
 		2B880459190D7782002E0191 /* SDPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B880458190D7782002E0191 /* SDPostTableViewCell.m */; };
@@ -69,7 +69,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B02071F19104B3100B72E35 /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RennSDK.framework; path = "shudong/RENREN SDK/RennSDK.framework"; sourceTree = "<group>"; };
 		2B338351190B94080068962C /* post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = post.png; path = images/post.png; sourceTree = "<group>"; };
 		2B338352190B94080068962C /* post@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "post@2x.png"; path = "images/post@2x.png"; sourceTree = "<group>"; };
 		2B338353190B94080068962C /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123.jpg; path = images/123.jpg; sourceTree = "<group>"; };
@@ -87,21 +86,22 @@
 		2B572168190FEFD000EE5964 /* SDChooseHoleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDChooseHoleTableViewController.m; sourceTree = "<group>"; };
 		2B57216A191006BF00EE5964 /* SDUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUser.h; sourceTree = "<group>"; };
 		2B57216B191006BF00EE5964 /* SDUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUser.m; sourceTree = "<group>"; };
-		2B5721771910359500EE5964 /* RennSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RennSDK.bundle; sourceTree = "<group>"; };
-		2B57217A19103C4600EE5964 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		2B57217B19103C4600EE5964 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		2B57217C19103C4600EE5964 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
-		2B57217D19103C4600EE5964 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		2B57217E19103C4600EE5964 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
-		2B57217F19103C4600EE5964 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		2B57218019103C4600EE5964 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
-		2B57218119103C4600EE5964 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		2B57218219103C4600EE5964 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
-		2B57218319103C4600EE5964 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		2B57218419103C4600EE5964 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		2B57218519103C4600EE5964 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		2B57218619103C4600EE5964 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		2B57218D19103CAB00EE5964 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		2B5F58F119120A6F0077FE43 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		2B5F58F219120A6F0077FE43 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		2B5F58F319120A6F0077FE43 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		2B5F58F419120A6F0077FE43 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		2B5F58F519120A6F0077FE43 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		2B5F58F619120A6F0077FE43 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		2B5F58F719120A6F0077FE43 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		2B5F58F819120A6F0077FE43 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		2B5F58F919120A6F0077FE43 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		2B5F58FA19120A6F0077FE43 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		2B5F58FB19120A6F0077FE43 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		2B5F58FC19120A6F0077FE43 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		2B5F58FD19120A6F0077FE43 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		2B5F58FE19120A6F0077FE43 /* RennSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RennSDK.bundle; sourceTree = "<group>"; };
+		2B5F58FF19120A6F0077FE43 /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
 		2B63EE76190B859D00E30B09 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		2B72D646190E37800065D66C /* SDAddPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAddPostViewController.h; sourceTree = "<group>"; };
 		2B72D647190E37800065D66C /* SDAddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAddPostViewController.m; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B02072019104B3100B72E35 /* RennSDK.framework in Frameworks */,
+				2B5F590719120A6F0077FE43 /* RennSDK.framework in Frameworks */,
 				2B63EE77190B859D00E30B09 /* libsqlite3.0.dylib in Frameworks */,
 				2BDBDC82190A70D500BEFD09 /* CoreGraphics.framework in Frameworks */,
 				2BDBDC84190A70D500BEFD09 /* UIKit.framework in Frameworks */,
@@ -173,33 +173,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B57217919103C4600EE5964 /* Json */ = {
+		2B5F58EF19120A6F0077FE43 /* RENREN SDK */ = {
 			isa = PBXGroup;
 			children = (
-				2B57217A19103C4600EE5964 /* JSON.h */,
-				2B57217B19103C4600EE5964 /* NSObject+SBJSON.h */,
-				2B57217C19103C4600EE5964 /* NSObject+SBJSON.m */,
-				2B57217D19103C4600EE5964 /* NSString+SBJSON.h */,
-				2B57217E19103C4600EE5964 /* NSString+SBJSON.m */,
-				2B57217F19103C4600EE5964 /* SBJSON.h */,
-				2B57218019103C4600EE5964 /* SBJSON.m */,
-				2B57218119103C4600EE5964 /* SBJsonBase.h */,
-				2B57218219103C4600EE5964 /* SBJsonBase.m */,
-				2B57218319103C4600EE5964 /* SBJsonParser.h */,
-				2B57218419103C4600EE5964 /* SBJsonParser.m */,
-				2B57218519103C4600EE5964 /* SBJsonWriter.h */,
-				2B57218619103C4600EE5964 /* SBJsonWriter.m */,
+				2B5F58F019120A6F0077FE43 /* Json */,
+				2B5F58FE19120A6F0077FE43 /* RennSDK.bundle */,
+				2B5F58FF19120A6F0077FE43 /* RennSDK.framework */,
 			);
-			path = Json;
+			name = "RENREN SDK";
+			path = "shudong/RENREN SDK";
 			sourceTree = "<group>";
 		};
-		2B70B935190B970E0028E684 /* RENREN SDK */ = {
+		2B5F58F019120A6F0077FE43 /* Json */ = {
 			isa = PBXGroup;
 			children = (
-				2B57217919103C4600EE5964 /* Json */,
-				2B5721771910359500EE5964 /* RennSDK.bundle */,
+				2B5F58F119120A6F0077FE43 /* JSON.h */,
+				2B5F58F219120A6F0077FE43 /* NSObject+SBJSON.h */,
+				2B5F58F319120A6F0077FE43 /* NSObject+SBJSON.m */,
+				2B5F58F419120A6F0077FE43 /* NSString+SBJSON.h */,
+				2B5F58F519120A6F0077FE43 /* NSString+SBJSON.m */,
+				2B5F58F619120A6F0077FE43 /* SBJSON.h */,
+				2B5F58F719120A6F0077FE43 /* SBJSON.m */,
+				2B5F58F819120A6F0077FE43 /* SBJsonBase.h */,
+				2B5F58F919120A6F0077FE43 /* SBJsonBase.m */,
+				2B5F58FA19120A6F0077FE43 /* SBJsonParser.h */,
+				2B5F58FB19120A6F0077FE43 /* SBJsonParser.m */,
+				2B5F58FC19120A6F0077FE43 /* SBJsonWriter.h */,
+				2B5F58FD19120A6F0077FE43 /* SBJsonWriter.m */,
 			);
-			path = "RENREN SDK";
+			path = Json;
 			sourceTree = "<group>";
 		};
 		2B88045E190D7FFA002E0191 /* class extensions */ = {
@@ -243,7 +245,7 @@
 		2BDBDC7E190A70D500BEFD09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2B02071F19104B3100B72E35 /* RennSDK.framework */,
+				2B5F58EF19120A6F0077FE43 /* RENREN SDK */,
 				2B63EE76190B859D00E30B09 /* libsqlite3.0.dylib */,
 				2BDBDC7F190A70D500BEFD09 /* Foundation.framework */,
 				2BDBDC81190A70D500BEFD09 /* CoreGraphics.framework */,
@@ -273,7 +275,6 @@
 				2B72D647190E37800065D66C /* SDAddPostViewController.m */,
 				2B880457190D7782002E0191 /* SDPostTableViewCell.h */,
 				2B880458190D7782002E0191 /* SDPostTableViewCell.m */,
-				2B70B935190B970E0028E684 /* RENREN SDK */,
 				840A33CB190A938C0062458D /* images */,
 				2BDBDC8E190A70D500BEFD09 /* SDAppDelegate.h */,
 				2BDBDC8F190A70D500BEFD09 /* SDAppDelegate.m */,
@@ -426,7 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B33835C190B94080068962C /* 123.jpg in Resources */,
-				2B5721781910359500EE5964 /* RennSDK.bundle in Resources */,
+				2B5F590619120A6F0077FE43 /* RennSDK.bundle in Resources */,
 				2B338362190B94080068962C /* sixin@2x.png in Resources */,
 				2B338361190B94080068962C /* sixin.png in Resources */,
 				2BDBDC98190A70D500BEFD09 /* Images.xcassets in Resources */,
@@ -495,24 +496,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BD76080190BC73B00C60FCE /* SDUtils.m in Sources */,
-				2B57218C19103C4600EE5964 /* SBJsonWriter.m in Sources */,
+				2B5F590519120A6F0077FE43 /* SBJsonWriter.m in Sources */,
 				2BDBDC8C190A70D500BEFD09 /* main.m in Sources */,
 				2B880459190D7782002E0191 /* SDPostTableViewCell.m in Sources */,
 				2B572169190FEFD000EE5964 /* SDChooseHoleTableViewController.m in Sources */,
 				2BDBDC96190A70D500BEFD09 /* SDViewController.m in Sources */,
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,
 				2BD76084190BDE9800C60FCE /* SDTabViewController.m in Sources */,
-				2B57218B19103C4600EE5964 /* SBJsonParser.m in Sources */,
-				2B57218A19103C4600EE5964 /* SBJsonBase.m in Sources */,
+				2B5F590419120A6F0077FE43 /* SBJsonParser.m in Sources */,
+				2B5F590319120A6F0077FE43 /* SBJsonBase.m in Sources */,
 				2B338365190B94570068962C /* SDMainTableViewController.m in Sources */,
 				2B57216C191006BF00EE5964 /* SDUser.m in Sources */,
 				2B72D648190E37800065D66C /* SDAddPostViewController.m in Sources */,
-				2B57218719103C4600EE5964 /* NSObject+SBJSON.m in Sources */,
+				2B5F590019120A6F0077FE43 /* NSObject+SBJSON.m in Sources */,
 				840A34F0190E908D0062458D /* SDLoginViewController.m in Sources */,
-				2B57218919103C4600EE5964 /* SBJSON.m in Sources */,
+				2B5F590219120A6F0077FE43 /* SBJSON.m in Sources */,
 				2B572166190FEF3A00EE5964 /* SDHoleTableViewCell.m in Sources */,
 				2BD76079190BC24700C60FCE /* SDPost.m in Sources */,
-				2B57218819103C4600EE5964 /* NSString+SBJSON.m in Sources */,
+				2B5F590119120A6F0077FE43 /* NSString+SBJSON.m in Sources */,
 				2BD7607C190BC34F00C60FCE /* SDHole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,6 +640,8 @@
 					SDK,
 					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shudong/shudong-Prefix.pch";
@@ -662,6 +665,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
 					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
