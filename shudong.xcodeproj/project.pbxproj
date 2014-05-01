@@ -116,6 +116,7 @@
 		840A34EC190E8F470062458D /* renrenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34EA190E8F470062458D /* renrenButton.png */; };
 		840A34ED190E8F470062458D /* renrenButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34EB190E8F470062458D /* renrenButton@2x.png */; };
 		840A34F0190E908D0062458D /* SDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A34EF190E908D0062458D /* SDLoginViewController.m */; };
+		840A34F2191227E30062458D /* 123.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 840A34F1191227E30062458D /* 123.jpeg */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -307,6 +308,7 @@
 		840A34EB190E8F470062458D /* renrenButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "renrenButton@2x.png"; path = "images/renrenButton@2x.png"; sourceTree = "<group>"; };
 		840A34EE190E908D0062458D /* SDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLoginViewController.h; sourceTree = "<group>"; };
 		840A34EF190E908D0062458D /* SDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLoginViewController.m; sourceTree = "<group>"; };
+		840A34F1191227E30062458D /* 123.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123.jpeg; path = images/123.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -716,6 +718,7 @@
 		840A33CB190A938C0062458D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				840A34F1191227E30062458D /* 123.jpeg */,
 				840A34EA190E8F470062458D /* renrenButton.png */,
 				840A34EB190E8F470062458D /* renrenButton@2x.png */,
 				840A34E8190E8EFC0062458D /* renren.png */,
@@ -832,6 +835,7 @@
 				2B70BA03190B970F0028E684 /* ROCheckOrderCell.xib in Resources */,
 				840A34E7190E8DA00062458D /* welcome.png in Resources */,
 				2B33835B190B94080068962C /* post@2x.png in Resources */,
+				840A34F2191227E30062458D /* 123.jpeg in Resources */,
 				2B70B9DA190B970F0028E684 /* close_selected.png in Resources */,
 				2B70B9DD190B970F0028E684 /* head-frame@2x.png in Resources */,
 				2B70B9C4190B970E0028E684 /* 人人网开放平台安全支付1.0.pdf in Resources */,
