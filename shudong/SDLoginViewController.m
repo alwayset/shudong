@@ -59,7 +59,6 @@
 - (IBAction)Login:(id)sender {
     if ([RennClient isLogin]) {
         [RennClient logoutWithDelegate:self];
-        [RennClient loginWithDelegate:self];
     }
     else {
         [RennClient loginWithDelegate:self];
@@ -76,7 +75,8 @@
 
 - (void)rennLogoutSuccess
 {
-    [SDUtils log:@"人人登陆成功"];
+    [SDUtils log:@"人人登出"];
+    [RennClient loginWithDelegate:self];
 
 }
 
@@ -95,9 +95,6 @@
                               @"JUNIOR":@"初中",
                               @"SECRET": @"保密"};
     
-    
-    
-    
     //NSLog(@"requestSuccessWithResponse:%@", [response description]);
     NSLog(@"requestSuccessWithResponse:%@", [[SBJSON new]  stringWithObject:response error:nil]);
     NSLog(@"请求成功:%@", service.type);
@@ -111,6 +108,29 @@
     newUser.username = [NSString stringWithFormat:@"rr%@", response[@"id"]];
     newUser.password = @"shudongshudong";
 
+    NSError *signupErr;
+    [newUser signUp:&signupErr];
+    if (!signupErr) {
+    } else {
+        if (signupErr.code == kAVErrorUsernameTaken) {
+            NSError *loginErr;
+            [AVUser logInWithUsername:newUser.username password:newUser.password error:&loginErr];
+            if (!loginErr) {
+                
+            } else {
+                NSLog(@"sign up error: %@", signupErr);
+                [SDUtils showErrALertWithText:@"注册失败"];
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                return;
+            }
+        } else {
+            NSLog(@"sign up error: %@", signupErr);
+            [SDUtils showErrALertWithText:@"注册失败"];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            return;
+        }
+    }
+
     NSMutableArray *schools =  [NSMutableArray arrayWithArray:response[@"education"]];
     NSError *err;
     for (NSDictionary *eachSchoolRawData in schools) {
@@ -119,9 +139,7 @@
         NSString *dept = eachSchoolRawData[@"department"];
         NSString *degree = eachSchoolRawData[@"educationBackground"];
         NSString *year = eachSchoolRawData[@"year"];
-        
-        
-        
+
         AVQuery *holeQuery = [SDHole query];
         [holeQuery whereKey:@"name" equalTo:schoolName];
         AVObject *existingHole = [holeQuery getFirstObject:&err];
@@ -129,65 +147,55 @@
             [[newUser relationforKey:@"memberOf"] addObject:existingHole];
             NSLog(@"找到已存在的%@", schoolName);
             NSLog(@"dept:%@", dept);
-            if (dept != nil) {
+            if ([self isDeptValid:dept]) {
                 
-                NSError *deptsErr;
-                AVQuery *deptsQuery = [[existingHole relationforKey:@"depts"] query];
-                NSArray *existingDepts = [deptsQuery findObjects:&deptsErr];
-                if (!deptsErr) {
-                    
-                    BOOL foundDept = NO;
-                    
-                    for (SDHole *eachDept in existingDepts) {
-                        if ([eachDept.name isEqualToString:[NSString stringWithFormat:@"%@%@", schoolName, dept]]) {
-                            [[newUser relationforKey:@"memberOf"] addObject:eachDept];
-                            foundDept = YES;
-                            continue;
-                        }
-                    }
-                    
-                    if (!foundDept) {
+                NSError *deptErr;
+                AVQuery *deptQuery = [[existingHole relationforKey:@"depts"] query];
+                [deptQuery whereKey:@"name" equalTo:[NSString stringWithFormat:@"%@%@", schoolName, dept]];
+                AVObject *existingDept = [deptQuery getFirstObject:&deptErr];
+                if (!deptErr) {
+                    [[existingHole relationforKey:@"depts"] addObject:existingDept];
+                    [existingHole save];
+                    [[newUser relationforKey:@"memberOf"] addObject:existingDept];
+                    NSLog(@"找到已存在的%@%@", schoolName, dept);
+                } else {
+                    if (deptErr.code == kAVErrorObjectNotFound) {
                         SDHole *newDept = [SDHole object];
                         newDept.name = [NSString stringWithFormat:@"%@%@", schoolName, dept];
                         newDept.memberCount = @0;
+                        [newDept incrementKey:@"memberCount"];
                         newDept.postCount = @0;
                         [newDept save];
                         [[existingHole relationforKey:@"depts"] addObject:newDept];
                         [existingHole save];
                         [[newUser relationforKey:@"memberOf"] addObject:newDept];
                         NSLog(@"创建新的%@%@", schoolName, dept);
-                    } else {
-                        NSLog(@"找到已存在的%@%@", schoolName, dept);
+                    }  else {
+                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                        [SDUtils showErrALertWithText:@"注册失败,请检查网络"];
+                        return;
                     }
-                    
-                } else {
-                    [SDUtils showErrALertWithText:@"注册失败,请检查网络"];
-                    return;
                 }
             }
-            
+
             NSLog(@"year:%@", year);
-            if (year != nil) {
+            if (year.class != [NSNull class]) {
                 
-                NSError *yearsErr;
-                AVQuery *yearsQuery = [[existingHole relationforKey:@"years"] query];
-                NSArray *existingYears = [yearsQuery findObjects:&yearsErr];
-                if (!yearsErr) {
-                    
-                    BOOL foundYear = NO;
-                    
-                    for (SDHole *eachYear in existingYears) {
-                        if ([eachYear.name isEqualToString:[NSString stringWithFormat:@"%@%@%@届", schoolName, degrees[degree], [year substringFromIndex:2] ]]) {
-                            [[newUser relationforKey:@"memberOf"] addObject:eachYear];
-                            foundYear = YES;
-                            continue;
-                        }
-                    }
-                    
-                    if (!foundYear) {
+                NSError *yearErr;
+                AVQuery *yearQuery = [[existingHole relationforKey:@"years"] query];
+                [yearQuery whereKey:@"name" equalTo:[NSString stringWithFormat:@"%@%@%@级", schoolName, degrees[degree], [year substringFromIndex:2]]];
+                AVObject *existingYear = [yearQuery getFirstObject:&yearErr];
+                if (!yearErr) {
+                    [[existingHole relationforKey:@"years"] addObject:existingYear];
+                    [existingHole save];
+                    [[newUser relationforKey:@"memberOf"] addObject:existingYear];
+                    NSLog(@"找到已存在的%@%@", schoolName, year);
+                } else {
+                    if (yearErr.code == kAVErrorObjectNotFound) {
                         SDHole *newYear = [SDHole object];
-                        newYear.name = [NSString stringWithFormat:@"%@%@%@届", schoolName, degrees[degree], [year substringFromIndex:2]];
+                        newYear.name = [NSString stringWithFormat:@"%@%@%@级", schoolName, degrees[degree], [year substringFromIndex:2]];
                         newYear.memberCount = @0;
+                        [newYear incrementKey:@"memberCount"];
                         newYear.postCount = @0;
                         [newYear save];
                         [[existingHole relationforKey:@"years"] addObject:newYear];
@@ -195,44 +203,72 @@
                         [[newUser relationforKey:@"memberOf"] addObject:newYear];
                         NSLog(@"创建新的%@%@", schoolName, year);
                     } else {
-                        NSLog(@"找到已存在的%@%@", schoolName, year);
+                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                        [SDUtils showErrALertWithText:@"注册失败,请检查网络"];
+                        return;
                     }
-                    
-                } else {
-                    [SDUtils showErrALertWithText:@"注册失败,请检查网络"];
-                    return;
                 }
             }
             
-            
+            NSLog(@"year:%@; dept %@", year, dept);
+            if (year.class != [NSNull class] && [self isDeptValid:dept]) {
+                
+                NSError *yearDeptErr;
+                AVQuery *yearDeptQuery = [[existingHole relationforKey:@"yearDept"] query];
+                [yearDeptQuery whereKey:@"name" equalTo:[NSString stringWithFormat:@"%@%@%@%@级", schoolName, dept, degrees[degree], [year substringFromIndex:2]]];
+                AVObject *existingYearDept = [yearDeptQuery getFirstObject:&yearDeptErr];
+                if (!yearDeptErr) {
+                    [[existingHole relationforKey:@"yearDept"] addObject:existingYearDept];
+                    [existingHole save];
+                    [[newUser relationforKey:@"memberOf"] addObject:existingYearDept];
+                    NSLog(@"找到已存在的%@%@", schoolName, year);
+                } else {
+                    if (yearDeptErr.code == kAVErrorObjectNotFound) {
+                        SDHole *newYearDept = [SDHole object];
+                        newYearDept.name = [NSString stringWithFormat:@"%@%@%@%@届", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
+                        newYearDept.memberCount = @1;
+                        newYearDept.postCount = @0;
+                        [newYearDept save];
+                        [[existingHole relationforKey:@"yearDept"] addObject:newYearDept];
+                        [existingHole save];
+                        [[newUser relationforKey:@"memberOf"] addObject:newYearDept];
+                        NSLog(@"创建新的%@%@%@", schoolName, dept, year);
+                    } else {
+                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                        [SDUtils showErrALertWithText:@"注册失败,请检查网络"];
+                        return;
+                    }
+                }
+            }
         } else {
             if (err.code == kAVErrorObjectNotFound) {
-                
-                
                 
                 SDHole *newSchool = [SDHole object];
                 newSchool.name = schoolName;
                 newSchool.memberCount = @0;
                 newSchool.postCount = @0;
+                [newSchool incrementKey:@"memberCount"];
                 [newSchool save];
                 [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:newSchool];
                 NSLog(@"创建新的%@", schoolName);
                 
-                if (!dept) {
+                if (dept.class != [NSNull class] && [self isDeptValid:dept]) {
                     SDHole *newDept = [SDHole object];
                     newDept.name = [NSString stringWithFormat:@"%@%@", schoolName, dept];
                     newDept.memberCount = @0;
+                    [newDept incrementKey:@"memberCount"];
                     newDept.postCount = @0;
                     [newDept save];
                     [[newSchool relationforKey:@"depts"] addObject:newDept];
                     [[newUser relationforKey:@"memberOf"] addObject:newDept];
                     NSLog(@"创建新的%@%@", schoolName, dept);
                 }
-                
-                if (!year) {
+
+                if (year.class != [NSNull class]) {
                     SDHole *newYear = [SDHole object];
-                    newYear.name = [NSString stringWithFormat:@"%@%@%@届", schoolName, degrees[degree], [year substringFromIndex:2]];
+                    newYear.name = [NSString stringWithFormat:@"%@%@%@级", schoolName, degrees[degree], [year substringFromIndex:2]];
                     newYear.memberCount = @0;
+                    [newYear incrementKey:@"memberCount"];
                     newYear.postCount = @0;
                     [newYear save];
                     [[newSchool relationforKey:@"years"] addObject:newYear];
@@ -240,41 +276,33 @@
                     NSLog(@"创建新的%@%@", schoolName, year);
                 }
                 
-                if (!year && !dept) {
-                    
+                if (year.class != [NSNull class] && [self isDeptValid:dept]) {
                     
                     SDHole *newYearDept = [SDHole object];
-                    newYearDept.name = [NSString stringWithFormat:@"%@%@%@%@届", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
+                    newYearDept.name = [NSString stringWithFormat:@"%@%@%@%@级", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
                     newYearDept.memberCount = @0;
+                    [newYearDept incrementKey:@"memberCount"];
                     newYearDept.postCount = @0;
                     [newYearDept save];
-                    [[newSchool relationforKey:@"years"] addObject:newYearDept];
+                    [[newSchool relationforKey:@"yearDept"] addObject:newYearDept];
                     [[newUser relationforKey:@"memberOf"] addObject:newYearDept];
-                    
                 }
                 
                 [newSchool save];
-                
-                
-                
+                [[AVUser currentUser] save];
+
             } else {
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                 [SDUtils showErrALertWithText:@"注册失败,请检查网络"];
                 return;
             }
         }
     }
     
-    
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    
-    NSError *signupErr;
-    [newUser signUp:&signupErr];
-    if ([AVUser currentUser]) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        NSLog(@"sign up error: %@", signupErr);
-        [SDUtils showErrALertWithText:@"注册失败"];
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+
 }
 
 - (void)rennService:(RennService *)service requestFailWithError:(NSError*)error
@@ -285,6 +313,16 @@
     NSLog(@"requestFailWithError:Error Domain = %@, Error Code = %@", domain, code);
     NSLog(@"请求失败: %@", domain);
 }
+
+- (BOOL)isDeptValid:(NSString *)dept {
+    
+    if (dept.class != [NSNull class] && ![dept isEqualToString:@"其它院系"]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 
 /*
 #pragma mark - Navigation
