@@ -40,18 +40,35 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillApeear) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
+    
+    _background.userInteractionEnabled = YES;
+    [_background addGestureRecognizer:[[UIGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)]];
+    
+    _selectedPicId = @5;
+    _background.image = [UIImage imageNamed:[_selectedPicId.stringValue stringByAppendingString:@".jpg"]];
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardDidChangeFrameNotification object:nil];
+
+    
     _myHoles =  [NSMutableArray arrayWithArray:[SDUtils sharedInstance].myHoles];
     _isUsingSystemBackground = YES;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [_contentText becomeFirstResponder];
+- (void)hideKeyboard {
+    [self.view endEditing:YES];
 }
 
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [_contentText becomeFirstResponder];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -69,6 +86,15 @@
     
 }
 - (IBAction)changeSystemBgRandomly:(id)sender {
+    
+    NSInteger pictureId = (rand() % 30);
+    if ([[NSNumber numberWithInt:pictureId] isEqualToNumber:_selectedPicId]) {
+        [self changeSystemBgRandomly:nil];
+    }
+    
+    _selectedPicId = [NSNumber numberWithInt:pictureId];
+    _background.image = [UIImage imageNamed:[_selectedPicId.stringValue stringByAppendingString:@".jpg"]];
+    
 }
 
 /*
@@ -88,15 +114,16 @@
 
 #pragma mark UIImagePicker Delegate methods
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *pickedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *pickedImage = [info objectForKey:UIImagePickerControllerEditedImage];
     _background.image = pickedImage;
     _isUsingSystemBackground = NO;
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:NO completion:nil];
 }
+
 
 #pragma mark UIActionSheet delegate methods 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -105,6 +132,7 @@
             case 0: { //from library
                 UIImagePickerController *picker = [[UIImagePickerController alloc] init];
                 picker.allowsEditing = YES;
+                picker.delegate = self;
                 picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                 [self presentViewController:picker animated:YES completion:nil];
                 break;
@@ -112,6 +140,7 @@
             case 1: {
                 UIImagePickerController *picker = [[UIImagePickerController alloc] init];
                 picker.allowsEditing = YES;
+                picker.delegate = self;
                 BOOL hasCamera = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];//判断照相机是否可用（是否有摄像头）
                 if (hasCamera) {
                     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -127,13 +156,49 @@
     }
 }
 
-- (void)keyboardWillApeear {
+- (void)keyboardWillAppear:(NSNotification *)notification {
     //调整两个按钮的位置
+    NSDictionary *userInfo = [notification userInfo];
+    
+    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    
+    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration;
+    [animationDurationValue getValue:&animationDuration];
+    
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+
+        _toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
+
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:animationDuration];
+    
+//    _toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
+//    _toolbar.frame = CGRectMake(0, 200, 320, _toolbar.frame.size.height);
+
+//    [UIView commitAnimations];
+    
     
 }
-- (void)keyboardWillDisappear {
+- (void)keyboardWillDisappear:(NSNotification *)notification {
     //调整两个按钮的位置
+    [UIView beginAnimations:nil context:nil];
     
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration;
+    [animationDurationValue getValue:&animationDuration];
+    
+    [UIView setAnimationDuration:animationDuration];
+    
+    _toolbar.frame = CGRectMake(0, _background.frame.origin.y + 320 - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
+    [UIView commitAnimations];
 }
 
 
@@ -170,6 +235,16 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:DidFinishPreparingWithNewPostNotif object:newPost];
     }];
     
+}
+
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if ([text isEqualToString:@"\n"]) {
+        
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 @end

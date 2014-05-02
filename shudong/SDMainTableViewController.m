@@ -98,8 +98,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"post" forIndexPath:indexPath];
+    SDPostTableViewCell *cell = (SDPostTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"post" forIndexPath:indexPath];
     
+    SDPost *currentPost = dataSource[indexPath.row];
+    cell.text.text = currentPost.text;
+    
+    if (currentPost.picId) {
+        cell.picture.image = [UIImage imageNamed:[currentPost.picId.stringValue stringByAppendingString:@".jpg"]];
+    }
     // Configure the cell...
     
     return cell;
@@ -151,6 +157,7 @@
 
 - (AVQuery *)postQuery {
     AVQuery *postQuery = [SDPost query];
+    [postQuery orderByDescending:@"createdAt"];
     postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;
     postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
     [postQuery whereKey:@"holes" containedIn:[SDUtils sharedInstance].myHoles];
