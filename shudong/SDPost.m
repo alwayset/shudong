@@ -16,7 +16,7 @@
 @dynamic holes;
 @dynamic picId;
 
-@dynamic cat1, cat2, cat3, cat4, cat5, cat6;
+//@dynamic cat1, cat2, cat3, cat4, cat5, cat6;
 
 + (NSString *)parseClassName {
     return @"Post";

@@ -154,7 +154,7 @@
     postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;
     postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
     [postQuery whereKey:@"holes" containedIn:[SDUtils sharedInstance].myHoles];
-    return nil;
+    return postQuery;
 }
 
 
