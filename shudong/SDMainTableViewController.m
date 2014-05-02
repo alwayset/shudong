@@ -12,7 +12,7 @@
 #import "Constants.h"
 #import "SDPostTableViewCell.h"
 #import "SDLoginViewController.h"
-
+#import "SDTabViewController.h"
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
     UIRefreshControl *refresh;
@@ -44,19 +44,16 @@
     self.navigationItem.title = @"树洞";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = YES;
-    
-    
-    if (![AVUser currentUser]) {
-        
-        
+    self.navigationController.navigationBarHidden = NO;
+    /*
+    if (![AVUser currentUser]) {
         SDLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
         [self presentViewController:vc animated:NO completion:^{
             //do nothing for now
         }];
-        
-        
-
     }
+     */
+    
 }
 
 
@@ -81,8 +78,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.selectedRow == indexPath.row) return 568;
-    else return 320;
+    return 320;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,6 +92,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //[self.tabBarController setHidesBottomBarWhenPushed:YES];
+    //[(SDTabViewController*)self.tabBarController hideButton:YES];
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
+    [self.navigationController pushViewController:vc animated:YES];
+    /*
     if (self.selectedRow == indexPath.row) {
         self.selectedRow = -1;
         [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -107,6 +108,8 @@
     
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    */
+    
     
 }
 - (void)loadPosts {
@@ -128,20 +131,13 @@
 }
 
 
-
-
-
-
 /***** query ******/
 
 - (AVQuery *)postQuery {
-    
-    
     AVQuery *postQuery = [SDPost query];
     postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;
     postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
     [postQuery whereKey:@"holes" containedIn:[SDUtils sharedInstance].myHoles];
-
     return nil;
 }
 

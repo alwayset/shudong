@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SDTabViewController : UITabBarController
-
+@property (nonatomic,strong) UIButton* button;
+- (void)hideButton:(BOOL)hide;
 @end
