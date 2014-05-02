@@ -13,6 +13,7 @@
 #import "SDPostTableViewCell.h"
 #import "SDLoginViewController.h"
 #import "SDTabViewController.h"
+#import "SDViewPictureViewController.h"
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
     UIRefreshControl *refresh;
@@ -30,7 +31,7 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadMyHoles) name:DidLoadMyHolesNotif object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPreparingWithNewPostNotif object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPreparingWithNewPostNotif object:nil];
     
     
     refresh = [[UIRefreshControl alloc] init];
@@ -106,6 +107,7 @@
     if (currentPost.picId) {
         cell.picture.image = [UIImage imageNamed:[currentPost.picId.stringValue stringByAppendingString:@".jpg"]];
     }
+
     // Configure the cell...
     
     return cell;
@@ -115,7 +117,8 @@
 {
     //[self.tabBarController setHidesBottomBarWhenPushed:YES];
     //[(SDTabViewController*)self.tabBarController hideButton:YES];
-    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
+    SDViewPictureViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
+    vc.parentPost = [dataSource objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
     /*
     if (self.selectedRow == indexPath.row) {
@@ -160,7 +163,7 @@
     [postQuery orderByDescending:@"createdAt"];
     postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;
     postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
-    [postQuery whereKey:@"holes" containedIn:[SDUtils sharedInstance].myHoles];
+    //[postQuery whereKey:@"holes" containedIn:[SDUtils sharedInstance].myHoles];
     return postQuery;
 }
 

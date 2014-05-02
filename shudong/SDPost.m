@@ -13,9 +13,9 @@
 
 @dynamic text, image, poster;
 @dynamic likeCount, commentCount;
-@dynamic holes;
+@dynamic holes,comments;
 @dynamic picId;
-
+@synthesize commentsArr;
 //@dynamic cat1, cat2, cat3, cat4, cat5, cat6;
 
 + (NSString *)parseClassName {

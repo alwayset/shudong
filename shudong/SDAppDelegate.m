@@ -13,6 +13,7 @@
 #import "SDPost.h"
 #import "SDHole.h"
 #import "SDUser.h"
+#import "SDComment.h"
 #import <RennSDK/RennSDK.h>
 
 @implementation SDAppDelegate
@@ -26,7 +27,7 @@
     [SDPost registerSubclass];
     [SDHole registerSubclass];
     [SDUser registerSubclass];
-    
+    [SDComment registerSubclass];
     [AVOSCloud setApplicationId:@"s945n7d9l5jhkt3xzyab3kwf8z7be91o3dht4mgwtdees0tq"
                       clientKey:@"jm3k9sp67oydhl32cp2c5babelxz9uvg1m82k09enmgbt687"];
 

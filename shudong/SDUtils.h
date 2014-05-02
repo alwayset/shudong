@@ -34,5 +34,6 @@
 
 
 + (void)log:(NSString *)message;
-
++ (NSString*)getTimeStr:(NSDate*) time;
++ (CGFloat)screenHeight;
 @end

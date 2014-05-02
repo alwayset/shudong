@@ -34,8 +34,9 @@ static SDUtils *singletonInstance;
 
 - (void)loadMyHoles {
     
-    AVUser *currentUser = [AVUser currentUser];
-    AVQuery *holeQuery = [[currentUser relationforKey:@"memberOf"] query];
+    //AVUser *currentUser = [AVUser currentUser];
+    //AVQuery *holeQuery = [[currentUser relationforKey:@"memberOf"] query];
+    AVQuery *holeQuery = [SDHole query];
     holeQuery.cachePolicy = kAVCachePolicyNetworkElseCache;
     [holeQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
         if (!error) {
@@ -60,5 +61,21 @@ static SDUtils *singletonInstance;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误" message:message delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
     [alert show];
 }
-
++ (NSString*)getTimeStr:(NSDate*) time {
+    NSTimeInterval interval = -[time timeIntervalSinceNow];
+    int minutes = interval/60;
+    int hours = minutes/60;
+    int days = hours/24;
+    int months = days/30;
+    int years = months/12;
+    if (years>0) return [NSString stringWithFormat:@"%d年前",years];
+    if (months>0) return [NSString stringWithFormat:@"%d个月前",months];
+    if (days>0) return [NSString stringWithFormat:@"%d天前",days];
+    if (hours>0) return [NSString stringWithFormat:@"%d小时前",hours];
+    if (minutes>0) return [NSString stringWithFormat:@"%d分钟前",minutes];
+    return @"刚刚";
+}
++ (CGFloat)screenHeight {
+    return [[UIScreen mainScreen] bounds].size.height;
+}
 @end
