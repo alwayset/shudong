@@ -10,7 +10,6 @@
 
 @interface SDChooseHoleTableViewController () {
 
-    id<ChooseHoleDelegate> delegate;
 }
 
 @property NSMutableArray *targetHoles;

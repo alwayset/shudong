@@ -15,7 +15,10 @@
 
 @end
 
-@interface SDChooseHoleTableViewController : UITableViewController
+@interface SDChooseHoleTableViewController : UITableViewController {
+    id <ChooseHoleDelegate> delegate;
+}
+@property (retain, nonatomic) id<ChooseHoleDelegate> delegate;
 
 
 @end

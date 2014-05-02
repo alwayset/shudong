@@ -144,7 +144,8 @@
         [holeQuery whereKey:@"name" equalTo:schoolName];
         AVObject *existingHole = [holeQuery getFirstObject:&err];
         if (!err) {
-            [[newUser relationforKey:@"memberOf"] addObject:existingHole];
+            [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:existingHole];
+            [[[AVUser currentUser] relationforKey:@"schools"] addObject:existingHole];
             NSLog(@"找到已存在的%@", schoolName);
             NSLog(@"dept:%@", dept);
             if ([self isDeptValid:dept]) {
@@ -156,7 +157,7 @@
                 if (!deptErr) {
                     [[existingHole relationforKey:@"depts"] addObject:existingDept];
                     [existingHole save];
-                    [[newUser relationforKey:@"memberOf"] addObject:existingDept];
+                    [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:existingDept];
                     NSLog(@"找到已存在的%@%@", schoolName, dept);
                 } else {
                     if (deptErr.code == kAVErrorObjectNotFound) {
@@ -168,7 +169,7 @@
                         [newDept save];
                         [[existingHole relationforKey:@"depts"] addObject:newDept];
                         [existingHole save];
-                        [[newUser relationforKey:@"memberOf"] addObject:newDept];
+                        [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:newDept];
                         NSLog(@"创建新的%@%@", schoolName, dept);
                     }  else {
                         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -188,7 +189,7 @@
                 if (!yearErr) {
                     [[existingHole relationforKey:@"years"] addObject:existingYear];
                     [existingHole save];
-                    [[newUser relationforKey:@"memberOf"] addObject:existingYear];
+                    [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:existingYear];
                     NSLog(@"找到已存在的%@%@", schoolName, year);
                 } else {
                     if (yearErr.code == kAVErrorObjectNotFound) {
@@ -200,7 +201,7 @@
                         [newYear save];
                         [[existingHole relationforKey:@"years"] addObject:newYear];
                         [existingHole save];
-                        [[newUser relationforKey:@"memberOf"] addObject:newYear];
+                        [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:newYear];
                         NSLog(@"创建新的%@%@", schoolName, year);
                     } else {
                         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -220,7 +221,7 @@
                 if (!yearDeptErr) {
                     [[existingHole relationforKey:@"yearDept"] addObject:existingYearDept];
                     [existingHole save];
-                    [[newUser relationforKey:@"memberOf"] addObject:existingYearDept];
+                    [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:existingYearDept];
                     NSLog(@"找到已存在的%@%@", schoolName, year);
                 } else {
                     if (yearDeptErr.code == kAVErrorObjectNotFound) {
@@ -231,7 +232,7 @@
                         [newYearDept save];
                         [[existingHole relationforKey:@"yearDept"] addObject:newYearDept];
                         [existingHole save];
-                        [[newUser relationforKey:@"memberOf"] addObject:newYearDept];
+                        [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:newYearDept];
                         NSLog(@"创建新的%@%@%@", schoolName, dept, year);
                     } else {
                         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -240,6 +241,7 @@
                     }
                 }
             }
+            
         } else {
             if (err.code == kAVErrorObjectNotFound) {
                 
@@ -250,6 +252,7 @@
                 [newSchool incrementKey:@"memberCount"];
                 [newSchool save];
                 [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:newSchool];
+                [[[AVUser currentUser] relationforKey:@"schools"] addObject:existingHole];
                 NSLog(@"创建新的%@", schoolName);
                 
                 if (dept.class != [NSNull class] && [self isDeptValid:dept]) {
@@ -260,7 +263,7 @@
                     newDept.postCount = @0;
                     [newDept save];
                     [[newSchool relationforKey:@"depts"] addObject:newDept];
-                    [[newUser relationforKey:@"memberOf"] addObject:newDept];
+                    [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:newDept];
                     NSLog(@"创建新的%@%@", schoolName, dept);
                 }
 
@@ -272,7 +275,7 @@
                     newYear.postCount = @0;
                     [newYear save];
                     [[newSchool relationforKey:@"years"] addObject:newYear];
-                    [[newUser relationforKey:@"memberOf"] addObject:newYear];
+                    [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:newYear];
                     NSLog(@"创建新的%@%@", schoolName, year);
                 }
                 
@@ -285,7 +288,7 @@
                     newYearDept.postCount = @0;
                     [newYearDept save];
                     [[newSchool relationforKey:@"yearDept"] addObject:newYearDept];
-                    [[newUser relationforKey:@"memberOf"] addObject:newYearDept];
+                    [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:newYearDept];
                 }
                 
                 [newSchool save];
@@ -299,6 +302,7 @@
         }
     }
     
+    [[AVUser currentUser] save];
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 

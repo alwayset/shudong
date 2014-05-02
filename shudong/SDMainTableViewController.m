@@ -29,7 +29,11 @@
     
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadPosts) name:DidLoadMyHolesNotif object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadMyHoles) name:DidLoadMyHolesNotif object:nil];
+    
+    refresh = [[UIRefreshControl alloc] init];
+    [self.tableview addSubview:refresh];
+    [refresh addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
     
     self.selectedRow = -1;
     // Uncomment the following line to preserve selection between presentations.
@@ -47,16 +51,13 @@
     
     
     if (![AVUser currentUser]) {
-        
-        
         SDLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
         [self presentViewController:vc animated:NO completion:^{
             //do nothing for now
         }];
-        
-        
-
     }
+    
+    [self loadPosts];
 }
 
 
@@ -64,6 +65,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)didLoadMyHoles {
+    if ([SDUtils sharedInstance].myHoles) {
+        [self loadPosts];
+    }
 }
 
 #pragma mark - Table view data source
@@ -77,7 +84,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+    return dataSource.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -111,31 +118,25 @@
 }
 - (void)loadPosts {
     if ([SDUtils sharedInstance].myHoles != nil) {
-        
-        
+        [refresh beginRefreshing];
         [[self postQuery] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 dataSource = [NSMutableArray arrayWithArray:objects];
+                [self.tableview reloadData];
             } else {
                 //do nothing by far
             }
+            [refresh endRefreshing];
         }];
-        
-        
     } else {
+        [refresh beginRefreshing];
         [[SDUtils sharedInstance] loadMyHoles];
     }
 }
 
-
-
-
-
-
 /***** query ******/
 
 - (AVQuery *)postQuery {
-    
     
     AVQuery *postQuery = [SDPost query];
     postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;

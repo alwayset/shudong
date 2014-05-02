@@ -36,21 +36,16 @@ static SDUtils *singletonInstance;
 - (void)loadMyHoles {
     
     AVUser *currentUser = [AVUser currentUser];
-    AVQuery *holeQuery = [AVRelation reverseQuery:@"Hole" relationKey:@"members" childObject:currentUser];
-    holeQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
+    AVQuery *holeQuery = [[currentUser relationforKey:@"memberOf"] query];
+    holeQuery.cachePolicy = kAVCachePolicyNetworkElseCache;
     [holeQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
         if (!error) {
-
             myHoles = [NSArray arrayWithArray:results];
-            [[NSNotificationCenter defaultCenter] postNotificationName:DidLoadMyHolesNotif object:nil];
         } else {
             [SDUtils showErrALertWithText:@"载入失败"];
         }
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:DidLoadMyHolesNotif object:nil];
     }];
-    
-    
-    
 }
 
 

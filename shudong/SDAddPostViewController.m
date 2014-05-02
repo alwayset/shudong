@@ -135,6 +135,7 @@
     
 }
 
+
 -(void)didFinishChoosingHoles:(NSArray *)targetHoles{
     SDPost *newPost = [SDPost object];
     newPost.text = _contentText.text;
