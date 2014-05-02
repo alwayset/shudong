@@ -19,6 +19,8 @@
 @property (nonatomic) NSNumber *commentCount;
 @property (nonatomic) NSNumber *picId;
 @property (nonatomic) AVRelation *holes;
+@property (nonatomic) AVRelation *comments;
+@property (nonatomic,strong) NSMutableArray* commentsArr;
 
 @property (nonatomic, copy) SDHole *cat1; //university
 @property (nonatomic, copy) SDHole *cat2; //gaozhong

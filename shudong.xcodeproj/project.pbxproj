@@ -60,7 +60,6 @@
 		2B63EE77190B859D00E30B09 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B63EE76190B859D00E30B09 /* libsqlite3.0.dylib */; };
 		2B72D648190E37800065D66C /* SDAddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72D647190E37800065D66C /* SDAddPostViewController.m */; };
 		2B880459190D7782002E0191 /* SDPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B880458190D7782002E0191 /* SDPostTableViewCell.m */; };
-		2BD015B019137CAE00EFB98B /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD015AF19137CAE00EFB98B /* RennSDK.framework */; };
 		2BD76075190BAFCD00C60FCE /* SDStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */; };
 		2BD76079190BC24700C60FCE /* SDPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD76078190BC24700C60FCE /* SDPost.m */; };
 		2BD7607C190BC34F00C60FCE /* SDHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD7607B190BC34F00C60FCE /* SDHole.m */; };
@@ -97,6 +96,9 @@
 		840A352719123D3A0062458D /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A352619123D3A0062458D /* face.png */; };
 		840A352A191365750062458D /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A3528191365750062458D /* leftArrow.png */; };
 		840A352B191365750062458D /* leftArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A3529191365750062458D /* leftArrow@2x.png */; };
+		840A352D1913858A0062458D /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A352C1913858A0062458D /* RennSDK.framework */; };
+		840A353019138CA80062458D /* SDComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A352F19138CA80062458D /* SDComment.m */; };
+		840A353319138E4B0062458D /* SDCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A353219138E4B0062458D /* SDCommentCell.m */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -178,7 +180,6 @@
 		2B72D647190E37800065D66C /* SDAddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAddPostViewController.m; sourceTree = "<group>"; };
 		2B880457190D7782002E0191 /* SDPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPostTableViewCell.h; sourceTree = "<group>"; };
 		2B880458190D7782002E0191 /* SDPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPostTableViewCell.m; sourceTree = "<group>"; };
-		2BD015AF19137CAE00EFB98B /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
 		2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SDStoryboard.storyboard; path = ../SDStoryboard.storyboard; sourceTree = "<group>"; };
 		2BD76077190BC24700C60FCE /* SDPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPost.h; sourceTree = "<group>"; };
 		2BD76078190BC24700C60FCE /* SDPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPost.m; sourceTree = "<group>"; };
@@ -229,6 +230,11 @@
 		840A352619123D3A0062458D /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = images/face.png; sourceTree = "<group>"; };
 		840A3528191365750062458D /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftArrow.png; path = images/leftArrow.png; sourceTree = "<group>"; };
 		840A3529191365750062458D /* leftArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "leftArrow@2x.png"; path = "images/leftArrow@2x.png"; sourceTree = "<group>"; };
+		840A352C1913858A0062458D /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
+		840A352E19138CA80062458D /* SDComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDComment.h; sourceTree = "<group>"; };
+		840A352F19138CA80062458D /* SDComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDComment.m; sourceTree = "<group>"; };
+		840A353119138E4B0062458D /* SDCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommentCell.h; sourceTree = "<group>"; };
+		840A353219138E4B0062458D /* SDCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommentCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,7 +242,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BD015B019137CAE00EFB98B /* RennSDK.framework in Frameworks */,
+				840A352D1913858A0062458D /* RennSDK.framework in Frameworks */,
 				2B63EE77190B859D00E30B09 /* libsqlite3.0.dylib in Frameworks */,
 				2BDBDC82190A70D500BEFD09 /* CoreGraphics.framework in Frameworks */,
 				2BDBDC84190A70D500BEFD09 /* UIKit.framework in Frameworks */,
@@ -261,7 +267,7 @@
 		2B5F58EF19120A6F0077FE43 /* RENREN SDK */ = {
 			isa = PBXGroup;
 			children = (
-				2BD015AF19137CAE00EFB98B /* RennSDK.framework */,
+				840A352C1913858A0062458D /* RennSDK.framework */,
 				2B5F58F019120A6F0077FE43 /* Json */,
 				2B5F58FE19120A6F0077FE43 /* RennSDK.bundle */,
 			);
@@ -341,6 +347,8 @@
 				2BD76078190BC24700C60FCE /* SDPost.m */,
 				2BD7607A190BC34F00C60FCE /* SDHole.h */,
 				2BD7607B190BC34F00C60FCE /* SDHole.m */,
+				840A352E19138CA80062458D /* SDComment.h */,
+				840A352F19138CA80062458D /* SDComment.m */,
 			);
 			name = "data model";
 			sourceTree = "<group>";
@@ -414,6 +422,8 @@
 				840A34EF190E908D0062458D /* SDLoginViewController.m */,
 				840A3519191233FC0062458D /* SDViewPictureViewController.h */,
 				840A351A191233FC0062458D /* SDViewPictureViewController.m */,
+				840A353119138E4B0062458D /* SDCommentCell.h */,
+				840A353219138E4B0062458D /* SDCommentCell.m */,
 			);
 			path = shudong;
 			sourceTree = "<group>";
@@ -677,6 +687,7 @@
 				2B5F590519120A6F0077FE43 /* SBJsonWriter.m in Sources */,
 				2BDBDC8C190A70D500BEFD09 /* main.m in Sources */,
 				2B880459190D7782002E0191 /* SDPostTableViewCell.m in Sources */,
+				840A353319138E4B0062458D /* SDCommentCell.m in Sources */,
 				2B572169190FEFD000EE5964 /* SDChooseHoleTableViewController.m in Sources */,
 				2BDBDC96190A70D500BEFD09 /* SDViewController.m in Sources */,
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,
@@ -691,6 +702,7 @@
 				840A351B191233FC0062458D /* SDViewPictureViewController.m in Sources */,
 				2B5F590219120A6F0077FE43 /* SBJSON.m in Sources */,
 				2B572166190FEF3A00EE5964 /* SDHoleTableViewCell.m in Sources */,
+				840A353019138CA80062458D /* SDComment.m in Sources */,
 				2BD76079190BC24700C60FCE /* SDPost.m in Sources */,
 				2B5F590119120A6F0077FE43 /* NSString+SBJSON.m in Sources */,
 				2BD7607C190BC34F00C60FCE /* SDHole.m in Sources */,
@@ -827,6 +839,8 @@
 					SDK,
 					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shudong/shudong-Prefix.pch";
@@ -850,6 +864,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
 					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
