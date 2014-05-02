@@ -139,7 +139,11 @@
         if (succeeded) {
             [parentPost.comments addObject:comment];
             [parentPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+                if (succeeded) {
+                    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+                } else {
+                    
+                }
             }];
         } else {
             
