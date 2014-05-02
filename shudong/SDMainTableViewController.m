@@ -30,6 +30,8 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadMyHoles) name:DidLoadMyHolesNotif object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPreparingWithNewPostNotif object:nil];
+    
     
     refresh = [[UIRefreshControl alloc] init];
     [self.tableview addSubview:refresh];
@@ -148,10 +150,11 @@
 
 
 
-#pragma mark Delegate Methods
+#pragma mark notification Methods
 
 
--(void)didFinishPreparingNewPostToUpload:(SDPost *)newPost {
+-(void)didFinishPreparingNewPostToUpload:(NSNotification *)notif {
+    SDPost *newPost = (SDPost *)notif.object;
     [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             

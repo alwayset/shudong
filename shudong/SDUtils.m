@@ -17,7 +17,6 @@ static SDUtils *singletonInstance;
 
 @interface SDUtils ()
 
-
 @end
 
 
@@ -48,14 +47,9 @@ static SDUtils *singletonInstance;
     }];
 }
 
-
-
-
 + (void)log:(NSString *)message {
     NSLog(message);
 }
-
-
 
 + (SDUtils *)sharedInstance {
     return singletonInstance;

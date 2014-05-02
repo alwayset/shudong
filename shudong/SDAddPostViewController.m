@@ -7,10 +7,11 @@
 //
 
 #import "SDAddPostViewController.h"
+#import "SDUtils.h"
+#import "Constants.h"
 
 @interface SDAddPostViewController () {
     
-    id <AddPostDelegate> delegate;
     
 }
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *postButton;
@@ -136,7 +137,7 @@
 }
 
 
--(void)didFinishChoosingHoles:(NSArray *)targetHoles{
+-(IBAction)submit:(id)sender {
     SDPost *newPost = [SDPost object];
     newPost.text = _contentText.text;
     newPost.poster = [AVUser currentUser];
@@ -160,12 +161,14 @@
         newPost.image = newFile;
         
     }
-    for (SDHole *eachHole in targetHoles) {
+    //myHoles is not validated
+    for (SDHole *eachHole in [SDUtils sharedInstance].myHoles) {
         [newPost.holes addObject:eachHole];
     }
     
-    [delegate didFinishPreparingNewPostToUpload:newPost];
-    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:DidFinishPreparingWithNewPostNotif object:newPost];
+    }];
     
 }
 

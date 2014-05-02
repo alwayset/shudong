@@ -14,7 +14,7 @@
 
 
 #define DidLoadMyHolesNotif @"did_load_my_holes"
-
+#define DidFinishPreparingWithNewPostNotif @"did_finish_preparing_with_new_post"
 
 
 //renren

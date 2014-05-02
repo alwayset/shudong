@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@protocol ChooseHoleDelegate
+@protocol ChooseHoleDelegate <NSObject>
 
+@required
 - (void)didFinishChoosingHoles:(NSArray *)targetHoles;
 
 @end
@@ -18,7 +19,7 @@
 @interface SDChooseHoleTableViewController : UITableViewController {
     id <ChooseHoleDelegate> delegate;
 }
-@property (retain, nonatomic) id<ChooseHoleDelegate> delegate;
+@property (retain, nonatomic) id delegate;
 
 
 @end
