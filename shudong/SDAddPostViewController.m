@@ -9,7 +9,7 @@
 #import "SDAddPostViewController.h"
 #import "SDUtils.h"
 #import "Constants.h"
-
+#import "SDTabViewController.h"
 @interface SDAddPostViewController () {
     
     
@@ -68,6 +68,14 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [_contentText becomeFirstResponder];
+    
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    SDTabViewController *tabvc = (SDTabViewController *)self.tabBarController;
+    [tabvc hideButton:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -208,8 +216,12 @@
     newPost.poster = [AVUser currentUser];
     newPost.commentCount = @0;
     newPost.likeCount = @0;
+    
+    NSDictionary *uploadPackage;
     if (_isUsingSystemBackground) {
         newPost.picId = _selectedPicId;
+        uploadPackage = @{@"post": newPost};
+
     } else {
         CGFloat compression = 0.9f;
         CGFloat maxCompression = 0.1f;
@@ -223,16 +235,17 @@
             imageData = UIImageJPEGRepresentation(_background.image, compression);
         }
         AVFile *newFile = [AVFile fileWithData:imageData];
-        newPost.image = newFile;
+        uploadPackage = @{@"post": newPost, @"file":newFile};
         
     }
     //myHoles is not validated
     for (SDHole *eachHole in [SDUtils sharedInstance].myHoles) {
         [newPost.holes addObject:eachHole];
     }
+
     
     [self dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:DidFinishPreparingWithNewPostNotif object:newPost];
+        [[NSNotificationCenter defaultCenter] postNotificationName:DidFinishPreparingWithNewPostNotif object:uploadPackage];
     }];
     
 }

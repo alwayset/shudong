@@ -24,13 +24,16 @@
     return self;
 }
 
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     
-    
+
     
     
     button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -103,7 +106,7 @@
 }
 
 - (void)addPost {
-    SDAddPostViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"add"];
+    SDAddPostViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"addpost"];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

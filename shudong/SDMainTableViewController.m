@@ -33,7 +33,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadMyHoles) name:DidLoadMyHolesNotif object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPreparingWithNewPostNotif object:nil];
     
-    
     refresh = [[UIRefreshControl alloc] init];
     [self.tableview addSubview:refresh];
     [refresh addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
@@ -44,15 +43,15 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationItem.title = @"树洞";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = YES;
     
-    
+
 
 
     if (![AVUser currentUser]) {
@@ -64,6 +63,11 @@
         [self loadPosts];
 
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
 }
 
 
@@ -120,6 +124,8 @@
     SDViewPictureViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
     vc.parentPost = [dataSource objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
+    
+    
     /*
     if (self.selectedRow == indexPath.row) {
         self.selectedRow = -1;
@@ -173,12 +179,31 @@
 
 
 -(void)didFinishPreparingNewPostToUpload:(NSNotification *)notif {
-    SDPost *newPost = (SDPost *)notif.object;
+    NSDictionary *package = notif.object;
+    SDPost *newPost = package[@"post"];
+    AVFile *newFile = package[@"file"];
+
     [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            
+            if (newFile != nil) {
+                [newFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        newPost.image = newFile;
+                        [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (succeeded) {
+                                [self loadPosts];
+                            } else {
+                                [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
+                            }
+                        }];
+                    } else {
+                        [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
+                    }
+                }];
+            }
+            [self loadPosts];
         } else {
-            [SDUtils showErrALertWithText:@"发送失败,请检查网络状态"];
+            [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
         }
     }];
 }
