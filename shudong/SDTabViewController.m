@@ -14,7 +14,7 @@
 @end
 
 @implementation SDTabViewController
-
+@synthesize button;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,7 +33,7 @@
     
     
     
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
     button.frame = CGRectMake(0.0, 0.0, 55, 55);
     
@@ -66,17 +66,40 @@
     }
     
     [self.view addSubview:button];
+     
     //if (![AVUser currentUser]) {
     //    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SDLoginViewController"];
     //    [self.navigationController presentViewController:vc animated:YES completion:nil];
     //}
-
+    //[self setHidesBottomBarWhenPushed:YES];
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)hideButton:(BOOL)hide
+{
+    if (hide) {
+        [UIView animateWithDuration:0.2
+                         animations:^{
+                             [button setAlpha:0];
+                         } completion:^(BOOL finished) {
+                             [button removeFromSuperview];
+                         }];
+    } else {
+        [self.view addSubview:button];
+        [UIView animateWithDuration:0.2
+                         animations:^{
+                             [button setAlpha:1];
+                         }];
+    }
+    
 }
 
 - (void)addPost {
