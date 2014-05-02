@@ -50,27 +50,19 @@
     self.navigationItem.title = @"树洞";
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = YES;
-<<<<<<< HEAD
     
     
+
+
     if (![AVUser currentUser]) {
-=======
-    self.navigationController.navigationBarHidden = NO;
-    /*
-    if (![AVUser currentUser]) {
->>>>>>> origin/u-sure-
         SDLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
         [self presentViewController:vc animated:NO completion:^{
             //do nothing for now
         }];
+    } else {
+        [self loadPosts];
+
     }
-<<<<<<< HEAD
-    
-    [self loadPosts];
-=======
-     */
-    
->>>>>>> origin/u-sure-
 }
 
 
@@ -153,17 +145,11 @@
     }
 }
 
-<<<<<<< HEAD
-/***** query ******/
 
-- (AVQuery *)postQuery {
-    
-=======
 
 /***** query ******/
 
 - (AVQuery *)postQuery {
->>>>>>> origin/u-sure-
     AVQuery *postQuery = [SDPost query];
     postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;
     postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;

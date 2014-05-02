@@ -60,6 +60,7 @@
 		2B63EE77190B859D00E30B09 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B63EE76190B859D00E30B09 /* libsqlite3.0.dylib */; };
 		2B72D648190E37800065D66C /* SDAddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72D647190E37800065D66C /* SDAddPostViewController.m */; };
 		2B880459190D7782002E0191 /* SDPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B880458190D7782002E0191 /* SDPostTableViewCell.m */; };
+		2BD015B019137CAE00EFB98B /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD015AF19137CAE00EFB98B /* RennSDK.framework */; };
 		2BD76075190BAFCD00C60FCE /* SDStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */; };
 		2BD76079190BC24700C60FCE /* SDPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD76078190BC24700C60FCE /* SDPost.m */; };
 		2BD7607C190BC34F00C60FCE /* SDHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD7607B190BC34F00C60FCE /* SDHole.m */; };
@@ -84,7 +85,6 @@
 		840A34EC190E8F470062458D /* renrenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34EA190E8F470062458D /* renrenButton.png */; };
 		840A34ED190E8F470062458D /* renrenButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34EB190E8F470062458D /* renrenButton@2x.png */; };
 		840A34F0190E908D0062458D /* SDLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A34EF190E908D0062458D /* SDLoginViewController.m */; };
-		840A351019122A140062458D /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A350F19122A140062458D /* RennSDK.framework */; };
 		840A351319122E380062458D /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A351119122E380062458D /* like.png */; };
 		840A351419122E380062458D /* like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A351219122E380062458D /* like@2x.png */; };
 		840A3517191230650062458D /* comment.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A3515191230650062458D /* comment.png */; };
@@ -178,6 +178,7 @@
 		2B72D647190E37800065D66C /* SDAddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAddPostViewController.m; sourceTree = "<group>"; };
 		2B880457190D7782002E0191 /* SDPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPostTableViewCell.h; sourceTree = "<group>"; };
 		2B880458190D7782002E0191 /* SDPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPostTableViewCell.m; sourceTree = "<group>"; };
+		2BD015AF19137CAE00EFB98B /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
 		2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SDStoryboard.storyboard; path = ../SDStoryboard.storyboard; sourceTree = "<group>"; };
 		2BD76077190BC24700C60FCE /* SDPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPost.h; sourceTree = "<group>"; };
 		2BD76078190BC24700C60FCE /* SDPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPost.m; sourceTree = "<group>"; };
@@ -215,7 +216,6 @@
 		840A34EB190E8F470062458D /* renrenButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "renrenButton@2x.png"; path = "images/renrenButton@2x.png"; sourceTree = "<group>"; };
 		840A34EE190E908D0062458D /* SDLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLoginViewController.h; sourceTree = "<group>"; };
 		840A34EF190E908D0062458D /* SDLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLoginViewController.m; sourceTree = "<group>"; };
-		840A350F19122A140062458D /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
 		840A351119122E380062458D /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = images/like.png; sourceTree = "<group>"; };
 		840A351219122E380062458D /* like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "like@2x.png"; path = "images/like@2x.png"; sourceTree = "<group>"; };
 		840A3515191230650062458D /* comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = comment.png; path = images/comment.png; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840A351019122A140062458D /* RennSDK.framework in Frameworks */,
+				2BD015B019137CAE00EFB98B /* RennSDK.framework in Frameworks */,
 				2B63EE77190B859D00E30B09 /* libsqlite3.0.dylib in Frameworks */,
 				2BDBDC82190A70D500BEFD09 /* CoreGraphics.framework in Frameworks */,
 				2BDBDC84190A70D500BEFD09 /* UIKit.framework in Frameworks */,
@@ -261,7 +261,7 @@
 		2B5F58EF19120A6F0077FE43 /* RENREN SDK */ = {
 			isa = PBXGroup;
 			children = (
-				840A350F19122A140062458D /* RennSDK.framework */,
+				2BD015AF19137CAE00EFB98B /* RennSDK.framework */,
 				2B5F58F019120A6F0077FE43 /* Json */,
 				2B5F58FE19120A6F0077FE43 /* RennSDK.bundle */,
 			);
@@ -823,6 +823,10 @@
 					SDK,
 					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shudong/shudong-Prefix.pch";
@@ -846,6 +850,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
 					"$(PROJECT_DIR)/shudong/RENREN",
 					SDK,
