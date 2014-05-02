@@ -33,4 +33,18 @@
     // Configure the view for the selected state
 }
 
+-(void)showPictureWithData:(NSData *)data {
+    picture.image = [UIImage imageWithData:data];
+    picture.alpha = 0;
+    [UIView animateWithDuration:0.1 animations:^{
+        picture.alpha = 1;
+    }completion:^(BOOL finished) {
+        text.alpha = 0;
+        text.text = _post.text;
+        [UIView animateWithDuration:0.4 animations:^{
+            text.alpha = 1;
+        }];
+    }];
+}
+
 @end

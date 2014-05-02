@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVOSCloud/AVOSCloud.h>
 #import "SDHole.h"
+#import "SDPost.h"
 
 @interface SDPost : AVObject <AVSubclassing>
 

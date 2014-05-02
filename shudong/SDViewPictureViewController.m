@@ -50,6 +50,8 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
+    
+    self.navigationItem.title = @"查看评论";
     //[self setHidesBottomBarWhenPushed:YES];
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
@@ -87,6 +89,8 @@
             
             if (parentPost.picId) {
                 cell.picture.image = [UIImage imageNamed:[parentPost.picId.stringValue stringByAppendingString:@".jpg"]];
+            } else {
+                cell.picture.image = [UIImage imageWithData:parentPost.image.getData];
             }
             return cell;
             break;

@@ -17,13 +17,15 @@
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
     UIRefreshControl *refresh;
+    BOOL firstLoad;
 }
 
 
-
+@property NSMutableDictionary *filesInDownload;
 @end
 
 @implementation SDMainTableViewController
+@synthesize filesInDownload;
 
 - (void)viewDidLoad
 {
@@ -38,6 +40,8 @@
     [refresh addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
     
     self.selectedRow = -1;
+    filesInDownload = [[NSMutableDictionary alloc] init];
+    firstLoad = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -60,7 +64,10 @@
             //do nothing for now
         }];
     } else {
-        [self loadPosts];
+        if (firstLoad) {
+            [self loadPosts];
+        } else {
+        }
 
     }
 }
@@ -106,16 +113,40 @@
     SDPostTableViewCell *cell = (SDPostTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"post" forIndexPath:indexPath];
     
     SDPost *currentPost = dataSource[indexPath.row];
-    cell.text.text = currentPost.text;
-    
-    if (currentPost.picId) {
+    cell.post = currentPost;
+    if (!currentPost.image) {
+        cell.text.text = currentPost.text;
         cell.picture.image = [UIImage imageNamed:[currentPost.picId.stringValue stringByAppendingString:@".jpg"]];
+    } else {
+        cell.picture.image = nil;
+        cell.text.alpha = 0;
+        [self startLoading:currentPost forIndexPath:indexPath cell:cell];
     }
 
     // Configure the cell...
     
     return cell;
 }
+
+- (void)startLoading:(SDPost *)post forIndexPath:(NSIndexPath *)indexpath cell:(SDPostTableViewCell *)targetCell {
+    AVFile *fileToDownload = [filesInDownload objectForKey:indexpath];
+    if (fileToDownload == nil)
+    {
+        fileToDownload = post.image;
+        [filesInDownload setObject:fileToDownload forKey:indexpath];
+        [fileToDownload getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+                SDPostTableViewCell *cell = (SDPostTableViewCell *)[self.tableview cellForRowAtIndexPath:indexpath];
+                if (cell == nil && [targetCell.post.objectId isEqualToString:post.objectId]) {
+                    cell = targetCell;
+                }
+                [cell showPictureWithData:data];
+                [filesInDownload removeObjectForKey:indexpath];
+            }
+        }];
+    }
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -168,7 +199,14 @@
     AVQuery *postQuery = [SDPost query];
     [postQuery orderByDescending:@"createdAt"];
     postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;
-    postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
+    
+    if (firstLoad) {
+        postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
+        firstLoad = NO;
+    } else {
+        postQuery.cachePolicy = kAVCachePolicyNetworkOnly;
+    }
+    
     //[postQuery whereKey:@"holes" containedIn:[SDUtils sharedInstance].myHoles];
     return postQuery;
 }
