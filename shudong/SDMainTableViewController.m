@@ -122,7 +122,8 @@
         cell.text.alpha = 0;
         [self startLoading:currentPost forIndexPath:indexPath cell:cell];
     }
-
+    [cell setNumbers];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     // Configure the cell...
     
     return cell;
