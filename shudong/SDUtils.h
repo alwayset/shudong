@@ -19,6 +19,7 @@
 
 
 @property (nonatomic, strong) NSArray *myHoles;
+@property (nonatomic, strong) NSMutableDictionary *parsedHoles;
 
 //methods
 + (void)initEverything;

@@ -17,5 +17,6 @@
 @property (nonatomic) NSArray *depts;
 @property (nonatomic) NSArray *years;
 
+@property (nonatomic) NSNumber *type;
 
 @end

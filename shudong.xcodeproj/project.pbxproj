@@ -59,6 +59,8 @@
 		2B70E27819163AFE0058F5BE /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B70E27019163AFE0058F5BE /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2B70E27919163AFE0058F5BE /* RennSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B70E27119163AFE0058F5BE /* RennSDK.bundle */; };
 		2B70E27A19163AFE0058F5BE /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B70E27219163AFE0058F5BE /* RennSDK.framework */; };
+		2B70E27D19165DA30058F5BE /* SDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B70E27C19165DA30058F5BE /* SDRootViewController.m */; };
+		2B70E2801916758C0058F5BE /* SDHoleFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B70E27F1916758C0058F5BE /* SDHoleFilterTableViewController.m */; };
 		2B72D648190E37800065D66C /* SDAddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72D647190E37800065D66C /* SDAddPostViewController.m */; };
 		2B880459190D7782002E0191 /* SDPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B880458190D7782002E0191 /* SDPostTableViewCell.m */; };
 		2BD76075190BAFCD00C60FCE /* SDStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */; };
@@ -177,6 +179,10 @@
 		2B70E27019163AFE0058F5BE /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		2B70E27119163AFE0058F5BE /* RennSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RennSDK.bundle; sourceTree = "<group>"; };
 		2B70E27219163AFE0058F5BE /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
+		2B70E27B19165DA30058F5BE /* SDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDRootViewController.h; sourceTree = "<group>"; };
+		2B70E27C19165DA30058F5BE /* SDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRootViewController.m; sourceTree = "<group>"; };
+		2B70E27E1916758C0058F5BE /* SDHoleFilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDHoleFilterTableViewController.h; sourceTree = "<group>"; };
+		2B70E27F1916758C0058F5BE /* SDHoleFilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDHoleFilterTableViewController.m; sourceTree = "<group>"; };
 		2B72D646190E37800065D66C /* SDAddPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAddPostViewController.h; sourceTree = "<group>"; };
 		2B72D647190E37800065D66C /* SDAddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAddPostViewController.m; sourceTree = "<group>"; };
 		2B880457190D7782002E0191 /* SDPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPostTableViewCell.h; sourceTree = "<group>"; };
@@ -396,6 +402,10 @@
 				2BD76083190BDE9800C60FCE /* SDTabViewController.h */,
 				2BD76076190BC22B00C60FCE /* data model */,
 				2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */,
+				2B70E27E1916758C0058F5BE /* SDHoleFilterTableViewController.h */,
+				2B70E27F1916758C0058F5BE /* SDHoleFilterTableViewController.m */,
+				2B70E27B19165DA30058F5BE /* SDRootViewController.h */,
+				2B70E27C19165DA30058F5BE /* SDRootViewController.m */,
 				2B57216A191006BF00EE5964 /* SDUser.h */,
 				2B57216B191006BF00EE5964 /* SDUser.m */,
 				2B572167190FEFD000EE5964 /* SDChooseHoleTableViewController.h */,
@@ -694,10 +704,12 @@
 				2B70E27419163AFE0058F5BE /* NSString+SBJSON.m in Sources */,
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,
 				2BD76084190BDE9800C60FCE /* SDTabViewController.m in Sources */,
+				2B70E27D19165DA30058F5BE /* SDRootViewController.m in Sources */,
 				2B70E27619163AFE0058F5BE /* SBJsonBase.m in Sources */,
 				2B338365190B94570068962C /* SDMainTableViewController.m in Sources */,
 				2B57216C191006BF00EE5964 /* SDUser.m in Sources */,
 				2B72D648190E37800065D66C /* SDAddPostViewController.m in Sources */,
+				2B70E2801916758C0058F5BE /* SDHoleFilterTableViewController.m in Sources */,
 				840A34F0190E908D0062458D /* SDLoginViewController.m in Sources */,
 				2B70E27719163AFE0058F5BE /* SBJsonParser.m in Sources */,
 				2B70E27519163AFE0058F5BE /* SBJSON.m in Sources */,

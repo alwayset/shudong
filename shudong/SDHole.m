@@ -14,6 +14,8 @@
 @dynamic name, memberCount, postCount;
 @dynamic posts;
 @dynamic depts, years;
+@dynamic type;
+
 
 + (NSString *)parseClassName {
     return @"Hole";

@@ -14,6 +14,8 @@
 #import "SDLoginViewController.h"
 #import "SDTabViewController.h"
 #import "SDViewPictureViewController.h"
+#import "SDHoleFilterTableViewController.h"
+
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
     UIRefreshControl *refresh;
@@ -154,9 +156,13 @@
     //[(SDTabViewController*)self.tabBarController hideButton:YES];
     SDViewPictureViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
     vc.parentPost = [dataSource objectAtIndex:indexPath.row];
+    
     [self.navigationController pushViewController:vc animated:YES];
     
-    
+//    SDTabViewController *tabbar = (SDTabViewController *)self.tabBarController;
+//    
+//    [tabbar.nav pushViewController:vc animated:YES];
+//    [self.tabBarController presentViewController:tabbar.nav animated:YES completion:nil];
     /*
     if (self.selectedRow == indexPath.row) {
         self.selectedRow = -1;
@@ -170,7 +176,6 @@
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     */
-    
     
 }
 - (void)loadPosts {
@@ -288,15 +293,24 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    if ([segue.identifier isEqualToString:@"filter"]) {
+        if ([SDUtils sharedInstance].parsedHoles) {
+            SDHoleFilterTableViewController *filter = (SDHoleFilterTableViewController *)segue.destinationViewController;
+            filter.holesDict = [SDUtils sharedInstance].parsedHoles;
+        } else {
+            [[SDUtils sharedInstance] loadMyHoles];
+        }
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

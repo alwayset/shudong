@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "SDUser.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "SBJSON.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
 
@@ -95,6 +96,9 @@
                               @"JUNIOR":@"初中",
                               @"SECRET": @"保密"};
     
+    
+
+    
     //NSLog(@"requestSuccessWithResponse:%@", [response description]);
     NSLog(@"requestSuccessWithResponse:%@", [[SBJSON new]  stringWithObject:response error:nil]);
     NSLog(@"请求成功:%@", service.type);
@@ -144,6 +148,12 @@
         [holeQuery whereKey:@"name" equalTo:schoolName];
         AVObject *existingHole = [holeQuery getFirstObject:&err];
         if (!err) {
+            
+            if (![existingHole[@"type"] isEqualToNumber:[self getSchoolType:degree]]) {
+                existingHole[@"type"] = [self getSchoolType:degree];
+                [existingHole save];
+            }
+            
             [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:existingHole];
             [[[AVUser currentUser] relationforKey:@"schools"] addObject:existingHole];
             NSLog(@"找到已存在的%@", schoolName);
@@ -250,9 +260,10 @@
                 newSchool.memberCount = @0;
                 newSchool.postCount = @0;
                 [newSchool incrementKey:@"memberCount"];
+                newSchool.type = [self getSchoolType:degree];
                 [newSchool save];
                 [[[AVUser currentUser] relationforKey:@"memberOf"] addObject:newSchool];
-                [[[AVUser currentUser] relationforKey:@"schools"] addObject:existingHole];
+                [[[AVUser currentUser] relationforKey:@"schools"] addObject:newSchool];
                 NSLog(@"创建新的%@", schoolName);
                 
                 if (dept.class != [NSNull class] && [self isDeptValid:dept]) {
@@ -268,6 +279,7 @@
                 }
 
                 if (year.class != [NSNull class]) {
+                    
                     SDHole *newYear = [SDHole object];
                     newYear.name = [NSString stringWithFormat:@"%@%@%@级", schoolName, degrees[degree], [year substringFromIndex:2]];
                     newYear.memberCount = @0;
@@ -325,6 +337,44 @@
     } else {
         return NO;
     }
+}
+
+-(NSNumber *)getSchoolType:(NSString *)educationBackground {
+    NSNumber *TYPE_COLLEGE = @0;
+    NSNumber *TYPE_TECHNICAL = @1;
+    NSNumber *TYPE_MIDDLE = @2;
+    NSNumber *TYPE_PRIMARY = @3;
+    
+    if ([educationBackground isEqualToString:@"DOCTOR"]) {
+        return TYPE_COLLEGE;
+    }
+    if ([educationBackground isEqualToString:@"COLLEGE"]) {
+        return TYPE_COLLEGE;
+    }
+    if ([educationBackground isEqualToString:@"GVY"]) {
+        return TYPE_COLLEGE;
+    }
+    if ([educationBackground isEqualToString:@"TEACHER"]) {
+        return TYPE_COLLEGE;
+    }
+    if ([educationBackground isEqualToString:@"MASTER"]) {
+        return TYPE_COLLEGE;
+    }
+    if ([educationBackground isEqualToString:@"HIGHCHOOL"]) {
+        return TYPE_MIDDLE;
+    }
+    if ([educationBackground isEqualToString:@"JUNIOR"]) {
+        return TYPE_MIDDLE;
+    }
+    if ([educationBackground isEqualToString:@"TECHNICAL"]) {
+        return TYPE_TECHNICAL;
+    }
+    if ([educationBackground isEqualToString:@"PRIMARY"]) {
+        return TYPE_PRIMARY;
+    }
+
+    return @4;
+    
 }
 
 

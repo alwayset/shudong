@@ -22,6 +22,7 @@ static SDUtils *singletonInstance;
 
 @implementation SDUtils
 @synthesize myHoles;
+@synthesize parsedHoles;
 
 //initialization
 
@@ -41,6 +42,7 @@ static SDUtils *singletonInstance;
     [holeQuery findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
         if (!error) {
             myHoles = [NSArray arrayWithArray:results];
+            [self parseHoles];
         } else {
             [SDUtils showErrALertWithText:@"载入失败"];
         }
@@ -78,4 +80,51 @@ static SDUtils *singletonInstance;
 + (CGFloat)screenHeight {
     return [[UIScreen mainScreen] bounds].size.height;
 }
+
+- (void)parseHoles {
+    if (parsedHoles == nil) {
+        parsedHoles = [[NSMutableDictionary alloc] init];
+    }
+    NSMutableArray *tempHoleArray = [NSMutableArray arrayWithArray:myHoles];
+    
+    for (SDHole *eachHole in myHoles) {
+        if (eachHole.type) {
+            [tempHoleArray removeObject:eachHole];
+            if (parsedHoles[eachHole.type]) {
+                NSMutableArray *arr = parsedHoles[eachHole.type];
+                [arr addObject:eachHole];
+                parsedHoles[eachHole.type] = arr;
+            } else {
+                NSMutableArray *arr = [[NSMutableArray alloc] init];
+                [arr addObject:eachHole];
+                parsedHoles[eachHole.type] = arr;
+            }
+        }
+    }
+    
+    
+    for (int holeType = 0; holeType < 5; holeType++) {
+        NSMutableArray *schools = parsedHoles[[NSNumber numberWithInt:holeType]];
+        if (schools) {
+            for (SDHole *eachSchool in schools) {
+                for (SDHole *eachOtherHole in tempHoleArray) {
+                    if ([eachOtherHole.name hasPrefix:eachSchool.name]) {
+                        if (parsedHoles[eachSchool.name]) {
+                            NSMutableArray *subHoles = parsedHoles[eachSchool.name];
+                            [subHoles addObject:eachOtherHole.name];
+                            parsedHoles[eachSchool.name] = subHoles;
+                        } else {
+                            NSMutableArray *subHoles = [[NSMutableArray alloc] init];
+                            [subHoles addObject:eachOtherHole.name];
+                            parsedHoles[eachSchool.name] = subHoles;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    NSLog(@"the parsed data is: %@", parsedHoles);
+}
+
 @end
