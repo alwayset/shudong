@@ -21,6 +21,9 @@
 @property (nonatomic, strong) NSArray *myHoles;
 @property (nonatomic, strong) NSMutableDictionary *parsedHoles;
 
+@property (nonatomic, strong) NSMutableArray *mySchools;
+
+
 //methods
 + (void)initEverything;
 

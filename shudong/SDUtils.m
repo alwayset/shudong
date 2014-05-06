@@ -24,6 +24,11 @@ static SDUtils *singletonInstance;
 @synthesize myHoles;
 @synthesize parsedHoles;
 
+
+@synthesize mySchools;
+
+
+
 //initialization
 
 
@@ -63,6 +68,7 @@ static SDUtils *singletonInstance;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误" message:message delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
     [alert show];
 }
+
 + (NSString*)getTimeStr:(NSDate*) time {
     NSTimeInterval interval = -[time timeIntervalSinceNow];
     int minutes = interval/60;
@@ -77,28 +83,78 @@ static SDUtils *singletonInstance;
     if (minutes>0) return [NSString stringWithFormat:@"%d分钟前",minutes];
     return @"刚刚";
 }
+
 + (CGFloat)screenHeight {
     return [[UIScreen mainScreen] bounds].size.height;
 }
 
 - (void)parseHoles {
+    
+    static char deptIdentifier = '^';
+    static char yearIndentifier = '#';
+    
     if (parsedHoles == nil) {
         parsedHoles = [[NSMutableDictionary alloc] init];
     }
     NSMutableArray *tempHoleArray = [NSMutableArray arrayWithArray:myHoles];
     
+    mySchools = [[NSMutableArray alloc] init];
+    
+    
+    
     for (SDHole *eachHole in myHoles) {
         if (eachHole.type) {
+            
+            eachHole.depts = [[NSMutableArray alloc] init];
+            eachHole.years = [[NSMutableArray alloc] init];
+            eachHole.yearsDepts = [[NSMutableArray alloc] init];
+            
+            [mySchools addObject:eachHole];
             [tempHoleArray removeObject:eachHole];
-            if (parsedHoles[eachHole.type]) {
-                NSMutableArray *arr = parsedHoles[eachHole.type];
-                [arr addObject:eachHole];
-                parsedHoles[eachHole.type] = arr;
-            } else {
-                NSMutableArray *arr = [[NSMutableArray alloc] init];
-                [arr addObject:eachHole];
-                parsedHoles[eachHole.type] = arr;
+            
+            for (SDHole *eachSubHole in tempHoleArray) {
+                
+                if ([eachSubHole.name hasPrefix:eachHole.name]) {
+                    NSString *detailPart = [eachSubHole.name substringFromIndex:eachHole.name.length];
+                    if ([detailPart characterAtIndex:0] == deptIdentifier) {
+                        // dept or year&dept
+                        if ([detailPart characterAtIndex:detailPart.length - 1] == yearIndentifier) {
+                            // this is a year depts
+                            detailPart = [detailPart stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%c", deptIdentifier] withString:@""];
+                            detailPart = [detailPart stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%c", yearIndentifier] withString:@""];
+                            [eachHole.yearsDepts addObject:detailPart];
+                            
+                        } else {
+                            //dept only
+                            
+                            detailPart = [detailPart stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%c", deptIdentifier] withString:@""];
+                            [eachHole.depts addObject:detailPart];
+                        }
+                        
+                    } else if ([detailPart characterAtIndex:0] == yearIndentifier) {
+                        NSString *yearName = [detailPart substringWithRange:NSMakeRange(1, detailPart.length - 2)];
+                        [eachHole.years addObject:detailPart];
+                        NSLog(@"parsed year is %@", yearName);
+                    }
+                    
+                }
+                
+                
             }
+            
+            
+            
+            
+            
+//            if (parsedHoles[eachHole.type]) {
+//                NSMutableArray *arr = parsedHoles[eachHole.type];
+//                [arr addObject:eachHole];
+//                parsedHoles[eachHole.type] = arr;
+//            } else {
+//                NSMutableArray *arr = [[NSMutableArray alloc] init];
+//                [arr addObject:eachHole];
+//                parsedHoles[eachHole.type] = arr;
+//            }
         }
     }
     

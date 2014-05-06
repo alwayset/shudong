@@ -30,6 +30,10 @@
     return self;
 }
 
+- (void)initializeSchoolArr {
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -39,6 +43,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    
+    
+    
     
     _collegeArr = [NSArray arrayWithArray:holesDict[@0]];
     _technicalArr = [NSArray arrayWithArray:holesDict[@1]];

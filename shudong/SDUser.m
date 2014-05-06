@@ -14,6 +14,8 @@
 @dynamic memberOf;
 @dynamic country, province, city;
 
+
+
 +(NSString *)parseClassName {
     return @"_User";
 }

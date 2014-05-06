@@ -13,7 +13,7 @@
 @implementation SDHole
 @dynamic name, memberCount, postCount;
 @dynamic posts;
-@dynamic depts, years;
+//@dynamic depts, years;
 @dynamic type;
 
 

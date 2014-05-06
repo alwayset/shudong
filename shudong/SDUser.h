@@ -37,5 +37,4 @@
 //name
 @property (nonatomic, copy) NSString *name;
 
-
 @end
