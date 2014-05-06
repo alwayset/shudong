@@ -141,6 +141,7 @@
     [cameraButton addTarget:self action:@selector(addPost) forControlEvents:UIControlEventTouchUpInside];
     [self.tabBar addSubview:cameraButton];
     
+    
 //    UISwipeGestureRecognizer *swipeUpGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
 //    [swipeUpGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
 //    [swipeUpGestureRecognizer setNumberOfTouchesRequired:1];
