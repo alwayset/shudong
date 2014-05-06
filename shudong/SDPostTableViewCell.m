@@ -32,7 +32,11 @@
 
     // Configure the view for the selected state
 }
-
+- (void)setNumbers
+{
+    [self.likeButton setTitle:[@"  " stringByAppendingString:(self.post.likeCount)? [self.post.likeCount stringValue]:@"0"] forState:UIControlStateNormal];
+    [self.commentButton setTitle:[@"  " stringByAppendingString:(self.post.commentCount)? [self.post.commentCount stringValue]:@"0"] forState:UIControlStateNormal];
+}
 -(void)showPictureWithData:(NSData *)data {
     picture.image = [UIImage imageWithData:data];
     picture.alpha = 0;
@@ -45,6 +49,28 @@
             text.alpha = 1;
         }];
     }];
+}
+- (IBAction)like:(id)sender {
+    /*
+    [self.likeButton.imageView setImage:[UIImage imageNamed:@"liked.png"]];
+    [self.likeButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateNormal];
+    [self.likeButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateReserved];
+    [self.likeButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateSelected];
+     */
+    [self.post incrementKey:@"likeCount" byAmount:[NSNumber numberWithInt:1]];
+    
+    /*
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         [self.likeButton.imageView setAlpha:0];
+                     } completion:^(BOOL finished) {
+                         [self.likeButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateNormal];
+                         [UIView animateWithDuration:0.2
+                                          animations:^{
+                                              [self.likeButton.imageView setAlpha:1];
+                                          }];
+                     }];
+     */
 }
 
 @end

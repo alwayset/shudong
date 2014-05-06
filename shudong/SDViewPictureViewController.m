@@ -85,6 +85,7 @@
     switch (indexPath.section) {
         case 0: {
             SDPostTableViewCell *cell = (SDPostTableViewCell *)[tv dequeueReusableCellWithIdentifier:@"post" forIndexPath:indexPath];
+            cell.post = parentPost;
             cell.text.text = parentPost.text;
             
             if (parentPost.picId) {
@@ -92,6 +93,7 @@
             } else {
                 cell.picture.image = [UIImage imageWithData:parentPost.image.getData];
             }
+            [cell setNumbers];
             return cell;
             break;
         }
@@ -171,6 +173,7 @@
             [parentPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
                     [self loadComments];
+                    [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
                     hud.labelText = @"评论成功";
                     [hud hide:YES afterDelay:0.2];
                 } else {

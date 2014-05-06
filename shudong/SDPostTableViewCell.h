@@ -20,6 +20,6 @@
 @property (nonatomic, strong) SDPost *post;
 
 - (void)showPictureWithData:(NSData *)data;
-
+- (void)setNumbers;
 
 @end

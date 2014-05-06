@@ -101,6 +101,7 @@
 		840A352B191365750062458D /* leftArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A3529191365750062458D /* leftArrow@2x.png */; };
 		840A353019138CA80062458D /* SDComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A352F19138CA80062458D /* SDComment.m */; };
 		840A353319138E4B0062458D /* SDCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A353219138E4B0062458D /* SDCommentCell.m */; };
+		840A3535191639410062458D /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A3534191639410062458D /* RennSDK.framework */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -241,6 +242,7 @@
 		840A352F19138CA80062458D /* SDComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDComment.m; sourceTree = "<group>"; };
 		840A353119138E4B0062458D /* SDCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommentCell.h; sourceTree = "<group>"; };
 		840A353219138E4B0062458D /* SDCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommentCell.m; sourceTree = "<group>"; };
+		840A3534191639410062458D /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +250,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				2B70E27A19163AFE0058F5BE /* RennSDK.framework in Frameworks */,
+=======
+				840A3535191639410062458D /* RennSDK.framework in Frameworks */,
+>>>>>>> origin/0504branch
 				2B63EE77190B859D00E30B09 /* libsqlite3.0.dylib in Frameworks */,
 				2BDBDC82190A70D500BEFD09 /* CoreGraphics.framework in Frameworks */,
 				2BDBDC84190A70D500BEFD09 /* UIKit.framework in Frameworks */,
@@ -270,6 +276,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
+=======
+		2B5F58EF19120A6F0077FE43 /* RENREN SDK */ = {
+			isa = PBXGroup;
+			children = (
+				840A3534191639410062458D /* RennSDK.framework */,
+				2B5F58F019120A6F0077FE43 /* Json */,
+				2B5F58FE19120A6F0077FE43 /* RennSDK.bundle */,
+			);
+			name = "RENREN SDK";
+			path = "shudong/RENREN SDK";
+			sourceTree = "<group>";
+		};
+		2B5F58F019120A6F0077FE43 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				2B5F58F119120A6F0077FE43 /* JSON.h */,
+				2B5F58F219120A6F0077FE43 /* NSObject+SBJSON.h */,
+				2B5F58F319120A6F0077FE43 /* NSObject+SBJSON.m */,
+				2B5F58F419120A6F0077FE43 /* NSString+SBJSON.h */,
+				2B5F58F519120A6F0077FE43 /* NSString+SBJSON.m */,
+				2B5F58F619120A6F0077FE43 /* SBJSON.h */,
+				2B5F58F719120A6F0077FE43 /* SBJSON.m */,
+				2B5F58F819120A6F0077FE43 /* SBJsonBase.h */,
+				2B5F58F919120A6F0077FE43 /* SBJsonBase.m */,
+				2B5F58FA19120A6F0077FE43 /* SBJsonParser.h */,
+				2B5F58FB19120A6F0077FE43 /* SBJsonParser.m */,
+				2B5F58FC19120A6F0077FE43 /* SBJsonWriter.h */,
+				2B5F58FD19120A6F0077FE43 /* SBJsonWriter.m */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
+>>>>>>> origin/0504branch
 		2B5F5908191228250077FE43 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -838,7 +878,29 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+<<<<<<< HEAD
 					"$(PROJECT_DIR)/shudong/RENREN-SDK",
+=======
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+>>>>>>> origin/0504branch
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shudong/shudong-Prefix.pch";
@@ -860,7 +922,29 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+<<<<<<< HEAD
 					"$(PROJECT_DIR)/shudong/RENREN-SDK",
+=======
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+					"$(PROJECT_DIR)/shudong/RENREN",
+					SDK,
+>>>>>>> origin/0504branch
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shudong/shudong-Prefix.pch";
