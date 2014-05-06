@@ -23,16 +23,10 @@ static SDUtils *singletonInstance;
 @implementation SDUtils
 @synthesize myHoles;
 @synthesize parsedHoles;
-<<<<<<< HEAD
 
 
 @synthesize mySchools;
-
-
-
-=======
 @synthesize myLikes;
->>>>>>> origin/0506branch
 //initialization
 
 
