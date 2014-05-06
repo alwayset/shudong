@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SDPost.h"
-
+#import "SDLikeButton.h"
 @interface SDPostTableViewCell : UITableViewCell
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *picture;
 @property (strong, nonatomic) IBOutlet UILabel *text;
-@property (strong, nonatomic) IBOutlet UIButton *likeButton;
+@property (strong, nonatomic) IBOutlet SDLikeButton *likeButton;
 @property (strong, nonatomic) IBOutlet UIButton *commentButton;
 
 @property (nonatomic, strong) SDPost *post;

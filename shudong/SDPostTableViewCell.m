@@ -7,7 +7,7 @@
 //
 
 #import "SDPostTableViewCell.h"
-
+#import "SDUtils.h"
 @implementation SDPostTableViewCell
 
 @synthesize picture, text;
@@ -34,10 +34,14 @@
 }
 - (void)setNumbers
 {
-    [self.likeButton setTitle:[@"  " stringByAppendingString:(self.post.likeCount)? [self.post.likeCount stringValue]:@"0"] forState:UIControlStateNormal];
+    [self.likeButton setText:(self.post.likeCount)? [self.post.likeCount stringValue]:@"0"];
     [self.commentButton setTitle:[@"  " stringByAppendingString:(self.post.commentCount)? [self.post.commentCount stringValue]:@"0"] forState:UIControlStateNormal];
+    if ([[[SDUtils sharedInstance] myLikes] containsObject:self.post]) [self.likeButton setRedHeart:YES];
+    else [self.likeButton setRedHeart:NO];
 }
--(void)showPictureWithData:(NSData *)data {
+
+-(void)showPictureWithData:(NSData *)data
+{
     picture.image = [UIImage imageWithData:data];
     picture.alpha = 0;
     [UIView animateWithDuration:0.1 animations:^{
@@ -57,7 +61,26 @@
     [self.likeButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateReserved];
     [self.likeButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateSelected];
      */
-    [self.post incrementKey:@"likeCount" byAmount:[NSNumber numberWithInt:1]];
+    BOOL liked = false;
+    for (SDPost* i in [[SDUtils sharedInstance] myLikes])
+        if ([i.objectId isEqualToString:self.post.objectId]) {
+            liked = true;break;
+        }
+    if ([[[SDUtils sharedInstance] myLikes] containsObject:self.post]) {
+        [self.post incrementKey:@"likeCount" byAmount:[NSNumber numberWithInt:-1]];
+        [[[SDUtils sharedInstance] myLikes] removeObject:self.post];
+        [[self.post relationforKey:@"likedBy"] removeObject:[AVUser currentUser]];
+        [self.likeButton setRedHeart:NO];
+        
+    } else {
+        [self.post incrementKey:@"likeCount" byAmount:[NSNumber numberWithInt:1]];
+        [[[SDUtils sharedInstance] myLikes] addObject:self.post];
+        [[self.post relationforKey:@"likedBy"] addObject:[AVUser currentUser]];
+        [self.likeButton setRedHeart:YES];
+    }
+    [self.likeButton setText:[self.post.likeCount stringValue]];
+    [self.post saveEventually];
+    
     
     /*
     [UIView animateWithDuration:0.3

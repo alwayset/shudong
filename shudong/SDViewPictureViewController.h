@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SDPost.h"
-@interface SDViewPictureViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SDViewPictureViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UITextView *inputComment;
 @property (strong, nonatomic) IBOutlet UIView *inputView;
+@property (strong, nonatomic) IBOutlet UIView *commentBar;
 @property (nonatomic,strong) SDPost* parentPost;
 @end

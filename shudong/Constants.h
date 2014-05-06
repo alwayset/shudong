@@ -14,6 +14,7 @@
 
 
 #define DidLoadMyHolesNotif @"did_load_my_holes"
+#define LikeArrLoadedNotif @"like_array_loaded"
 #define DidFinishPreparingWithNewPostNotif @"did_finish_preparing_with_new_post"
 
 
@@ -27,4 +28,6 @@
 #define HOLE_TYPE_SCHOOL 1
 #define HOLE_TYPE_DEPT 2
 #define HOLE_TYPE_YEAR 3
+
+
 #endif
