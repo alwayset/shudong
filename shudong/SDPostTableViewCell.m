@@ -36,8 +36,7 @@
 {
     [self.likeButton setText:(self.post.likeCount)? [self.post.likeCount stringValue]:@"0"];
     [self.commentButton setTitle:[@"  " stringByAppendingString:(self.post.commentCount)? [self.post.commentCount stringValue]:@"0"] forState:UIControlStateNormal];
-    if ([[[SDUtils sharedInstance] myLikes] containsObject:self.post]) [self.likeButton setRedHeart:YES];
-    else [self.likeButton setRedHeart:NO];
+    [self.likeButton initRedHeart:[[[SDUtils sharedInstance] myLikes] containsObject:self.post]];
 }
 
 -(void)showPictureWithData:(NSData *)data

@@ -15,4 +15,5 @@
 @property (nonatomic) CGRect imageRect;
 - (void)setText:(NSString*)text;
 - (void)setRedHeart:(BOOL)like;
+- (void)initRedHeart:(BOOL)like;
 @end
