@@ -23,12 +23,16 @@ static SDUtils *singletonInstance;
 @implementation SDUtils
 @synthesize myHoles;
 @synthesize parsedHoles;
+<<<<<<< HEAD
 
 
 @synthesize mySchools;
 
 
 
+=======
+@synthesize myLikes;
+>>>>>>> origin/0506branch
 //initialization
 
 
@@ -53,10 +57,26 @@ static SDUtils *singletonInstance;
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:DidLoadMyHolesNotif object:nil];
     }];
+    [self loadMyLike];
+}
+
+- (void)loadMyLike {
+    AVQuery * query = [AVRelation reverseQuery:@"Post" relationKey:@"likedBy" childObject:[AVUser currentUser]];
+    [query orderByDescending:@"createdAt"];
+    query.cachePolicy = kPFCachePolicyNetworkElseCache;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            //TODO: ERROR HANDLING
+        } else {
+            myLikes = [NSMutableArray arrayWithArray:objects];
+            [[NSNotificationCenter defaultCenter] postNotificationName:LikeArrLoadedNotif object:nil];
+            //TODO: do something else!
+        }
+    }];
 }
 
 + (void)log:(NSString *)message {
-    NSLog(message);
+    NSLog(@"%@",message);
 }
 
 + (SDUtils *)sharedInstance {

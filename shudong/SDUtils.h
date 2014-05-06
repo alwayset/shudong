@@ -20,10 +20,14 @@
 
 @property (nonatomic, strong) NSArray *myHoles;
 @property (nonatomic, strong) NSMutableDictionary *parsedHoles;
+<<<<<<< HEAD
 
 @property (nonatomic, strong) NSMutableArray *mySchools;
 
 
+=======
+@property (nonatomic, strong) NSMutableArray *myLikes;
+>>>>>>> origin/0506branch
 //methods
 + (void)initEverything;
 

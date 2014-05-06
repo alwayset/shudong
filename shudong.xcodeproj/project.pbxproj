@@ -101,7 +101,9 @@
 		840A352B191365750062458D /* leftArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A3529191365750062458D /* leftArrow@2x.png */; };
 		840A353019138CA80062458D /* SDComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A352F19138CA80062458D /* SDComment.m */; };
 		840A353319138E4B0062458D /* SDCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A353219138E4B0062458D /* SDCommentCell.m */; };
-		840A3535191639410062458D /* RennSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A3534191639410062458D /* RennSDK.framework */; };
+		840A35381918B9930062458D /* SDLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A35371918B9930062458D /* SDLikeButton.m */; };
+		840F5ECF1918C21600082684 /* liked.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F5ECD1918C21600082684 /* liked.png */; };
+		840F5ED01918C21600082684 /* liked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F5ECE1918C21600082684 /* liked@2x.png */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -242,7 +244,10 @@
 		840A352F19138CA80062458D /* SDComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDComment.m; sourceTree = "<group>"; };
 		840A353119138E4B0062458D /* SDCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCommentCell.h; sourceTree = "<group>"; };
 		840A353219138E4B0062458D /* SDCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCommentCell.m; sourceTree = "<group>"; };
-		840A3534191639410062458D /* RennSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RennSDK.framework; sourceTree = "<group>"; };
+		840A35361918B9930062458D /* SDLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLikeButton.h; sourceTree = "<group>"; };
+		840A35371918B9930062458D /* SDLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLikeButton.m; sourceTree = "<group>"; };
+		840F5ECD1918C21600082684 /* liked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = liked.png; path = images/liked.png; sourceTree = "<group>"; };
+		840F5ECE1918C21600082684 /* liked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "liked@2x.png"; path = "images/liked@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,7 +256,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B70E27A19163AFE0058F5BE /* RennSDK.framework in Frameworks */,
-
 				2B63EE77190B859D00E30B09 /* libsqlite3.0.dylib in Frameworks */,
 				2BDBDC82190A70D500BEFD09 /* CoreGraphics.framework in Frameworks */,
 				2BDBDC84190A70D500BEFD09 /* UIKit.framework in Frameworks */,
@@ -273,7 +277,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-
 		2B5F5908191228250077FE43 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +441,8 @@
 				840A351A191233FC0062458D /* SDViewPictureViewController.m */,
 				840A353119138E4B0062458D /* SDCommentCell.h */,
 				840A353219138E4B0062458D /* SDCommentCell.m */,
+				840A35361918B9930062458D /* SDLikeButton.h */,
+				840A35371918B9930062458D /* SDLikeButton.m */,
 			);
 			path = shudong;
 			sourceTree = "<group>";
@@ -474,6 +479,8 @@
 		840A33CB190A938C0062458D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				840F5ECD1918C21600082684 /* liked.png */,
+				840F5ECE1918C21600082684 /* liked@2x.png */,
 				840A3528191365750062458D /* leftArrow.png */,
 				840A3529191365750062458D /* leftArrow@2x.png */,
 				840A352619123D3A0062458D /* face.png */,
@@ -604,6 +611,7 @@
 				2B338361190B94080068962C /* sixin.png in Resources */,
 				2B5F592F191228250077FE43 /* 16.jpg in Resources */,
 				2B5F5935191228250077FE43 /* 21.jpg in Resources */,
+				840F5ECF1918C21600082684 /* liked.png in Resources */,
 				840A352519123A380062458D /* likeB@2x.png in Resources */,
 				2B5F5937191228250077FE43 /* 23.jpeg in Resources */,
 				2B5F593B191228250077FE43 /* 27.jpg in Resources */,
@@ -632,6 +640,7 @@
 				2B5F5934191228250077FE43 /* 20.jpg in Resources */,
 				2B5F5942191228250077FE43 /* 7.jpg in Resources */,
 				2B5F5936191228250077FE43 /* 22.jpg in Resources */,
+				840F5ED01918C21600082684 /* liked@2x.png in Resources */,
 				2B5F5940191228250077FE43 /* 5.jpg in Resources */,
 				840A3520191239CE0062458D /* commentB.png in Resources */,
 				2B33835D190B94080068962C /* activity.png in Resources */,
@@ -706,6 +715,7 @@
 				2B572169190FEFD000EE5964 /* SDChooseHoleTableViewController.m in Sources */,
 				2BDBDC96190A70D500BEFD09 /* SDViewController.m in Sources */,
 				2B70E27419163AFE0058F5BE /* NSString+SBJSON.m in Sources */,
+				840A35381918B9930062458D /* SDLikeButton.m in Sources */,
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,
 				2BD76084190BDE9800C60FCE /* SDTabViewController.m in Sources */,
 				2B70E27D19165DA30058F5BE /* SDRootViewController.m in Sources */,
@@ -843,7 +853,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/shudong/RENREN-SDK",
-
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shudong/shudong-Prefix.pch";
@@ -866,7 +875,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/shudong/RENREN-SDK",
-
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "shudong/shudong-Prefix.pch";

@@ -46,6 +46,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [inputView setFrame:CGRectMake(0, Screen_Height-44, 320, 44)];
     // Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -76,8 +77,14 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section==0) return 320;
-    else return 55;
+    if (indexPath.section ==0 ) {
+        return 320;
+    } else {
+        SDComment* comment = [parentPost.commentsArr objectAtIndex:indexPath.row];
+        NSString* temp = comment.text;
+        CGRect rect = [temp boundingRectWithSize:CGSizeMake(240, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0]} context:nil];
+        return  35 + rect.size.height;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,6 +109,9 @@
             SDComment* comment = [parentPost.commentsArr objectAtIndex:indexPath.row];
             cell.text.text = comment.text;
             cell.time.text = [[SDUtils getTimeStr:comment.createdAt] stringByAppendingFormat:@"  %d楼", indexPath.row+1];
+            CGRect rect = [comment.text boundingRectWithSize:CGSizeMake(240, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0]} context:nil];
+            [cell.text setFrame:CGRectMake(60, 11, 240, rect.size.height)];
+            [cell.time setFrame:CGRectMake(200, cell.text.frame.origin.y+rect.size.height+3, 100, 14)];
             // Configure the cell...
             
             return cell;
@@ -155,6 +165,20 @@
 
                      }];
 }
+- (void)textViewDidChange:(UITextView *)textView {
+    CGRect rect = [textView.text boundingRectWithSize:CGSizeMake(221, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0]} context:nil];
+    CGFloat height;
+    if (rect.size.height<=18) { height =30; textView.scrollEnabled = NO; }
+    else if (rect.size.height<=54) { height = rect.size.height+12; textView.scrollEnabled = NO; }
+    else { height = 54; textView.scrollEnabled = YES; }
+    
+    CGPoint tempOrigin = self.inputView.frame.origin;
+    CGSize tempSize = self.inputView.frame.size;
+    [self.inputView setFrame:CGRectMake(0, tempOrigin.y + tempSize.height - height -14 , 320, height + 14)];
+    [textView setFrame:CGRectMake(28, 7, 225, height)];
+    [self.commentBar setFrame:CGRectMake(0, self.inputView.frame.size.height-44, 320, 44)];
+    [self.tableView setFrame:CGRectMake(0, 0, 320, self.inputView.frame.origin.y)];
+}
 - (IBAction)sendComment:(id)sender {
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -176,11 +200,13 @@
                     [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
                     hud.labelText = @"评论成功";
                     [hud hide:YES afterDelay:0.2];
+                    inputComment.text = @"";
+                    [self textViewDidChange:inputComment];
                 } else {
                     hud.labelText = @"评论失败";
                     [hud hide:YES afterDelay:0.4];
                 }
-                inputComment.text = @"";
+                
 
             }];
         } else {
