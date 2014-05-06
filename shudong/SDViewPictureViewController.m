@@ -82,7 +82,7 @@
     } else {
         SDComment* comment = [parentPost.commentsArr objectAtIndex:indexPath.row];
         NSString* temp = comment.text;
-        CGRect rect = [temp boundingRectWithSize:CGSizeMake(240, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0]} context:nil];
+        CGRect rect = [temp boundingRectWithSize:CGSizeMake(240, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0]} context:nil];
         return  35 + rect.size.height;
     }
 }
@@ -109,7 +109,7 @@
             SDComment* comment = [parentPost.commentsArr objectAtIndex:indexPath.row];
             cell.text.text = comment.text;
             cell.time.text = [[SDUtils getTimeStr:comment.createdAt] stringByAppendingFormat:@"  %d楼", indexPath.row+1];
-            CGRect rect = [comment.text boundingRectWithSize:CGSizeMake(240, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0]} context:nil];
+            CGRect rect = [comment.text boundingRectWithSize:CGSizeMake(240, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0]} context:nil];
             [cell.text setFrame:CGRectMake(60, 11, 240, rect.size.height)];
             [cell.time setFrame:CGRectMake(200, cell.text.frame.origin.y+rect.size.height+3, 100, 14)];
             // Configure the cell...
@@ -179,42 +179,57 @@
     [self.commentBar setFrame:CGRectMake(0, self.inputView.frame.size.height-44, 320, 44)];
     [self.tableView setFrame:CGRectMake(0, 0, 320, self.inputView.frame.origin.y)];
 }
-- (IBAction)sendComment:(id)sender {
-    
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.detailsLabelText = @"发布评论中";
-    [inputComment resignFirstResponder];
-    SDComment* comment = [SDComment object];
-    comment.text = inputComment.text;
-    [comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        if (succeeded) {
-            
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            hud.mode = MBProgressHUDModeText;
-            [parentPost.comments addObject:comment];
-            [parentPost incrementKey:@"commentCount"];
-            [parentPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (succeeded) {
-                    [self loadComments];
-                    [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-                    hud.labelText = @"评论成功";
-                    [hud hide:YES afterDelay:0.2];
-                    inputComment.text = @"";
-                    [self textViewDidChange:inputComment];
-                } else {
-                    hud.labelText = @"评论失败";
-                    [hud hide:YES afterDelay:0.4];
-                }
-                
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    NSString * toBeString = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    if (toBeString.length > 140) {
+        textView.text = [toBeString substringToIndex:140];
+        return NO;
+    }
+    return YES;
 
-            }];
-        } else {
-            hud.labelText = @"评论失败";
-            [hud hide:YES afterDelay:0.4];
-        }
-    }];
-    
+}
+- (IBAction)sendComment:(id)sender {
+    if (inputComment.text.length == 0) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"写点字吧~";
+        [hud hide:YES afterDelay:0.3];
+    } else {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.detailsLabelText = @"发布评论中";
+        [inputComment resignFirstResponder];
+        SDComment* comment = [SDComment object];
+        comment.text = inputComment.text;
+        [comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            if (succeeded) {
+                
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                [parentPost.comments addObject:comment];
+                [parentPost incrementKey:@"commentCount"];
+                [parentPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (succeeded) {
+                        [self loadComments];
+                        [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+                        hud.labelText = @"评论成功";
+                        [hud hide:YES afterDelay:0.2];
+                        inputComment.text = @"";
+                        [self textViewDidChange:inputComment];
+                    } else {
+                        hud.labelText = @"评论失败";
+                        [hud hide:YES afterDelay:0.4];
+                    }
+                    
+                    
+                }];
+            } else {
+                hud.labelText = @"评论失败";
+                [hud hide:YES afterDelay:0.4];
+            }
+        }];
+    }
 }
 
 - (void)loadComments

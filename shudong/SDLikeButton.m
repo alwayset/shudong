@@ -77,6 +77,10 @@
     
 }
 
+- (void)initRedHeart:(BOOL)like {
+    [redImage setAlpha:like];
+}
+
 - (void)setHighlighted:(BOOL)highlighted
 {
     if (highlighted) {
