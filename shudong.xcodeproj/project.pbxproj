@@ -95,6 +95,8 @@
 		2BEFCD251919443800E8BEE4 /* tabbar_mainbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEFCD191919443800E8BEE4 /* tabbar_mainbtn@2x.png */; };
 		2BEFCD261919443800E8BEE4 /* tabbar_mainbtn_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEFCD1A1919443800E8BEE4 /* tabbar_mainbtn_bg.png */; };
 		2BEFCD271919443800E8BEE4 /* tabbar_mainbtn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BEFCD1B1919443800E8BEE4 /* tabbar_mainbtn_bg@2x.png */; };
+		2BEFCD2A191A334B00E8BEE4 /* SDPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEFCD29191A334B00E8BEE4 /* SDPageViewController.m */; };
+		2BEFCD2D191A349700E8BEE4 /* SDDetailHoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BEFCD2C191A349700E8BEE4 /* SDDetailHoleViewController.m */; };
 		840A34E6190E8DA00062458D /* beautifulBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34E4190E8DA00062458D /* beautifulBackground.png */; };
 		840A34E7190E8DA00062458D /* welcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34E5190E8DA00062458D /* welcome.png */; };
 		840A34E9190E8EFC0062458D /* renren.png in Resources */ = {isa = PBXBuildFile; fileRef = 840A34E8190E8EFC0062458D /* renren.png */; };
@@ -248,6 +250,10 @@
 		2BEFCD191919443800E8BEE4 /* tabbar_mainbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mainbtn@2x.png"; sourceTree = "<group>"; };
 		2BEFCD1A1919443800E8BEE4 /* tabbar_mainbtn_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_mainbtn_bg.png; sourceTree = "<group>"; };
 		2BEFCD1B1919443800E8BEE4 /* tabbar_mainbtn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mainbtn_bg@2x.png"; sourceTree = "<group>"; };
+		2BEFCD28191A334B00E8BEE4 /* SDPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPageViewController.h; sourceTree = "<group>"; };
+		2BEFCD29191A334B00E8BEE4 /* SDPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPageViewController.m; sourceTree = "<group>"; };
+		2BEFCD2B191A349700E8BEE4 /* SDDetailHoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDDetailHoleViewController.h; sourceTree = "<group>"; };
+		2BEFCD2C191A349700E8BEE4 /* SDDetailHoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDDetailHoleViewController.m; sourceTree = "<group>"; };
 		32DE6D10F85344DDBFC9682B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A55B3F1630C404793F4267D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		840A34E4190E8DA00062458D /* beautifulBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = beautifulBackground.png; path = images/beautifulBackground.png; sourceTree = "<group>"; };
@@ -440,6 +446,10 @@
 				2BD76083190BDE9800C60FCE /* SDTabViewController.h */,
 				2BD76076190BC22B00C60FCE /* data model */,
 				2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */,
+				2BEFCD28191A334B00E8BEE4 /* SDPageViewController.h */,
+				2BEFCD29191A334B00E8BEE4 /* SDPageViewController.m */,
+				2BEFCD2B191A349700E8BEE4 /* SDDetailHoleViewController.h */,
+				2BEFCD2C191A349700E8BEE4 /* SDDetailHoleViewController.m */,
 				2B70E27E1916758C0058F5BE /* SDHoleFilterTableViewController.h */,
 				2B70E27F1916758C0058F5BE /* SDHoleFilterTableViewController.m */,
 				2B70E27B19165DA30058F5BE /* SDRootViewController.h */,
@@ -793,6 +803,7 @@
 				2B70E27419163AFE0058F5BE /* NSString+SBJSON.m in Sources */,
 				840A35381918B9930062458D /* SDLikeButton.m in Sources */,
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,
+				2BEFCD2D191A349700E8BEE4 /* SDDetailHoleViewController.m in Sources */,
 				2BD76084190BDE9800C60FCE /* SDTabViewController.m in Sources */,
 				2B70E27D19165DA30058F5BE /* SDRootViewController.m in Sources */,
 				2B70E27619163AFE0058F5BE /* SBJsonBase.m in Sources */,
@@ -806,6 +817,7 @@
 				840A351B191233FC0062458D /* SDViewPictureViewController.m in Sources */,
 				2B572166190FEF3A00EE5964 /* SDHoleTableViewCell.m in Sources */,
 				840A353019138CA80062458D /* SDComment.m in Sources */,
+				2BEFCD2A191A334B00E8BEE4 /* SDPageViewController.m in Sources */,
 				2BD76079190BC24700C60FCE /* SDPost.m in Sources */,
 				2BEFCD0D1919438D00E8BEE4 /* tabbarView.m in Sources */,
 				2BD7607C190BC34F00C60FCE /* SDHole.m in Sources */,
