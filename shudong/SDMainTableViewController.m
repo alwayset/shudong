@@ -37,6 +37,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadMyHoles) name:DidLoadMyHolesNotif object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPreparingWithNewPostNotif object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLike:) name:LikedAPostNotif object:nil];
     
     refresh = [[UIRefreshControl alloc] init];
     [self.tableview addSubview:refresh];
@@ -95,7 +96,10 @@
         [self loadPosts];
     }
 }
-
+- (void)reloadLike:(NSNotification*)notif
+{
+    [self.tableview reloadRowsAtIndexPaths:[NSArray arrayWithObject:notif.object] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -171,7 +175,7 @@
     
     SDViewPictureViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
     vc.parentPost = [dataSource objectAtIndex:indexPath.row];
-    
+    vc.indexPathInMain = indexPath;
     [self.navigationController pushViewController:vc animated:YES];
     
 //    SDTabViewController *tabbar = (SDTabViewController *)self.tabBarController;

@@ -25,6 +25,12 @@
 
 
 @property (nonatomic, strong) NSMutableArray *myLikes;
+@property (nonatomic, strong) NSMutableArray *newsArr;
+@property (nonatomic, strong) NSMutableDictionary *newsDict;
+
+@property BOOL newsArrInitialized;
+@property BOOL postsArrInitialized;
+@property BOOL likesArrInitialized;
 //methods
 + (void)initEverything;
 

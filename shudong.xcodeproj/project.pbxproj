@@ -120,6 +120,8 @@
 		840A35381918B9930062458D /* SDLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 840A35371918B9930062458D /* SDLikeButton.m */; };
 		840F5ECF1918C21600082684 /* liked.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F5ECD1918C21600082684 /* liked.png */; };
 		840F5ED01918C21600082684 /* liked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F5ECE1918C21600082684 /* liked@2x.png */; };
+		840F5ED4191A686500082684 /* SDActivitiesCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F5ED3191A686500082684 /* SDActivitiesCenterViewController.m */; };
+		840F5ED7191A6A2100082684 /* SDActitityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F5ED6191A6A2100082684 /* SDActitityCell.m */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -284,6 +286,10 @@
 		840A35371918B9930062458D /* SDLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLikeButton.m; sourceTree = "<group>"; };
 		840F5ECD1918C21600082684 /* liked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = liked.png; path = images/liked.png; sourceTree = "<group>"; };
 		840F5ECE1918C21600082684 /* liked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "liked@2x.png"; path = "images/liked@2x.png"; sourceTree = "<group>"; };
+		840F5ED2191A686500082684 /* SDActivitiesCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDActivitiesCenterViewController.h; sourceTree = "<group>"; };
+		840F5ED3191A686500082684 /* SDActivitiesCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDActivitiesCenterViewController.m; sourceTree = "<group>"; };
+		840F5ED5191A6A2100082684 /* SDActitityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDActitityCell.h; sourceTree = "<group>"; };
+		840F5ED6191A6A2100082684 /* SDActitityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDActitityCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,6 +490,10 @@
 				840A353219138E4B0062458D /* SDCommentCell.m */,
 				840A35361918B9930062458D /* SDLikeButton.h */,
 				840A35371918B9930062458D /* SDLikeButton.m */,
+				840F5ED2191A686500082684 /* SDActivitiesCenterViewController.h */,
+				840F5ED3191A686500082684 /* SDActivitiesCenterViewController.m */,
+				840F5ED5191A6A2100082684 /* SDActitityCell.h */,
+				840F5ED6191A6A2100082684 /* SDActitityCell.m */,
 			);
 			path = shudong;
 			sourceTree = "<group>";
@@ -804,9 +814,11 @@
 				840A35381918B9930062458D /* SDLikeButton.m in Sources */,
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,
 				2BEFCD2D191A349700E8BEE4 /* SDDetailHoleViewController.m in Sources */,
+				840F5ED7191A6A2100082684 /* SDActitityCell.m in Sources */,
 				2BD76084190BDE9800C60FCE /* SDTabViewController.m in Sources */,
 				2B70E27D19165DA30058F5BE /* SDRootViewController.m in Sources */,
 				2B70E27619163AFE0058F5BE /* SBJsonBase.m in Sources */,
+				840F5ED4191A686500082684 /* SDActivitiesCenterViewController.m in Sources */,
 				2B338365190B94570068962C /* SDMainTableViewController.m in Sources */,
 				2B57216C191006BF00EE5964 /* SDUser.m in Sources */,
 				2B72D648190E37800065D66C /* SDAddPostViewController.m in Sources */,

@@ -16,7 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *text;
 @property (strong, nonatomic) IBOutlet SDLikeButton *likeButton;
 @property (strong, nonatomic) IBOutlet UIButton *commentButton;
-
+@property (strong, nonatomic) NSIndexPath* indexPathInMain;
 @property (nonatomic, strong) SDPost *post;
 
 - (void)showPictureWithData:(NSData *)data;

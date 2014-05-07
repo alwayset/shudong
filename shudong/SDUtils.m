@@ -11,7 +11,7 @@
 
 #import "SDUtils.h"
 #import "SDHole.h"
-
+#import "SDPost.h"
 static SDUtils *singletonInstance;
 
 
@@ -26,7 +26,8 @@ static SDUtils *singletonInstance;
 
 
 @synthesize mySchools;
-@synthesize myLikes;
+@synthesize myLikes,newsArr,newsDict;
+@synthesize likesArrInitialized,postsArrInitialized,newsArrInitialized;
 //initialization
 
 
@@ -195,6 +196,71 @@ static SDUtils *singletonInstance;
     }
     
     NSLog(@"the parsed data is: %@", parsedHoles);
+}
+- (void)loadNewsArr {
+    
+    
+//    if (postsArrInitialized == NO) {
+//        [self loadPostsArr];
+//        return;
+//    }
+    
+    AVStatusQuery *query  = [AVStatus inboxQuery:@"news"];
+    
+    query.limit = 5000;
+    
+    query.cachePolicy = kAVCachePolicyNetworkElseCache;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            newsArrInitialized = YES;
+            newsArr = [NSMutableArray arrayWithArray:objects];
+            [self updateNewsDict];
+            //[[NSNotificationCenter defaultCenter] postNotificationName:NewsArrLoadedNotif object:nil];
+        } else {
+            // do something?
+        }
+    }];
+}
+
+- (void)updateNewsDict {
+    newsArr = [[NSMutableArray alloc] init];
+    newsDict = [[NSMutableDictionary alloc] init];
+    /*
+    for (AVStatus *eachStatus in newsArr) {
+        
+        
+        NSNumber *newsType = eachStatus.data[@"type"];
+        
+        if (newsType.integerValue == NewsNewFriend) {
+            
+            NSString *newFriendId = eachStatus.data[@"userId"];
+            [[AVUser currentUser] follow:newFriendId andCallback:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                   // [[NSNotificationCenter defaultCenter] postNotificationName:MainShouldRefreshNotif object:[NSNumber numberWithInt:kCategoryFriends]];
+                    [AVStatus deleteStatusWithID:eachStatus.objectId andCallback:^(BOOL succeeded, NSError *error) {
+                    }];
+                }
+            }];
+            
+            
+        } else {
+            NSString *postId = eachStatus.data[@"postId"];
+            NSUInteger wallObjectIndex = [_myPostsObjectIds indexOfObject:postId];
+            SDPost *newsWallObject = [postsArr objectAtIndex:wallObjectIndex];
+            if (![newsArr containsObject:newsWallObject]) {
+                [newsArr addObject:newsWallObject];
+                [newsDict setObject:@{@"like": @0, @"comment": @0} forKey:postId];
+            }
+            NSNumber *likeCount = newsDict[newsWallObject.objectId][@"like"];
+            NSNumber *commentCount = newsWODict[newsWallObject.objectId][@"comment"];
+            if (newsType.intValue == NewsLikeType) {
+                likeCount = [NSNumber numberWithInt:likeCount.intValue + 1];
+            } else if (newsType.intValue == NewsCommentType) {
+                commentCount = [NSNumber numberWithInt:commentCount.intValue + 1];
+            }
+            [newsWODict setObject:@{@"like":likeCount, @"comment":commentCount} forKey:newsWallObject.objectId];
+        }
+    }*/
 }
 
 @end
