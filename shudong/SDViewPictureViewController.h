@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UITextView *inputComment;
 @property (strong, nonatomic) IBOutlet UIView *inputView;
 @property (strong, nonatomic) IBOutlet UIView *commentBar;
+@property (strong, nonatomic) NSIndexPath* indexPathInMain;
 @property (nonatomic,strong) SDPost* parentPost;
 @end

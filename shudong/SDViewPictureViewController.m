@@ -113,6 +113,7 @@
                 cell.picture.image = [UIImage imageWithData:parentPost.image.getData];
             }
             [cell setNumbers];
+            cell.indexPathInMain = self.indexPathInMain;
             return cell;
             break;
         }
@@ -124,6 +125,7 @@
             CGRect rect = [comment.text boundingRectWithSize:CGSizeMake(240, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0]} context:nil];
             [cell.text setFrame:CGRectMake(60, 11, 240, rect.size.height)];
             [cell.time setFrame:CGRectMake(200, cell.text.frame.origin.y+rect.size.height+3, 100, 14)];
+            
             // Configure the cell...
             
             return cell;

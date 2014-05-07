@@ -86,7 +86,7 @@
     if (highlighted) {
         [UIView animateWithDuration:0.1
                               delay:0.0
-                            options:UIViewAnimationOptionCurveEaseIn
+                            options:UIViewAnimationOptionCurveLinear
                          animations:^{
                              [buttonImage setFrame:CGRectMake(imageRect.origin.x - 3, imageRect.origin.y - 3, 26, 26)];
                              if (!redImage.hidden) [redImage setFrame:CGRectMake(imageRect.origin.x - 3, imageRect.origin.y - 3, 26, 26)];
@@ -98,7 +98,7 @@
     } else {
         [UIView animateWithDuration:0.2
                               delay:0.0
-                            options:UIViewAnimationOptionCurveEaseIn
+                            options:UIViewAnimationOptionCurveLinear
                          animations:^{
                              [buttonImage setFrame:imageRect];
                              if (!redImage.hidden) [redImage setFrame:imageRect];

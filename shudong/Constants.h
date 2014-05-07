@@ -16,7 +16,7 @@
 #define DidLoadMyHolesNotif @"did_load_my_holes"
 #define LikeArrLoadedNotif @"like_array_loaded"
 #define DidFinishPreparingWithNewPostNotif @"did_finish_preparing_with_new_post"
-
+#define LikedAPostNotif @"liked_a_post"
 
 #define ShouldShowTabbarNotif @"should_show_tab_bar"
 #define ShouldHideTabbarNotif @"should_hide_tab_bar"

@@ -8,6 +8,8 @@
 
 #import "SDPostTableViewCell.h"
 #import "SDUtils.h"
+#import "Constants.h"
+
 @implementation SDPostTableViewCell
 
 @synthesize picture, text;
@@ -79,7 +81,7 @@
     }
     [self.likeButton setText:[self.post.likeCount stringValue]];
     [self.post saveEventually];
-    
+    if (self.indexPathInMain) [[NSNotificationCenter defaultCenter] postNotificationName:LikedAPostNotif object:self.indexPathInMain];
     
     /*
     [UIView animateWithDuration:0.3
