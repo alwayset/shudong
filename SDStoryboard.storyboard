@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="I7C-oW-Y0O">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NYO-QV-XCf">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -10,7 +10,8 @@
             <objects>
                 <tabBarController storyboardIdentifier="tab" definesPresentationContext="YES" id="NYO-QV-XCf" customClass="SDTabViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="MRE-wI-HW5">
+                    <size key="freeformSize" width="320" height="568"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" itemPositioning="fill" id="MRE-wI-HW5">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -18,28 +19,31 @@
                         <color key="barTintColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
+                    <connections>
+                        <segue destination="wDX-WC-2EY" kind="relationship" relationship="viewControllers" id="Ynk-0u-4xi"/>
+                        <segue destination="zVx-kJ-PP6" kind="relationship" relationship="viewControllers" id="i0l-Gf-VgE"/>
+                        <segue destination="ep5-NL-USI" kind="relationship" relationship="viewControllers" id="QC3-0G-Xoz"/>
+                        <segue destination="5P5-Hs-Xi6" kind="relationship" relationship="viewControllers" id="Knb-bm-6so"/>
+                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNK-KS-OjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarItem title="Item" id="Q87-MN-03j"/>
             </objects>
             <point key="canvasLocation" x="-171" y="-767"/>
         </scene>
-        <!--Tabbar View Controller-->
-        <scene sceneID="HzA-pT-Urv">
+        <!--Tab Bar Controller-->
+        <scene sceneID="l5x-8o-udL">
             <objects>
-                <viewController id="I7C-oW-Y0O" customClass="tabbarViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CSf-BC-5xF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="view" destination="CSf-BC-5xF" id="v9T-cz-5ea"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ulj-zE-vXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController definesPresentationContext="YES" id="HbT-AE-Qxv" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="IZ7-97-XDu">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Lo-lD-Us6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="148"/>
+            <point key="canvasLocation" x="-850" y="-796"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="nMQ-6E-G1z">
@@ -98,8 +102,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="发现" image="sixin.png" id="Kx5-QI-lVL">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="30" vertical="0.0"/>
+                    <tabBarItem key="tabBarItem" title="发现" image="home.png" id="Kx5-QI-lVL">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jog-7Z-Etm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,6 +155,7 @@
             <objects>
                 <navigationController storyboardIdentifier="main" definesPresentationContext="YES" id="wDX-WC-2EY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" image="home.png" id="H8f-sh-CxZ"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="412-P1-Uz8">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -190,7 +195,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999999999999991" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="ueg-39-7mW">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" patternImage="38DD1E76-801F-40F4-806B-C0157135EB50" colorSpace="pattern"/>
+                                                    <color key="backgroundColor" patternImage="403EBF22-D33C-4F62-AD86-CD561437F9C0" colorSpace="pattern"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dG4-2c-ObU">
@@ -259,6 +264,12 @@
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="pdg-Ge-Rxo" kind="push" identifier="filter" id="RaH-2T-0vR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="pKS-La-HAr">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addPost" destination="38C-lH-9P9" id="Iua-pL-ijx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -364,7 +375,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="V0Z-oQ-LqJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" patternImage="5542270C-E793-4EB7-BB1E-2421F7AEB67C" colorSpace="pattern"/>
+                                                    <color key="backgroundColor" patternImage="35F3B786-E2CB-41A0-A2BF-F634F8668217" colorSpace="pattern"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UWZ-Gq-QmI">
@@ -454,7 +465,7 @@
                                     <outlet property="delegate" destination="Akj-I2-JP2" id="zoz-xM-Fhi"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" id="Bj9-Kd-tEQ">
+                            <view contentMode="scaleToFill" id="Bj9-Kd-tEQ" userLabel="input view">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -527,7 +538,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="提醒" image="activity.png" id="C3j-9E-rNM">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="-25" vertical="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZF-Gm-VBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -681,7 +692,7 @@
             </objects>
             <point key="canvasLocation" x="1616" y="312"/>
         </scene>
-        <!--View Controller - 个人中心-->
+        <!--View Controller - 我的-->
         <scene sceneID="RcM-5g-yMG">
             <objects>
                 <viewController id="5P5-Hs-Xi6" sceneMemberID="viewController">
@@ -690,8 +701,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="个人中心" image="home.png" id="Rb7-Y4-qqX">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="8" vertical="0.0"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="home.png" id="Rb7-Y4-qqX">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ad-fT-19T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -701,7 +712,7 @@
     </scenes>
     <resources>
         <image name="2.jpg" width="640" height="640"/>
-        <image name="38DD1E76-801F-40F4-806B-C0157135EB50" width="640" height="1136">
+        <image name="35F3B786-E2CB-41A0-A2BF-F634F8668217" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -718,7 +729,7 @@ ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
 AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
 </mutableData>
         </image>
-        <image name="5542270C-E793-4EB7-BB1E-2421F7AEB67C" width="640" height="1136">
+        <image name="403EBF22-D33C-4F62-AD86-CD561437F9C0" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -741,7 +752,6 @@ AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
         <image name="face.png" width="60" height="60"/>
         <image name="home.png" width="22" height="22"/>
         <image name="renrenButton.png" width="50" height="50"/>
-        <image name="sixin.png" width="22" height="22"/>
         <image name="welcome.png" width="220" height="220"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

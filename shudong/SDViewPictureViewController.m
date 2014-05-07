@@ -57,6 +57,10 @@
     //[self setHidesBottomBarWhenPushed:YES];
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:ShouldHideTabbarNotif object:nil];
+
+    
     //[[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 

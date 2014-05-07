@@ -74,8 +74,8 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    SDTabViewController *tabvc = (SDTabViewController *)self.tabBarController;
-    [tabvc hideButton:NO];
+//    SDTabViewController *tabvc = (SDTabViewController *)self.tabBarController;
+//    [tabvc hideButton:NO];
 }
 
 - (void)didReceiveMemoryWarning

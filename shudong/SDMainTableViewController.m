@@ -15,6 +15,7 @@
 #import "SDTabViewController.h"
 #import "SDViewPictureViewController.h"
 #import "SDHoleFilterTableViewController.h"
+#import "SDAddPostViewController.h"
 
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
@@ -56,6 +57,8 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = YES;
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
     
 
     [[NSNotificationCenter defaultCenter] postNotificationName:ShouldShowTabbarNotif object:nil];
@@ -153,6 +156,10 @@
 
 
 
+- (IBAction) addPost {
+    SDAddPostViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"addpost"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

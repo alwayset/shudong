@@ -27,7 +27,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTabbar) name:ShouldShowTabbarNotif object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideTabbar) name:ShouldHideTabbarNotif object:nil];
 
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+
     
 	// Do any additional setup after loading the view, typically from a nib.
     CGFloat orginHeight = self.view.frame.size.height- 60;

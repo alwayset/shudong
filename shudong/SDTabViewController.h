@@ -14,6 +14,6 @@
 @property (nonatomic, strong) UINavigationController *nav;
 
 
-@property (nonatomic,strong) UIButton* button;
-- (void)hideButton:(BOOL)hide;
+//@property (nonatomic,strong) UIButton* button;
+//- (void)hideButton:(BOOL)hide;
 @end
