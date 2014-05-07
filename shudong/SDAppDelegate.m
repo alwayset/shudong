@@ -8,15 +8,31 @@
 
 #import "SDAppDelegate.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "SDUtils.h"
+//subclasses
+#import "SDPost.h"
+#import "SDHole.h"
+#import "SDUser.h"
+#import "SDComment.h"
+#import <RennSDK/RennSDK.h>
 
 @implementation SDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [SDUtils initEverything];
+    
+    [SDPost registerSubclass];
+    [SDHole registerSubclass];
+    [SDUser registerSubclass];
+    [SDComment registerSubclass];
     [AVOSCloud setApplicationId:@"s945n7d9l5jhkt3xzyab3kwf8z7be91o3dht4mgwtdees0tq"
                       clientKey:@"jm3k9sp67oydhl32cp2c5babelxz9uvg1m82k09enmgbt687"];
 
+    
+    
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     return YES;
@@ -47,6 +63,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [RennClient  handleOpenURL:url];
 }
 
 @end

@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVOSCloud/AVOSCloud.h>
+#import "SDUtils.h"
+#import "SDPost.h"
+@interface SDMainTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
+    
+    
+}
 
-@interface SDMainTableViewController : UITableViewController
+
+@property (nonatomic, strong) IBOutlet UITableView *tableview;
+@property (nonatomic) int selectedRow;
+
 
 @end

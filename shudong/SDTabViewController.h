@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SDTabViewController : UITabBarController
+@interface SDTabViewController : UITabBarController<UINavigationControllerDelegate> {
+}
 
+@property (nonatomic, strong) UINavigationController *nav;
+
+
+@property (nonatomic,strong) UIButton* button;
+- (void)hideButton:(BOOL)hide;
 @end
