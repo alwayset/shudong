@@ -12,6 +12,7 @@
 #import "SDComment.h"
 #import "SDUtils.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "Constants.h"
 @interface SDViewPictureViewController () {
     UIRefreshControl *refresh;
 }
@@ -58,6 +59,13 @@
     [self.navigationController setNavigationBarHidden:NO];
     //[[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
+
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ShouldShowTabbarNotif object:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

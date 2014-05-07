@@ -67,7 +67,7 @@
         button.center = center;
     }
     
-    [self.view addSubview:button];
+    [self.tabBar addSubview:button];
 
 }
 

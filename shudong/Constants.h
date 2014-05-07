@@ -18,6 +18,10 @@
 #define DidFinishPreparingWithNewPostNotif @"did_finish_preparing_with_new_post"
 
 
+#define ShouldShowTabbarNotif @"should_show_tab_bar"
+#define ShouldHideTabbarNotif @"should_hide_tab_bar"
+
+
 //renren
 #define RR_APP_ID @"267400"
 #define RR_API_KEY @"201d20f5e4f3429d9ad1fec1254e9d80"

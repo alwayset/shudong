@@ -58,6 +58,7 @@
     self.navigationController.navigationBar.translucent = YES;
     
 
+    [[NSNotificationCenter defaultCenter] postNotificationName:ShouldShowTabbarNotif object:nil];
 
 
     if (![AVUser currentUser]) {
@@ -151,10 +152,16 @@
 }
 
 
+
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //[self.tabBarController setHidesBottomBarWhenPushed:YES];
     //[(SDTabViewController*)self.tabBarController hideButton:YES];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:ShouldHideTabbarNotif object:nil];
+    
     SDViewPictureViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
     vc.parentPost = [dataSource objectAtIndex:indexPath.row];
     
