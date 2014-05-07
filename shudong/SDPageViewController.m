@@ -35,6 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setViewControllers:(NSArray *)viewControllers direction:(UIPageViewControllerNavigationDirection)direction animated:(BOOL)animated completion:(void (^)(BOOL))completion {
+    
+}
+
 /*
 #pragma mark - Navigation
 
