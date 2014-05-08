@@ -26,7 +26,10 @@
 
 @property (nonatomic, strong) NSMutableArray *myLikes;
 @property (nonatomic, strong) NSMutableArray *newsArr;
+@property (nonatomic, strong) NSMutableArray *postsArr;
+@property (nonatomic, strong) NSMutableArray *newsPostArr;
 @property (nonatomic, strong) NSMutableDictionary *newsDict;
+@property (nonatomic, strong) NSMutableArray *myPostsObjectIds;
 
 @property BOOL newsArrInitialized;
 @property BOOL postsArrInitialized;
@@ -41,7 +44,7 @@
 + (SDUtils *)sharedInstance;
 
 - (void)loadMyHoles;
-
+- (void)loadPosts;
 
 
 + (void)log:(NSString *)message;

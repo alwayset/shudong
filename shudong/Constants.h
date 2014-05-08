@@ -14,9 +14,12 @@
 
 
 #define DidLoadMyHolesNotif @"did_load_my_holes"
+#define DidLoadPostsNotif @"did_load_posts"
 #define LikeArrLoadedNotif @"like_array_loaded"
 #define DidFinishPreparingWithNewPostNotif @"did_finish_preparing_with_new_post"
 #define LikedAPostNotif @"liked_a_post"
+#define NewsArrLoadedNotif @"news_array_loaded"
+
 
 #define ShouldShowTabbarNotif @"should_show_tab_bar"
 #define ShouldHideTabbarNotif @"should_hide_tab_bar"
@@ -33,5 +36,8 @@
 #define HOLE_TYPE_DEPT 2
 #define HOLE_TYPE_YEAR 3
 
+#define NewsLikeType 0
+#define NewsCommentType 1
+#define NewsNewFriend 2
 
 #endif

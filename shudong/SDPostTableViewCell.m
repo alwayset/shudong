@@ -80,7 +80,23 @@
         [self.likeButton setRedHeart:YES];
     }
     [self.likeButton setText:[self.post.likeCount stringValue]];
-    [self.post saveEventually];
+    [self.post saveEventually:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            AVStatus *likeStatus = [[AVStatus alloc] init];
+            AVQuery *query = [AVUser query];
+            [query whereKey:@"objectId" equalTo:self.post.poster.objectId];
+            [likeStatus setQuery:query];
+            likeStatus.type = @"news";
+            likeStatus.data = @{@"text":@"有人赞了你的秘密", @"type":[NSNumber numberWithInt:NewsLikeType], @"postObjectId":self.post.objectId};
+            [likeStatus sendInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                //do something;
+                if (error) {
+                    NSLog(@"like status error: %@", error);
+                }
+            }];
+
+        }
+    }];
     if (self.indexPathInMain) [[NSNotificationCenter defaultCenter] postNotificationName:LikedAPostNotif object:self.indexPathInMain];
     
     /*
