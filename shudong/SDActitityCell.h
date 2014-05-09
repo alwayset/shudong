@@ -12,5 +12,6 @@
 //@property (strong, nonatomic) MBProgressHUD *progressHud;
 @property (strong, nonatomic) IBOutlet UIImageView *imageview;
 @property (strong, nonatomic) SDPost* post;
+@property (strong, nonatomic) UIView* newsView;
 - (void)showThumbnailWithData:(NSData *)data;
 @end

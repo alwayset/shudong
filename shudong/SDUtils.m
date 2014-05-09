@@ -26,7 +26,7 @@ static SDUtils *singletonInstance;
 
 
 @synthesize mySchools;
-@synthesize myLikes,newsArr,newsDict;
+@synthesize myLikes,newsArr,newsDict,postsArr,myPostsObjectIds,newsPostArr;
 @synthesize likesArrInitialized,postsArrInitialized,newsArrInitialized;
 //initialization
 
@@ -50,9 +50,39 @@ static SDUtils *singletonInstance;
         } else {
             [SDUtils showErrALertWithText:@"载入失败"];
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:DidLoadMyHolesNotif object:nil];
+        //[[NSNotificationCenter defaultCenter] postNotificationName:DidLoadMyHolesNotif object:nil];
+        [self loadPosts];
     }];
     [self loadMyLike];
+}
+- (void)loadPosts {
+    if (myHoles != nil) {
+        [[self postQuery] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                postsArr = [NSMutableArray arrayWithArray:objects];
+                myPostsObjectIds = [NSMutableArray arrayWithArray:[postsArr valueForKey:@"objectId"]];
+                [[NSNotificationCenter defaultCenter] postNotificationName:DidLoadPostsNotif object:nil];
+                [self loadNewsArr];
+            } else {
+                //do nothing by far
+            }
+        }];
+    } else {
+        [self loadMyHoles];
+    }
+}
+
+
+
+/***** query ******/
+
+- (AVQuery *)postQuery {
+    AVQuery *postQuery = [SDPost query];
+    [postQuery orderByDescending:@"createdAt"];
+    postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;
+    postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
+    //[postQuery whereKey:@"holes" containedIn:[SDUtils sharedInstance].myHoles];
+    return postQuery;
 }
 
 - (void)loadMyLike {
@@ -215,7 +245,7 @@ static SDUtils *singletonInstance;
             newsArrInitialized = YES;
             newsArr = [NSMutableArray arrayWithArray:objects];
             [self updateNewsDict];
-            //[[NSNotificationCenter defaultCenter] postNotificationName:NewsArrLoadedNotif object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NewsArrLoadedNotif object:nil];
         } else {
             // do something?
         }
@@ -223,9 +253,9 @@ static SDUtils *singletonInstance;
 }
 
 - (void)updateNewsDict {
-    newsArr = [[NSMutableArray alloc] init];
+    newsPostArr = [[NSMutableArray alloc] init];
     newsDict = [[NSMutableDictionary alloc] init];
-    /*
+    
     for (AVStatus *eachStatus in newsArr) {
         
         
@@ -244,23 +274,23 @@ static SDUtils *singletonInstance;
             
             
         } else {
-            NSString *postId = eachStatus.data[@"postId"];
-            NSUInteger wallObjectIndex = [_myPostsObjectIds indexOfObject:postId];
-            SDPost *newsWallObject = [postsArr objectAtIndex:wallObjectIndex];
-            if (![newsArr containsObject:newsWallObject]) {
-                [newsArr addObject:newsWallObject];
+            NSString *postId = eachStatus.data[@"postObjectId"];
+            NSUInteger postIndex = [myPostsObjectIds indexOfObject:postId];
+            SDPost *newsPost = [postsArr objectAtIndex:postIndex];
+            if (![newsPostArr containsObject:newsPost]) {
+                [newsPostArr addObject:newsPost];
                 [newsDict setObject:@{@"like": @0, @"comment": @0} forKey:postId];
             }
-            NSNumber *likeCount = newsDict[newsWallObject.objectId][@"like"];
-            NSNumber *commentCount = newsWODict[newsWallObject.objectId][@"comment"];
+            NSNumber *likeCount = newsDict[newsPost.objectId][@"like"];
+            NSNumber *commentCount = newsDict[newsPost.objectId][@"comment"];
             if (newsType.intValue == NewsLikeType) {
                 likeCount = [NSNumber numberWithInt:likeCount.intValue + 1];
             } else if (newsType.intValue == NewsCommentType) {
                 commentCount = [NSNumber numberWithInt:commentCount.intValue + 1];
             }
-            [newsWODict setObject:@{@"like":likeCount, @"comment":commentCount} forKey:newsWallObject.objectId];
+            [newsDict setObject:@{@"like":likeCount, @"comment":commentCount} forKey:newsPost.objectId];
         }
-    }*/
+    }
 }
 
 @end

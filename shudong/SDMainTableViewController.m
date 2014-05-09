@@ -35,13 +35,14 @@
     
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadMyHoles) name:DidLoadMyHolesNotif object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadMyHoles) name:DidLoadMyHolesNotif object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadPosts) name:DidLoadPostsNotif object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPreparingWithNewPostNotif object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLike:) name:LikedAPostNotif object:nil];
     
     refresh = [[UIRefreshControl alloc] init];
     [self.tableview addSubview:refresh];
-    [refresh addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
+    [refresh addTarget:[SDUtils sharedInstance] action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
     
     self.selectedRow = -1;
     filesInDownload = [[NSMutableDictionary alloc] init];
@@ -72,7 +73,9 @@
         }];
     } else {
         if (firstLoad) {
-            [self loadPosts];
+            [refresh beginRefreshing];
+            [[SDUtils sharedInstance] loadPosts];
+            firstLoad = NO;
         } else {
         }
 
@@ -90,11 +93,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*
 - (void)didLoadMyHoles {
     if ([SDUtils sharedInstance].myHoles) {
-        [self loadPosts];
+        [[SDUtils sharedInstance] loadPosts];
     }
+}
+ */
+- (void)didLoadPosts {
+    [refresh endRefreshing];
+    dataSource = [SDUtils sharedInstance].postsArr;
+    [self.tableview reloadData];
 }
 - (void)reloadLike:(NSNotification*)notif
 {
@@ -197,6 +206,7 @@
     */
     
 }
+/*
 - (void)loadPosts {
     if ([SDUtils sharedInstance].myHoles != nil) {
         [refresh beginRefreshing];
@@ -215,10 +225,6 @@
     }
 }
 
-
-
-/***** query ******/
-
 - (AVQuery *)postQuery {
     AVQuery *postQuery = [SDPost query];
     [postQuery orderByDescending:@"createdAt"];
@@ -235,7 +241,7 @@
     return postQuery;
 }
 
-
+*/
 
 #pragma mark notification Methods
 
@@ -253,7 +259,7 @@
                         newPost.image = newFile;
                         [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                             if (succeeded) {
-                                [self loadPosts];
+                                [[SDUtils sharedInstance] loadPosts];
                             } else {
                                 [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
                             }
@@ -263,7 +269,7 @@
                     }
                 }];
             }
-            [self loadPosts];
+            [[SDUtils sharedInstance] loadPosts];
         } else {
             [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
         }

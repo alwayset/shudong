@@ -231,6 +231,23 @@
                         [hud hide:YES afterDelay:0.2];
                         inputComment.text = @"";
                         [self textViewDidChange:inputComment];
+
+                        [AVAnalytics event:@"postComment"];
+                        //[PaDataManager pushCommentToUser:parentWallObject.poster object:parentWallObject];
+
+                        AVStatus *status = [[AVStatus alloc] init];
+                        status.data = @{@"text":@"有人评论了你的秘密", @"type":[NSNumber numberWithInt:NewsCommentType], @"postObjectId":self.parentPost.objectId};
+                        AVQuery *query = [AVUser query];
+                        if (parentPost.poster == nil) return;
+                        [query whereKey:@"objectId" equalTo:parentPost.poster.objectId];
+                        status.type = @"news";
+                        [status setQuery:query];
+                        [status sendInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                if (succeeded) {
+                                            
+                                } else {
+                                }
+                        }];
                     } else {
                         hud.labelText = @"评论失败";
                         [hud hide:YES afterDelay:0.4];
