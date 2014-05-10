@@ -87,7 +87,7 @@
     NSNumber *likeCount = counts[@"like"];
     NSNumber *commentCount = counts[@"comment"];
         if (likeCount.intValue > 0) {
-            UILabel *likeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 72, 158.5, 20)];
+            UILabel *likeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 52, 158.5, 20)];
             //likeLabel.font = [UIFont fontWithName:FONT_1 size:14.0f];
             likeLabel.font = [UIFont systemFontOfSize:14.0f];
             likeLabel.textColor = [UIColor blackColor];
@@ -97,7 +97,7 @@
         }
         
         if (commentCount.intValue > 0) {
-            UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 102, 158.5, 20)];
+            UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 82, 158.5, 20)];
             //commentLabel.font = [UIFont fontWithName:FONT_1 size:14.0f];
             commentLabel.font = [UIFont systemFontOfSize:14.0f];
             commentLabel.textColor = [UIColor blackColor];

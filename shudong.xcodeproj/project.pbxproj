@@ -123,6 +123,9 @@
 		840F5ED4191A686500082684 /* SDActivitiesCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F5ED3191A686500082684 /* SDActivitiesCenterViewController.m */; };
 		840F5ED7191A6A2100082684 /* SDActitityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F5ED6191A6A2100082684 /* SDActitityCell.m */; };
 		840F5EDA191BBCBC00082684 /* SDDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F5ED9191BBCBC00082684 /* SDDiscoverViewController.m */; };
+		840F5EDD191E1C2C00082684 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F5EDB191E1C2C00082684 /* setting.png */; };
+		840F5EDE191E1C2C00082684 /* setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F5EDC191E1C2C00082684 /* setting@2x.png */; };
+		840F5EE4191E1F4900082684 /* SDSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F5EE3191E1F4900082684 /* SDSettingViewController.m */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -293,6 +296,10 @@
 		840F5ED6191A6A2100082684 /* SDActitityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDActitityCell.m; sourceTree = "<group>"; };
 		840F5ED8191BBCBC00082684 /* SDDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDDiscoverViewController.h; sourceTree = "<group>"; };
 		840F5ED9191BBCBC00082684 /* SDDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDDiscoverViewController.m; sourceTree = "<group>"; };
+		840F5EDB191E1C2C00082684 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = images/setting.png; sourceTree = "<group>"; };
+		840F5EDC191E1C2C00082684 /* setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting@2x.png"; path = "images/setting@2x.png"; sourceTree = "<group>"; };
+		840F5EE2191E1F4900082684 /* SDSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSettingViewController.h; sourceTree = "<group>"; };
+		840F5EE3191E1F4900082684 /* SDSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,6 +506,8 @@
 				840F5ED6191A6A2100082684 /* SDActitityCell.m */,
 				840F5ED8191BBCBC00082684 /* SDDiscoverViewController.h */,
 				840F5ED9191BBCBC00082684 /* SDDiscoverViewController.m */,
+				840F5EE2191E1F4900082684 /* SDSettingViewController.h */,
+				840F5EE3191E1F4900082684 /* SDSettingViewController.m */,
 			);
 			path = shudong;
 			sourceTree = "<group>";
@@ -566,6 +575,8 @@
 		840A33CB190A938C0062458D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				840F5EDB191E1C2C00082684 /* setting.png */,
+				840F5EDC191E1C2C00082684 /* setting@2x.png */,
 				2BEFCD0F1919443800E8BEE4 /* tabbar */,
 				840F5ECD1918C21600082684 /* liked.png */,
 				840F5ECE1918C21600082684 /* liked@2x.png */,
@@ -716,6 +727,7 @@
 				840A351419122E380062458D /* like@2x.png in Resources */,
 				2BEFCD241919443800E8BEE4 /* tabbar_mainbtn.png in Resources */,
 				2B33835A190B94080068962C /* post.png in Resources */,
+				840F5EDD191E1C2C00082684 /* setting.png in Resources */,
 				840A3518191230650062458D /* comment@2x.png in Resources */,
 				2BEFCD1F1919443800E8BEE4 /* tabbar_1@2x.png in Resources */,
 				2B5F592D191228250077FE43 /* 14.jpg in Resources */,
@@ -740,6 +752,7 @@
 				840F5ED01918C21600082684 /* liked@2x.png in Resources */,
 				2B5F5940191228250077FE43 /* 5.jpg in Resources */,
 				840A3520191239CE0062458D /* commentB.png in Resources */,
+				840F5EDE191E1C2C00082684 /* setting@2x.png in Resources */,
 				2B33835D190B94080068962C /* activity.png in Resources */,
 				2B5F593E191228250077FE43 /* 3.jpg in Resources */,
 				2B33835E190B94080068962C /* activity@2x.png in Resources */,
@@ -816,6 +829,7 @@
 				2BDBDC96190A70D500BEFD09 /* SDViewController.m in Sources */,
 				2BEFCD0E1919438D00E8BEE4 /* tabbarViewController.m in Sources */,
 				2B70E27419163AFE0058F5BE /* NSString+SBJSON.m in Sources */,
+				840F5EE4191E1F4900082684 /* SDSettingViewController.m in Sources */,
 				840A35381918B9930062458D /* SDLikeButton.m in Sources */,
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,
 				2BEFCD2D191A349700E8BEE4 /* SDDetailHoleViewController.m in Sources */,
