@@ -10,6 +10,8 @@
 
 @implementation SDComment
 @dynamic text;
+@dynamic commenter;
+@dynamic face;
 + (NSString *)parseClassName {
     return @"Comment";
 }
