@@ -125,6 +125,7 @@
             CGRect rect = [comment.text boundingRectWithSize:CGSizeMake(240, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0]} context:nil];
             [cell.text setFrame:CGRectMake(60, 11, 240, rect.size.height)];
             [cell.time setFrame:CGRectMake(200, cell.text.frame.origin.y+rect.size.height+3, 100, 14)];
+            [cell.profile setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png",comment.face]]];
             
             // Configure the cell...
             
@@ -215,6 +216,26 @@
         [inputComment resignFirstResponder];
         SDComment* comment = [SDComment object];
         comment.text = inputComment.text;
+        comment.commenter = [AVUser currentUser];
+        comment.face = -1;
+        BOOL hash[872];
+        memset(hash, 0, sizeof(hash));
+        for (SDComment* i in parentPost.commentsArr ) {
+            hash[i.face] = YES;
+            if ([i.commenter.objectId isEqualToString:[AVUser currentUser].objectId]) {
+                comment.face = i.face;
+                break;
+            }
+        }
+        if (comment.face < 0) {
+            int x;
+            BOOL ok = NO;
+            do {
+                x = arc4random()%872;
+                if (!hash[x]) ok = YES;
+            } while (!ok);
+            comment.face = x;
+        }
         [comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             if (succeeded) {

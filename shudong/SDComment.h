@@ -10,4 +10,6 @@
 #import <AVOSCloud/AVOSCloud.h>
 @interface SDComment : AVObject <AVSubclassing>
 @property (nonatomic, copy) NSString* text;
+@property (nonatomic, retain) AVUser* commenter;
+@property (nonatomic) int face;
 @end
