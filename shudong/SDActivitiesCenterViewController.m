@@ -11,6 +11,7 @@
 #import "SDActitityCell.h"
 #import "SDPost.h"
 #import "Constants.h"
+#import "SDViewPictureViewController.h"
 @interface SDActivitiesCenterViewController ()
 
 @end
@@ -18,6 +19,7 @@
 @implementation SDActivitiesCenterViewController
 @synthesize nothingTipLabel,nothingTipView;
 @synthesize filesInDownload;
+@synthesize refresh;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,6 +34,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadNewsArr) name:NewsArrLoadedNotif object:nil];
+    refresh = [[UIRefreshControl alloc] init];
+    [self.collectionView addSubview:refresh];
+    [refresh addTarget:[SDUtils sharedInstance] action:@selector(loadNewsArr) forControlEvents:UIControlEventValueChanged];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,6 +59,7 @@
 - (void)didLoadNewsArr
 {
     [self.collectionView reloadData];
+    [refresh endRefreshing];
 }
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
 {
@@ -127,6 +134,35 @@
     return cell;
     
 }
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    SDActitityCell *selectedCell = (SDActitityCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    //NSMutableArray *sourceArray = [SDUtils sharedInstance].newsPostArr;
+        
+    SDPost *selected = selectedCell.post;
+    NSString *postObjectId = selected.objectId;
+        //        [manager.newsWODict removeObjectForKey:wallObjectObjectId];
+    NSMutableArray *tempNewsArray = [NSMutableArray arrayWithArray:[SDUtils sharedInstance].newsArr];
+    for (AVStatus *eachStatus in tempNewsArray) {
+        NSString *temp = (NSString *)eachStatus.data[@"postObjectId"];
+        if ([temp isEqualToString:postObjectId]) {
+            [AVStatus deleteStatusWithID:eachStatus.objectId andCallback:nil];
+            [[SDUtils sharedInstance].newsArr removeObject:eachStatus];
+        }
+    }
+    [[SDUtils sharedInstance] updateNewsDict];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NewsArrLoadedNotif object:nil];
+    //[[SlideNavigationController sharedInstance] showPictureAtIndex:indexPath.item fromSource:[NSMutableArray arrayWithArray:sourceArray] bounds:originalBounds];
+    //[AVAnalytics event:@"view" label:@"enlarge"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ShouldHideTabbarNotif object:nil];
+    
+    SDViewPictureViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
+    vc.parentPost = selectedCell.post;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)clearImagesInDownload {
     for (AVFile *fileToCancel in filesInDownload) {
         [fileToCancel cancel];

@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSMutableArray *newsArr;
 @property (nonatomic, strong) NSMutableArray *postsArr;
 @property (nonatomic, strong) NSMutableArray *newsPostArr;
+@property (nonatomic, strong) NSMutableArray *subscribeArr;
 @property (nonatomic, strong) NSMutableDictionary *newsDict;
 @property (nonatomic, strong) NSMutableArray *myPostsObjectIds;
 
@@ -45,7 +46,8 @@
 
 - (void)loadMyHoles;
 - (void)loadPosts;
-
+- (void)loadNewsArr; 
+- (void)updateNewsDict;
 
 + (void)log:(NSString *)message;
 + (NSString*)getTimeStr:(NSDate*) time;
