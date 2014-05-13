@@ -13,5 +13,5 @@
 @property (strong, nonatomic) IBOutlet UIView *nothingTipView;
 @property (nonatomic,retain) IBOutlet UILabel* nothingTipLabel;
 @property (strong, nonatomic) NSMutableDictionary *filesInDownload;
-
+@property (strong, nonatomic) UIRefreshControl *refresh;
 @end

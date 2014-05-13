@@ -216,7 +216,6 @@
     newPost.poster = [AVUser currentUser];
     newPost.commentCount = @0;
     newPost.likeCount = @0;
-    
     NSDictionary *uploadPackage;
     if (_isUsingSystemBackground) {
         newPost.picId = _selectedPicId;

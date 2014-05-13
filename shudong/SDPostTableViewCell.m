@@ -81,6 +81,7 @@
     }
     [self.likeButton setText:[self.post.likeCount stringValue]];
     [self.post saveEventually:^(BOOL succeeded, NSError *error) {
+        /*
         if (succeeded) {
             AVStatus *likeStatus = [[AVStatus alloc] init];
             AVQuery *query = [AVUser query];
@@ -96,6 +97,7 @@
             }];
 
         }
+         */
     }];
     if (self.indexPathInMain) [[NSNotificationCenter defaultCenter] postNotificationName:LikedAPostNotif object:self.indexPathInMain];
     

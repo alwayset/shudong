@@ -75,6 +75,8 @@
         if (firstLoad) {
             [refresh beginRefreshing];
             [[SDUtils sharedInstance] loadPosts];
+            [[SDUtils sharedInstance] loadNewsArr];
+            
             firstLoad = NO;
         } else {
         }
@@ -269,6 +271,8 @@
                     }
                 }];
             }
+            [[[AVUser currentUser] relationforKey:@"subscribe"] addObject:newPost];
+            [[AVUser currentUser] saveEventually];
             [[SDUtils sharedInstance] loadPosts];
         } else {
             [SDUtils showErrALertWithText:@"发布失败,请检查网络"];

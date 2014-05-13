@@ -246,6 +246,8 @@
                 [parentPost incrementKey:@"commentCount"];
                 [parentPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
+                        [[[AVUser currentUser] relationforKey:@"subscribe"] addObject:parentPost];
+                        [[AVUser currentUser] saveEventually];
                         [self loadComments];
                         [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
                         hud.labelText = @"评论成功";
@@ -258,9 +260,8 @@
 
                         AVStatus *status = [[AVStatus alloc] init];
                         status.data = @{@"text":@"有人评论了你的秘密", @"type":[NSNumber numberWithInt:NewsCommentType], @"postObjectId":self.parentPost.objectId};
-                        AVQuery *query = [AVUser query];
-                        if (parentPost.poster == nil) return;
-                        [query whereKey:@"objectId" equalTo:parentPost.poster.objectId];
+                        
+                        AVQuery * query = [AVRelation reverseQuery:@"_User" relationKey:@"subscribe" childObject:parentPost];
                         status.type = @"news";
                         [status setQuery:query];
                         [status sendInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
