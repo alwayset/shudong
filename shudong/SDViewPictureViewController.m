@@ -106,6 +106,7 @@
             SDPostTableViewCell *cell = (SDPostTableViewCell *)[tv dequeueReusableCellWithIdentifier:@"post" forIndexPath:indexPath];
             cell.post = parentPost;
             cell.text.text = parentPost.text;
+            cell.infoLabel.text = parentPost[@"source"];
             
             if (parentPost.picId) {
                 cell.picture.image = [UIImage imageNamed:[parentPost.picId.stringValue stringByAppendingString:@".jpg"]];
