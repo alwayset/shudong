@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NYO-QV-XCf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NYO-QV-XCf">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -106,11 +106,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="GHO-rk-mvX">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<<<<<<< HEAD
-                                                    <color key="backgroundColor" patternImage="AEFBE4E4-DAAA-4DE0-97EC-745971BB1410" colorSpace="pattern"/>
-=======
-                                                    <color key="backgroundColor" patternImage="D9496B64-1262-489E-81F0-C0818B4F0B70" colorSpace="pattern"/>
->>>>>>> origin/五月的晴天闪了脖子
+                                                    <color key="backgroundColor" patternImage="8AB9D26F-9136-4F85-83D8-F05F7EFDB31D" colorSpace="pattern"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oCf-tA-3tq">
@@ -259,11 +255,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="AwD-eE-X7l" userLabel="container">
-<<<<<<< HEAD
                                                     <rect key="frame" x="6" y="9" width="308" height="231"/>
-=======
-                                                    <rect key="frame" x="6" y="5" width="308" height="240"/>
->>>>>>> origin/五月的晴天闪了脖子
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="南京大学" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZMo-pd-ZeB">
@@ -278,11 +270,7 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999999999999991" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="ueg-39-7mW">
                                                             <rect key="frame" x="9" y="144" width="290" height="78"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<<<<<<< HEAD
-                                                            <color key="backgroundColor" patternImage="B686E4CE-9C35-4939-B113-C225BC5D6839" colorSpace="pattern"/>
-=======
-                                                            <color key="backgroundColor" patternImage="6628D94A-6B0B-4448-9649-FCACA7B38DD8" colorSpace="pattern"/>
->>>>>>> origin/五月的晴天闪了脖子
+                                                            <color key="backgroundColor" patternImage="78D7020D-66C1-4EF9-A833-D61D1C49DDEE" colorSpace="pattern"/>
                                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dG4-2c-ObU">
@@ -407,19 +395,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-<<<<<<< HEAD
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UWZ-Gq-QmI">
                                                     <rect key="frame" x="23" y="26" width="275" height="109"/>
-=======
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="V0Z-oQ-LqJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" patternImage="FAFD3AB7-FC6A-487B-998D-3F8C02F4CFAA" colorSpace="pattern"/>
-                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UWZ-Gq-QmI">
-                                                    <rect key="frame" x="25" y="83" width="270" height="153"/>
->>>>>>> origin/五月的晴天闪了脖子
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -460,7 +437,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="V0Z-oQ-LqJ">
                                                     <rect key="frame" x="20" y="132" width="278" height="157"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" patternImage="A9EB21F6-2A1A-4374-BC88-0289E25385E7" colorSpace="pattern"/>
+                                                    <color key="backgroundColor" patternImage="214982EF-345E-4213-B140-1B35C3859AA3" colorSpace="pattern"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
@@ -849,11 +826,7 @@
     </scenes>
     <resources>
         <image name="2.jpg" width="640" height="640"/>
-<<<<<<< HEAD
-        <image name="A9EB21F6-2A1A-4374-BC88-0289E25385E7" width="640" height="1136">
-=======
-        <image name="6628D94A-6B0B-4448-9649-FCACA7B38DD8" width="640" height="1136">
->>>>>>> origin/五月的晴天闪了脖子
+        <image name="214982EF-345E-4213-B140-1B35C3859AA3" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -870,11 +843,7 @@ ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
 AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
 </mutableData>
         </image>
-<<<<<<< HEAD
-        <image name="AEFBE4E4-DAAA-4DE0-97EC-745971BB1410" width="640" height="1136">
-=======
-        <image name="D9496B64-1262-489E-81F0-C0818B4F0B70" width="640" height="1136">
->>>>>>> origin/五月的晴天闪了脖子
+        <image name="78D7020D-66C1-4EF9-A833-D61D1C49DDEE" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -891,11 +860,7 @@ ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
 AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
 </mutableData>
         </image>
-<<<<<<< HEAD
-        <image name="B686E4CE-9C35-4939-B113-C225BC5D6839" width="640" height="1136">
-=======
-        <image name="FAFD3AB7-FC6A-487B-998D-3F8C02F4CFAA" width="640" height="1136">
->>>>>>> origin/五月的晴天闪了脖子
+        <image name="8AB9D26F-9136-4F85-83D8-F05F7EFDB31D" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -916,10 +881,6 @@ AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
         <image name="comment.png" width="20" height="20"/>
         <image name="face.png" width="60" height="60"/>
         <image name="home.png" width="22" height="22"/>
-<<<<<<< HEAD
-=======
-        <image name="leftArrow.png" width="22" height="22"/>
->>>>>>> origin/五月的晴天闪了脖子
         <image name="renrenButton.png" width="50" height="50"/>
         <image name="setting.png" width="22" height="22"/>
     </resources>

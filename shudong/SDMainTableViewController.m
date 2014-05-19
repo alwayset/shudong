@@ -125,18 +125,7 @@
     // Return the number of rows in the section.
     return dataSource.count;
 }
-<<<<<<< HEAD
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 250;
-//}
-=======
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 250;
-}
->>>>>>> origin/五月的晴天闪了脖子
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
