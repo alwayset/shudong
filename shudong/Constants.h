@@ -40,4 +40,7 @@
 #define NewsCommentType 1
 #define NewsNewFriend 2
 
+
+#define FONT_1 @"MicrosoftYaHei"
+
 #endif

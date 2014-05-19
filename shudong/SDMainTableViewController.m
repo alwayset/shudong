@@ -61,9 +61,8 @@
     self.navigationController.navigationBar.translucent = YES;
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
-    
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:ShouldShowTabbarNotif object:nil];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 
 
     if (![AVUser currentUser]) {
@@ -126,7 +125,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 320;
+    return 250;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -135,12 +134,12 @@
     
     SDPost *currentPost = dataSource[indexPath.row];
     cell.post = currentPost;
+    cell.titleLabel.text = currentPost[@"title"];
+    cell.text.text = currentPost.text;
     if (!currentPost.image) {
-        cell.text.text = currentPost.text;
         cell.picture.image = [UIImage imageNamed:[currentPost.picId.stringValue stringByAppendingString:@".jpg"]];
     } else {
         cell.picture.image = nil;
-        cell.text.alpha = 0;
         [self startLoading:currentPost forIndexPath:indexPath cell:cell];
     }
     [cell setNumbers];
@@ -323,6 +322,9 @@
 */
 
 
+
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -340,6 +342,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
+
+
 
 
 @end

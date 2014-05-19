@@ -22,6 +22,7 @@
 @property BOOL isUsingSystemBackground;
 @property (strong, nonatomic) NSNumber *selectedPicId;
 
+@property (weak, nonatomic) IBOutlet UITextField *titleField;
 
 @end
 
@@ -49,6 +50,10 @@
     _selectedPicId = @5;
     _background.image = [UIImage imageNamed:[_selectedPicId.stringValue stringByAppendingString:@".jpg"]];
     
+    _toolbar.frame = CGRectMake(0, Screen_Height, 320, 44);
+    _titleField.layer.borderWidth = 2.0f;
+    _titleField.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardDidChangeFrameNotification object:nil];
 
     
@@ -63,11 +68,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [_contentText becomeFirstResponder];
+//    [_contentText becomeFirstResponder];
     
     
 }
@@ -177,7 +184,7 @@
     
     
     [UIView animateWithDuration:animationDuration animations:^{
-
+        _contentText.frame = CGRectMake(0, _toolbar.frame.size.height, Screen_Width, Screen_Height - _toolbar.frame.size.height - keyboardRect.size.height);
         _toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
 
     } completion:^(BOOL finished) {
@@ -204,8 +211,10 @@
     [animationDurationValue getValue:&animationDuration];
     
     [UIView setAnimationDuration:animationDuration];
-    
-    _toolbar.frame = CGRectMake(0, _background.frame.origin.y + 320 - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
+    self.navigationController.navigationBarHidden = NO;
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    _toolbar.frame = CGRectMake(0, Screen_Height, Screen_Width, 44);
+    _contentText.frame = CGRectMake(0, 64, Screen_Width, Screen_Height - 64 - 44);
     [UIView commitAnimations];
 }
 
@@ -259,4 +268,29 @@
     return YES;
 }
 
+
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.navigationController.navigationBarHidden = YES;
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    }];
+    return YES;
+    
+}
+- (IBAction)dismissKeyboard:(id)sender {
+    [self.view endEditing:YES];
+}
+
+//- (UIStatusBarStyle)preferredStatusBarStyle
+//{
+//    return UIStatusBarStyleLightContent;
+//    //UIStatusBarStyleDefault = 0 黑色文字，浅色背景时使用
+//    //UIStatusBarStyleLightContent = 1 白色文字，深色背景时使用
+//}
+//
+//- (BOOL)prefersStatusBarHidden
+//{
+//    return NO; //返回NO表示要显示，返回YES将hiden
+//}
 @end

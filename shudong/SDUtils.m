@@ -263,25 +263,25 @@ static SDUtils *singletonInstance;
     newsPostArr = [[NSMutableArray alloc] init];
     newsDict = [[NSMutableDictionary alloc] init];
     
-    for (AVStatus *eachStatus in newsArr) {
-        
-        NSNumber *newsType = eachStatus.data[@"type"];
-        NSString *postId = eachStatus.data[@"postObjectId"];
-        NSUInteger postIndex = [myPostsObjectIds indexOfObject:postId];
-        SDPost *newsPost = [postsArr objectAtIndex:postIndex];
-        if (![newsPostArr containsObject:newsPost]) {
-            [newsPostArr addObject:newsPost];
-            [newsDict setObject:@{@"like": @0, @"comment": @0} forKey:postId];
-        }
-        NSNumber *likeCount = newsDict[newsPost.objectId][@"like"];
-        NSNumber *commentCount = newsDict[newsPost.objectId][@"comment"];
-        if (newsType.intValue == NewsLikeType) {
-            likeCount = [NSNumber numberWithInt:likeCount.intValue + 1];
-        } else if (newsType.intValue == NewsCommentType) {
-            commentCount = [NSNumber numberWithInt:commentCount.intValue + 1];
-        }
-        [newsDict setObject:@{@"like":likeCount, @"comment":commentCount} forKey:newsPost.objectId];
-    }
+//    for (AVStatus *eachStatus in newsArr) {
+//        
+//        NSNumber *newsType = eachStatus.data[@"type"];
+//        NSString *postId = eachStatus.data[@"postObjectId"];
+//        NSUInteger postIndex = [myPostsObjectIds indexOfObject:postId];
+//        SDPost *newsPost = [postsArr objectAtIndex:postIndex];
+//        if (![newsPostArr containsObject:newsPost]) {
+//            [newsPostArr addObject:newsPost];
+//            [newsDict setObject:@{@"like": @0, @"comment": @0} forKey:postId];
+//        }
+//        NSNumber *likeCount = newsDict[newsPost.objectId][@"like"];
+//        NSNumber *commentCount = newsDict[newsPost.objectId][@"comment"];
+//        if (newsType.intValue == NewsLikeType) {
+//            likeCount = [NSNumber numberWithInt:likeCount.intValue + 1];
+//        } else if (newsType.intValue == NewsCommentType) {
+//            commentCount = [NSNumber numberWithInt:commentCount.intValue + 1];
+//        }
+//        [newsDict setObject:@{@"like":likeCount, @"comment":commentCount} forKey:newsPost.objectId];
+//    }
 }
 
 @end

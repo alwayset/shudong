@@ -15,6 +15,8 @@
 
 
 @interface SDLoginViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *logoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
 
 @end
 
@@ -33,7 +35,10 @@
 {
     [super viewDidLoad];
     [RennClient initWithAppId:RR_APP_ID apiKey:RR_API_KEY secretKey:RR_SECRET];
-
+    self.view.backgroundColor = [UIColor redColor];
+    
+    _logoLabel.font = [UIFont fontWithName:FONT_1 size:40.0f];
+    _subTitleLabel.font = [UIFont fontWithName:FONT_1 size:18.0];
     // Do any additional setup after loading the view.
 }
 
@@ -41,6 +46,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 - (IBAction)loginWithRenren:(id)sender {

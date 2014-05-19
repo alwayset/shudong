@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1FFFFA1929E0CE0085576C /* 微软vista雅黑.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B1FFFF81929E0CE0085576C /* 微软vista雅黑.ttf */; };
+		2B1FFFFB1929E0CE0085576C /* 微软vista雅黑Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B1FFFF91929E0CE0085576C /* 微软vista雅黑Bold.ttf */; };
 		2B33835A190B94080068962C /* post.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B338351190B94080068962C /* post.png */; };
 		2B33835B190B94080068962C /* post@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B338352190B94080068962C /* post@2x.png */; };
 		2B33835C190B94080068962C /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B338353190B94080068962C /* 123.jpg */; };
@@ -1012,6 +1014,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B1FFFF81929E0CE0085576C /* 微软vista雅黑.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "微软vista雅黑.ttf"; sourceTree = "<group>"; };
+		2B1FFFF91929E0CE0085576C /* 微软vista雅黑Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "微软vista雅黑Bold.ttf"; sourceTree = "<group>"; };
 		2B338351190B94080068962C /* post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = post.png; path = images/post.png; sourceTree = "<group>"; };
 		2B338352190B94080068962C /* post@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "post@2x.png"; path = "images/post@2x.png"; sourceTree = "<group>"; };
 		2B338353190B94080068962C /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123.jpg; path = images/123.jpg; sourceTree = "<group>"; };
@@ -2073,6 +2077,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B1FFFF71929E0CE0085576C /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2B1FFFF81929E0CE0085576C /* 微软vista雅黑.ttf */,
+				2B1FFFF91929E0CE0085576C /* 微软vista雅黑Bold.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		2B5F5908191228250077FE43 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -2199,6 +2212,7 @@
 		2BDBDC85190A70D500BEFD09 /* shudong */ = {
 			isa = PBXGroup;
 			children = (
+				2B1FFFF71929E0CE0085576C /* fonts */,
 				2BEFCD081919438D00E8BEE4 /* custom-tabbar */,
 				2B57218D19103CAB00EE5964 /* Common.h */,
 				2B88045E190D7FFA002E0191 /* class extensions */,
@@ -3318,6 +3332,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1FFFFA1929E0CE0085576C /* 微软vista雅黑.ttf in Resources */,
+				2B1FFFFB1929E0CE0085576C /* 微软vista雅黑Bold.ttf in Resources */,
 				840F6590191FA47B00082684 /* 85.png in Resources */,
 				840F656E191FA47B00082684 /* 819.png in Resources */,
 				840F6422191FA47B00082684 /* 52.png in Resources */,

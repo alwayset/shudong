@@ -12,7 +12,7 @@
 
 @implementation SDPostTableViewCell
 
-@synthesize picture, text;
+@synthesize picture, text, titleLabel, containerView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -23,9 +23,27 @@
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+
+    }
+    return self;
+}
+
 - (void)awakeFromNib
 {
     // Initialization code
+    titleLabel.font = [UIFont fontWithName:FONT_1 size:17.0];
+    text.font = [UIFont fontWithName:FONT_1 size:16.0];
+    containerView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+    containerView.layer.shadowOpacity = 0.7f;
+    containerView.layer.shadowOffset = CGSizeMake(2.0f, 4.0f);
+    containerView.layer.shadowRadius = 3.0f;
+    containerView.layer.masksToBounds = NO;
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:containerView.bounds];
+    containerView.layer.shadowPath = path.CGPath;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -48,11 +66,6 @@
     [UIView animateWithDuration:0.1 animations:^{
         picture.alpha = 1;
     }completion:^(BOOL finished) {
-        text.alpha = 0;
-        text.text = _post.text;
-        [UIView animateWithDuration:0.4 animations:^{
-            text.alpha = 1;
-        }];
     }];
 }
 - (IBAction)like:(id)sender {

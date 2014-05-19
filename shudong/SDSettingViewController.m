@@ -7,6 +7,8 @@
 //
 
 #import "SDSettingViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import "SDMainTableViewController.h"
 
 @interface SDSettingViewController ()
 
@@ -55,6 +57,16 @@
 {
     return 50;
 }
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2) {
+        [AVUser logOut];
+        SDMainTableViewController *main = [self.tabBarController.viewControllers objectAtIndex:0];
+        [self.tabBarController setSelectedViewController:main];
+    }
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
