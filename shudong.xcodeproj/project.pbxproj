@@ -1006,6 +1006,7 @@
 		840F65BD19262C0900082684 /* random@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65BB19262C0900082684 /* random@2x.png */; };
 		840F65C019262F5500082684 /* SDAdviseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65BF19262F5500082684 /* SDAdviseViewController.m */; };
 		840F65C7192A2D6D00082684 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65C6192A2D6D00082684 /* KxMenu.m */; };
+		840F65C9192A35E400082684 /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65C8192A35E400082684 /* triangle.png */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -2062,6 +2063,7 @@
 		840F65BF19262F5500082684 /* SDAdviseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAdviseViewController.m; sourceTree = "<group>"; };
 		840F65C5192A2D6D00082684 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		840F65C6192A2D6D00082684 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		840F65C8192A35E400082684 /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = triangle.png; path = images/triangle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2350,6 +2352,7 @@
 		840A33CB190A938C0062458D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				840F65C8192A35E400082684 /* triangle.png */,
 				840F65BA19262C0900082684 /* random.png */,
 				840F65BB19262C0900082684 /* random@2x.png */,
 				840F65B619261F8B00082684 /* camera.png */,
@@ -3591,6 +3594,7 @@
 				2BEFCD1C1919443800E8BEE4 /* tabbar_0.png in Resources */,
 				840F6465191FA47B00082684 /* 580.png in Resources */,
 				840F6282191FA47B00082684 /* 145.png in Resources */,
+				840F65C9192A35E400082684 /* triangle.png in Resources */,
 				840F6505191FA47B00082684 /* 724.png in Resources */,
 				840F6593191FA47B00082684 /* 852.png in Resources */,
 				840F6482191FA47B00082684 /* 606.png in Resources */,
