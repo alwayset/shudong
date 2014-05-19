@@ -246,8 +246,8 @@
                 [parentPost incrementKey:@"commentCount"];
                 [parentPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
-                        [[[AVUser currentUser] relationforKey:@"subscribe"] addObject:parentPost];
-                        [[AVUser currentUser] saveEventually];
+                        
+                        if (self.indexPathInMain) [[NSNotificationCenter defaultCenter] postNotificationName:LikedAPostNotif object:self.indexPathInMain];
                         [self loadComments];
                         [tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
                         hud.labelText = @"评论成功";
@@ -270,6 +270,8 @@
                                 } else {
                                 }
                         }];
+                        [[[AVUser currentUser] relationforKey:@"subscribe"] addObject:parentPost];
+                        [[AVUser currentUser] saveEventually];
                     } else {
                         hud.labelText = @"评论失败";
                         [hud hide:YES afterDelay:0.4];
