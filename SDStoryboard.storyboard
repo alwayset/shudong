@@ -106,7 +106,11 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="GHO-rk-mvX">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<<<<<<< HEAD
                                                     <color key="backgroundColor" patternImage="C5C76349-0388-47A5-A0C2-129E71E1F59E" colorSpace="pattern"/>
+=======
+                                                    <color key="backgroundColor" patternImage="FB9F79E2-3570-4313-9FF4-24D0EF8BDC7C" colorSpace="pattern"/>
+>>>>>>> origin/五月的晴天闪了腰
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oCf-tA-3tq">
@@ -252,8 +256,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+<<<<<<< HEAD
                                                 <view contentMode="scaleToFill" id="AwD-eE-X7l" userLabel="container">
                                                     <rect key="frame" x="6" y="5" width="308" height="240"/>
+=======
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999999999999991" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="ueg-39-7mW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="backgroundColor" patternImage="5C221F03-4995-4FE9-9408-ABE3ED61D780" colorSpace="pattern"/>
+                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dG4-2c-ObU">
+                                                    <rect key="frame" x="25" y="83" width="270" height="153"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view alpha="0.49999999999999983" contentMode="scaleToFill" id="9Lt-Nk-O4x" userLabel="top banner">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+>>>>>>> origin/五月的晴天闪了腰
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="南京大学" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZMo-pd-ZeB">
@@ -377,7 +399,11 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="V0Z-oQ-LqJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<<<<<<< HEAD
                                                     <color key="backgroundColor" patternImage="DC9EF136-4F8A-4D2B-A93A-AAB1FF43E192" colorSpace="pattern"/>
+=======
+                                                    <color key="backgroundColor" patternImage="2424D41B-3A0F-4C79-A781-BAB399EA8F56" colorSpace="pattern"/>
+>>>>>>> origin/五月的晴天闪了腰
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UWZ-Gq-QmI">
@@ -528,7 +554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPo-Nl-S6F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="437" y="-344"/>
+            <point key="canvasLocation" x="448" y="-684"/>
         </scene>
         <!--Navigation Controller - 提醒-->
         <scene sceneID="4u1-46-Bfs">
@@ -645,6 +671,7 @@
                                     <outlet property="delegate" destination="8or-Vl-YPP" id="Dd8-jd-QSG"/>
                                 </connections>
                             </textView>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N0C-sA-2Y0">
                                 <rect key="frame" x="60" y="526" width="249" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -680,6 +707,30 @@
                                         </state>
                                         <connections>
                                             <action selector="dismissKeyboard:" destination="8or-Vl-YPP" eventType="touchUpInside" id="V4e-ED-sy4"/>
+=======
+                            <view contentMode="scaleToFill" id="gVF-QQ-QrY" userLabel="tool bar">
+                                <rect key="frame" x="0.0" y="340" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nbw-Bi-ldN">
+                                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="camera.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showPictureOptions:" destination="8or-Vl-YPP" eventType="touchUpInside" id="mHh-iV-14G"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9U3-9z-h39">
+                                        <rect key="frame" x="256" y="0.0" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="random.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeSystemBgRandomly:" destination="8or-Vl-YPP" eventType="touchUpInside" id="ncK-Ae-RIP"/>
+>>>>>>> origin/五月的晴天闪了腰
                                         </connections>
                                     </button>
                                 </subviews>
@@ -689,7 +740,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="编辑内容" id="R2P-a3-s3k">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="3ZS-Jd-ZBJ">
+                        <barButtonItem key="leftBarButtonItem" image="leftArrow.png" id="3ZS-Jd-ZBJ">
                             <connections>
                                 <action selector="dismiss:" destination="8or-Vl-YPP" id="CSM-9Y-RKy"/>
                             </connections>
@@ -711,6 +762,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K0g-Na-CYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1223" y="-38"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DIB-J9-M0k">
+            <objects>
+                <viewController id="t6V-jq-rAi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BfW-1N-ylS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="zhK-Vt-DWm">
+                                <rect key="frame" x="20" y="20" width="280" height="219"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lIk-j9-VrJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2263" y="-733"/>
         </scene>
         <!--Setting View Controller - 设置-->
         <scene sceneID="RcM-5g-yMG">
@@ -800,7 +874,11 @@
     </scenes>
     <resources>
         <image name="2.jpg" width="640" height="640"/>
+<<<<<<< HEAD
         <image name="538A3E45-D063-411F-840B-9EC89A8BCE02" width="640" height="1136">
+=======
+        <image name="2424D41B-3A0F-4C79-A781-BAB399EA8F56" width="640" height="1136">
+>>>>>>> origin/五月的晴天闪了腰
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -817,7 +895,11 @@ ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
 AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
 </mutableData>
         </image>
+<<<<<<< HEAD
         <image name="C5C76349-0388-47A5-A0C2-129E71E1F59E" width="640" height="1136">
+=======
+        <image name="5C221F03-4995-4FE9-9408-ABE3ED61D780" width="640" height="1136">
+>>>>>>> origin/五月的晴天闪了腰
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -834,7 +916,11 @@ ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
 AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
 </mutableData>
         </image>
+<<<<<<< HEAD
         <image name="DC9EF136-4F8A-4D2B-A93A-AAB1FF43E192" width="640" height="1136">
+=======
+        <image name="FB9F79E2-3570-4313-9FF4-24D0EF8BDC7C" width="640" height="1136">
+>>>>>>> origin/五月的晴天闪了腰
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -852,9 +938,16 @@ AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
 </mutableData>
         </image>
         <image name="activity.png" width="22" height="22"/>
+<<<<<<< HEAD
+=======
+        <image name="beautifulBackground.png" width="640" height="1136"/>
+        <image name="camera.png" width="44" height="44"/>
+>>>>>>> origin/五月的晴天闪了腰
         <image name="comment.png" width="20" height="20"/>
         <image name="face.png" width="60" height="60"/>
         <image name="home.png" width="22" height="22"/>
+        <image name="leftArrow.png" width="22" height="22"/>
+        <image name="random.png" width="44" height="44"/>
         <image name="renrenButton.png" width="50" height="50"/>
         <image name="setting.png" width="22" height="22"/>
     </resources>

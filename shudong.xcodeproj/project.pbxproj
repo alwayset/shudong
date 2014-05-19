@@ -1000,6 +1000,11 @@
 		840F65B3191FA47B00082684 /* 97.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F624B191FA47A00082684 /* 97.png */; };
 		840F65B4191FA47B00082684 /* 98.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F624C191FA47A00082684 /* 98.png */; };
 		840F65B5191FA47B00082684 /* 99.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F624D191FA47A00082684 /* 99.png */; };
+		840F65B819261F8B00082684 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65B619261F8B00082684 /* camera.png */; };
+		840F65B919261F8B00082684 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65B719261F8B00082684 /* camera@2x.png */; };
+		840F65BC19262C0900082684 /* random.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65BA19262C0900082684 /* random.png */; };
+		840F65BD19262C0900082684 /* random@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65BB19262C0900082684 /* random@2x.png */; };
+		840F65C019262F5500082684 /* SDAdviseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65BF19262F5500082684 /* SDAdviseViewController.m */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -2048,6 +2053,12 @@
 		840F624B191FA47A00082684 /* 97.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 97.png; sourceTree = "<group>"; };
 		840F624C191FA47A00082684 /* 98.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 98.png; sourceTree = "<group>"; };
 		840F624D191FA47A00082684 /* 99.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 99.png; sourceTree = "<group>"; };
+		840F65B619261F8B00082684 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera.png; path = images/camera.png; sourceTree = "<group>"; };
+		840F65B719261F8B00082684 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "camera@2x.png"; path = "images/camera@2x.png"; sourceTree = "<group>"; };
+		840F65BA19262C0900082684 /* random.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = random.png; path = images/random.png; sourceTree = "<group>"; };
+		840F65BB19262C0900082684 /* random@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "random@2x.png"; path = "images/random@2x.png"; sourceTree = "<group>"; };
+		840F65BE19262F5500082684 /* SDAdviseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAdviseViewController.h; sourceTree = "<group>"; };
+		840F65BF19262F5500082684 /* SDAdviseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAdviseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2266,6 +2277,8 @@
 				840F5ED9191BBCBC00082684 /* SDDiscoverViewController.m */,
 				840F5EE2191E1F4900082684 /* SDSettingViewController.h */,
 				840F5EE3191E1F4900082684 /* SDSettingViewController.m */,
+				840F65BE19262F5500082684 /* SDAdviseViewController.h */,
+				840F65BF19262F5500082684 /* SDAdviseViewController.m */,
 			);
 			path = shudong;
 			sourceTree = "<group>";
@@ -2333,6 +2346,10 @@
 		840A33CB190A938C0062458D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				840F65BA19262C0900082684 /* random.png */,
+				840F65BB19262C0900082684 /* random@2x.png */,
+				840F65B619261F8B00082684 /* camera.png */,
+				840F65B719261F8B00082684 /* camera@2x.png */,
 				840F5EE5191FA47000082684 /* emoji */,
 				840F5EDB191E1C2C00082684 /* setting.png */,
 				840F5EDC191E1C2C00082684 /* setting@2x.png */,
@@ -3337,6 +3354,7 @@
 				840F6590191FA47B00082684 /* 85.png in Resources */,
 				840F656E191FA47B00082684 /* 819.png in Resources */,
 				840F6422191FA47B00082684 /* 52.png in Resources */,
+				840F65BD19262C0900082684 /* random@2x.png in Resources */,
 				840F6406191FA47B00082684 /* 495.png in Resources */,
 				840F655A191FA47B00082684 /* 800.png in Resources */,
 				840F63C9191FA47B00082684 /* 44.png in Resources */,
@@ -3752,6 +3770,7 @@
 				840F63ED191FA47B00082684 /* 472.png in Resources */,
 				840F6559191FA47B00082684 /* 80.png in Resources */,
 				840F630A191FA47B00082684 /* 268.png in Resources */,
+				840F65B819261F8B00082684 /* camera.png in Resources */,
 				840F63B5191FA47B00082684 /* 421.png in Resources */,
 				840F62B4191FA47B00082684 /* 190.png in Resources */,
 				840F6387191FA47B00082684 /* 380.png in Resources */,
@@ -3771,6 +3790,7 @@
 				840F659A191FA47B00082684 /* 859.png in Resources */,
 				2BEFCD231919443800E8BEE4 /* tabbar_4@2x.png in Resources */,
 				840F62EC191FA47B00082684 /* 240.png in Resources */,
+				840F65B919261F8B00082684 /* camera@2x.png in Resources */,
 				840F6394191FA47B00082684 /* 392.png in Resources */,
 				840F6581191FA47B00082684 /* 836.png in Resources */,
 				840F654A191FA47B00082684 /* 787.png in Resources */,
@@ -4216,6 +4236,7 @@
 				840F62AC191FA47B00082684 /* 183.png in Resources */,
 				840F6321191FA47B00082684 /* 289.png in Resources */,
 				840F65A2191FA47B00082684 /* 866.png in Resources */,
+				840F65BC19262C0900082684 /* random.png in Resources */,
 				840F6431191FA47B00082684 /* 533.png in Resources */,
 				840F6485191FA47B00082684 /* 609.png in Resources */,
 				840F63D8191FA47B00082684 /* 453.png in Resources */,
@@ -4333,6 +4354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BD76080190BC73B00C60FCE /* SDUtils.m in Sources */,
+				840F65C019262F5500082684 /* SDAdviseViewController.m in Sources */,
 				2B70E27819163AFE0058F5BE /* SBJsonWriter.m in Sources */,
 				2BDBDC8C190A70D500BEFD09 /* main.m in Sources */,
 				2B880459190D7782002E0191 /* SDPostTableViewCell.m in Sources */,
