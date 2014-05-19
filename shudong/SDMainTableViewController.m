@@ -16,6 +16,7 @@
 #import "SDViewPictureViewController.h"
 #import "SDHoleFilterTableViewController.h"
 #import "SDAddPostViewController.h"
+#import "KxMenu.h"
 
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
@@ -47,6 +48,7 @@
     self.selectedRow = -1;
     filesInDownload = [[NSMutableDictionary alloc] init];
     firstLoad = YES;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -123,6 +125,7 @@
     // Return the number of rows in the section.
     return dataSource.count;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 250;
@@ -131,7 +134,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SDPostTableViewCell *cell = (SDPostTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"post" forIndexPath:indexPath];
-    
     SDPost *currentPost = dataSource[indexPath.row];
     cell.post = currentPost;
     cell.titleLabel.text = currentPost[@"title"];
@@ -144,8 +146,6 @@
     }
     [cell setNumbers];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    // Configure the cell...
-    
     return cell;
 }
 
@@ -169,6 +169,37 @@
 }
 
 
+- (IBAction)categoryClicked:(UIButton*)sender {
+    NSArray *menuItems =
+    @[
+      
+      [KxMenuItem menuItem:@"李零"
+                     image:nil
+                    target:self
+                    action:NULL],
+      [KxMenuItem menuItem:@"王一"
+                     image:nil
+                    target:self
+                    action:NULL],
+      [KxMenuItem menuItem:@"张三"
+                     image:nil
+                    target:self
+                    action:NULL],
+      [KxMenuItem menuItem:@"李四"
+                     image:nil
+                    target:self
+                    action:NULL],
+      ];
+    
+    KxMenuItem *first = menuItems[0];
+    //first.foreColor = [UIColor colorWithRed:47/255.0f green:112/255.0f blue:225/255.0f alpha:1.0];
+    first.alignment = NSTextAlignmentCenter;
+    
+    [KxMenu showMenuInView:self.view.window
+                  fromRect:CGRectMake(sender.frame.origin.x, sender.frame.origin.y+12, sender.frame.size.width, sender.frame.size.height)
+                 menuItems:menuItems];
+
+}
 
 - (IBAction) addPost {
     SDAddPostViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"addpost"];
@@ -180,7 +211,6 @@
 {
     //[self.tabBarController setHidesBottomBarWhenPushed:YES];
     //[(SDTabViewController*)self.tabBarController hideButton:YES];
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:ShouldHideTabbarNotif object:nil];
     
     SDViewPictureViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];

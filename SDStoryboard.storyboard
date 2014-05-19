@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NYO-QV-XCf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NYO-QV-XCf">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -106,8 +106,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="GHO-rk-mvX">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" patternImage="C5C76349-0388-47A5-A0C2-129E71E1F59E" colorSpace="pattern"/>
-
+                                                    <color key="backgroundColor" patternImage="D9496B64-1262-489E-81F0-C0818B4F0B70" colorSpace="pattern"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oCf-tA-3tq">
@@ -233,7 +232,7 @@
             </objects>
             <point key="canvasLocation" x="229" y="664"/>
         </scene>
-        <!--Main Table View Controller - 淘沙-->
+        <!--Main Table View Controller - 首页-->
         <scene sceneID="9Bx-k8-Qes">
             <objects>
                 <viewController id="38C-lH-9P9" customClass="SDMainTableViewController" sceneMemberID="viewController">
@@ -255,7 +254,6 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="AwD-eE-X7l" userLabel="container">
                                                     <rect key="frame" x="6" y="5" width="308" height="240"/>
-
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="南京大学" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZMo-pd-ZeB">
@@ -269,7 +267,7 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999999999999991" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="ueg-39-7mW">
                                                             <rect key="frame" x="0.0" y="142" width="308" height="98"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <color key="backgroundColor" patternImage="538A3E45-D063-411F-840B-9EC89A8BCE02" colorSpace="pattern"/>
+                                                            <color key="backgroundColor" patternImage="6628D94A-6B0B-4448-9649-FCACA7B38DD8" colorSpace="pattern"/>
                                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dG4-2c-ObU">
@@ -332,13 +330,26 @@
                     <tabBarItem key="tabBarItem" title="首页" image="home.png" id="IdM-ke-6wG">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="-8" vertical="0.0"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="淘沙" id="rqa-lY-HPd">
+                    <navigationItem key="navigationItem" id="rqa-lY-HPd">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="我的树洞" id="g7S-dI-iY1">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="pdg-Ge-Rxo" kind="push" identifier="filter" id="RaH-2T-0vR"/>
                             </connections>
                         </barButtonItem>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7S7-UE-LIi">
+                            <rect key="frame" x="96" y="6" width="128" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="全部">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="categoryClicked:" destination="38C-lH-9P9" eventType="touchUpInside" id="tLT-nv-BmA"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="pKS-La-HAr">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -379,8 +390,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="V0Z-oQ-LqJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" patternImage="DC9EF136-4F8A-4D2B-A93A-AAB1FF43E192" colorSpace="pattern"/>
-
+                                                    <color key="backgroundColor" patternImage="FAFD3AB7-FC6A-487B-998D-3F8C02F4CFAA" colorSpace="pattern"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UWZ-Gq-QmI">
@@ -683,7 +693,6 @@
                                         </state>
                                         <connections>
                                             <action selector="dismissKeyboard:" destination="8or-Vl-YPP" eventType="touchUpInside" id="V4e-ED-sy4"/>
-
                                         </connections>
                                     </button>
                                 </subviews>
@@ -827,8 +836,7 @@
     </scenes>
     <resources>
         <image name="2.jpg" width="640" height="640"/>
-        <image name="538A3E45-D063-411F-840B-9EC89A8BCE02" width="640" height="1136">
-
+        <image name="6628D94A-6B0B-4448-9649-FCACA7B38DD8" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -845,8 +853,7 @@ ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
 AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
 </mutableData>
         </image>
-        <image name="C5C76349-0388-47A5-A0C2-129E71E1F59E" width="640" height="1136">
-
+        <image name="D9496B64-1262-489E-81F0-C0818B4F0B70" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -863,8 +870,7 @@ ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
 AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
 </mutableData>
         </image>
-        <image name="DC9EF136-4F8A-4D2B-A93A-AAB1FF43E192" width="640" height="1136">
-
+        <image name="FAFD3AB7-FC6A-487B-998D-3F8C02F4CFAA" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -886,7 +892,6 @@ AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
         <image name="face.png" width="60" height="60"/>
         <image name="home.png" width="22" height="22"/>
         <image name="leftArrow.png" width="22" height="22"/>
-        <image name="random.png" width="44" height="44"/>
         <image name="renrenButton.png" width="50" height="50"/>
         <image name="setting.png" width="22" height="22"/>
     </resources>

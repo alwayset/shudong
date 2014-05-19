@@ -17,6 +17,8 @@
 
 
 @property (nonatomic, strong) IBOutlet UITableView *tableview;
+@property (strong, nonatomic) IBOutlet UITableView *categoryTV;
+@property (strong, nonatomic) IBOutlet UIView *categoryView;
 @property (nonatomic) int selectedRow;
 
 
