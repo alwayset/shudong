@@ -135,6 +135,7 @@
     cell.titleLabel.text = currentPost[@"title"];
 //    cell.titleLabel.text = @"清华大学北大系";
     cell.sourceLabel.text = @"清华大学北大系";
+    [cell.sourceLabel sizeToFit];
     cell.text.text = currentPost.text;
     if (!currentPost.image) {
         cell.picture.image = [UIImage imageNamed:[currentPost.picId.stringValue stringByAppendingString:@".jpg"]];
