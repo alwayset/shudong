@@ -35,7 +35,7 @@
 {
     // Initialization code
     titleLabel.font = [UIFont fontWithName:FONT_1 size:17.0];
-    text.font = [UIFont fontWithName:FONT_1 size:16.0];
+    text.font = [UIFont fontWithName:FONT_1 size:14.0];
     containerView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
     containerView.layer.shadowOpacity = 0.7f;
     containerView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);

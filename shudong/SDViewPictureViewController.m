@@ -53,7 +53,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     
-    self.navigationItem.title = @"查看评论";
+    self.navigationItem.title = parentPost.title;
     //[self setHidesBottomBarWhenPushed:YES];
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO];

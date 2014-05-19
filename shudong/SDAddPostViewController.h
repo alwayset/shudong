@@ -14,7 +14,7 @@
 
 
 
-@interface SDAddPostViewController : UIViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextViewDelegate>
+@interface SDAddPostViewController : UIViewController<UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextViewDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIView *toolbar;
 
 @end
