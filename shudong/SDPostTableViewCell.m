@@ -38,7 +38,7 @@
     text.font = [UIFont fontWithName:FONT_1 size:16.0];
     containerView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
     containerView.layer.shadowOpacity = 0.7f;
-    containerView.layer.shadowOffset = CGSizeMake(2.0f, 4.0f);
+    containerView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
     containerView.layer.shadowRadius = 3.0f;
     containerView.layer.masksToBounds = NO;
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:containerView.bounds];

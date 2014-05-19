@@ -14,6 +14,7 @@
 @interface SDPost : AVObject <AVSubclassing>
 
 @property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSString *title;
 @property (nonatomic) AVFile *image;
 @property (nonatomic) AVUser *poster;
 @property (nonatomic) NSNumber *likeCount;

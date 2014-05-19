@@ -123,10 +123,10 @@
     // Return the number of rows in the section.
     return dataSource.count;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 250;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 250;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -135,6 +135,8 @@
     SDPost *currentPost = dataSource[indexPath.row];
     cell.post = currentPost;
     cell.titleLabel.text = currentPost[@"title"];
+//    cell.titleLabel.text = @"清华大学北大系";
+    cell.sourceLabel.text = @"清华大学北大系";
     cell.text.text = currentPost.text;
     if (!currentPost.image) {
         cell.picture.image = [UIImage imageNamed:[currentPost.picId.stringValue stringByAppendingString:@".jpg"]];

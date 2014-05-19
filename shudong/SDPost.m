@@ -12,6 +12,7 @@
 @implementation SDPost
 
 @dynamic text, image, poster;
+@dynamic title;
 @dynamic likeCount, commentCount;
 @dynamic holes,comments;
 @dynamic picId;

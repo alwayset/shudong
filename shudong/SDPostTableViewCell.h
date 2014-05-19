@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
 @property (strong, nonatomic) NSIndexPath* indexPathInMain;
 @property (nonatomic, strong) SDPost *post;
 
