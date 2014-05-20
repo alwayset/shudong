@@ -49,6 +49,11 @@
     filesInDownload = [[NSMutableDictionary alloc] init];
     firstLoad = YES;
     
+    UIImageView* triangle = [[UIImageView alloc] initWithFrame:CGRectMake(156, 33, 8, 8)];
+    [triangle setImage:[UIImage imageNamed:@"triangle.png"]];
+    [self.navigationController.navigationBar addSubview:triangle];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

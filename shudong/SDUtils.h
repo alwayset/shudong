@@ -30,7 +30,7 @@
 @property (nonatomic, strong) NSMutableArray *newsPostArr;
 @property (nonatomic, strong) NSMutableArray *subscribeArr;
 @property (nonatomic, strong) NSMutableDictionary *newsDict;
-@property (nonatomic, strong) NSMutableArray *myPostsObjectIds;
+@property (nonatomic, strong) NSMutableArray *mySubsObjectIds;
 
 @property BOOL newsArrInitialized;
 @property BOOL postsArrInitialized;

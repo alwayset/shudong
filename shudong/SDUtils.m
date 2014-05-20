@@ -23,7 +23,7 @@ static SDUtils *singletonInstance;
 
 
 @synthesize mySchools;
-@synthesize myLikes,newsArr,newsDict,postsArr,myPostsObjectIds,newsPostArr,subscribeArr;
+@synthesize myLikes,newsArr,newsDict,postsArr,mySubsObjectIds,newsPostArr,subscribeArr;
 @synthesize likesArrInitialized,postsArrInitialized,newsArrInitialized;
 //initialization
 
@@ -57,7 +57,7 @@ static SDUtils *singletonInstance;
         [[self postQuery] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 postsArr = [NSMutableArray arrayWithArray:objects];
-                myPostsObjectIds = [NSMutableArray arrayWithArray:[postsArr valueForKey:@"objectId"]];
+                //myPostsObjectIds = [NSMutableArray arrayWithArray:[postsArr valueForKey:@"objectId"]];
                 [[NSNotificationCenter defaultCenter] postNotificationName:DidLoadPostsNotif object:nil];
             } else {
                 //do nothing by far
@@ -93,7 +93,7 @@ static SDUtils *singletonInstance;
         }
     }];
 }
-- (void)loadSubscirbe {
+- (void)loadSubscribe {
     AVQuery *query = [[[AVUser currentUser] relationforKey:@"subscribe"] query];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
     [query orderByDescending:@"createdAt"];
@@ -102,6 +102,7 @@ static SDUtils *singletonInstance;
             
         } else {
             subscribeArr = [NSMutableArray arrayWithArray:objects];
+            mySubsObjectIds = [NSMutableArray arrayWithArray:[subscribeArr valueForKey:@"objectId"]];
             [self loadNewsArr];
         }
     }];
@@ -255,7 +256,7 @@ static SDUtils *singletonInstance;
             }
         }];
     } else {
-        [self loadSubscirbe];
+        [self loadSubscribe];
     }
 }
 
@@ -263,25 +264,25 @@ static SDUtils *singletonInstance;
     newsPostArr = [[NSMutableArray alloc] init];
     newsDict = [[NSMutableDictionary alloc] init];
     
-//    for (AVStatus *eachStatus in newsArr) {
-//        
-//        NSNumber *newsType = eachStatus.data[@"type"];
-//        NSString *postId = eachStatus.data[@"postObjectId"];
-//        NSUInteger postIndex = [myPostsObjectIds indexOfObject:postId];
-//        SDPost *newsPost = [postsArr objectAtIndex:postIndex];
-//        if (![newsPostArr containsObject:newsPost]) {
-//            [newsPostArr addObject:newsPost];
-//            [newsDict setObject:@{@"like": @0, @"comment": @0} forKey:postId];
-//        }
-//        NSNumber *likeCount = newsDict[newsPost.objectId][@"like"];
-//        NSNumber *commentCount = newsDict[newsPost.objectId][@"comment"];
-//        if (newsType.intValue == NewsLikeType) {
-//            likeCount = [NSNumber numberWithInt:likeCount.intValue + 1];
-//        } else if (newsType.intValue == NewsCommentType) {
-//            commentCount = [NSNumber numberWithInt:commentCount.intValue + 1];
-//        }
-//        [newsDict setObject:@{@"like":likeCount, @"comment":commentCount} forKey:newsPost.objectId];
-//    }
+    for (AVStatus *eachStatus in newsArr) {
+        
+        NSNumber *newsType = eachStatus.data[@"type"];
+        NSString *postId = eachStatus.data[@"postObjectId"];
+        NSUInteger postIndex = [mySubsObjectIds indexOfObject:postId];
+        SDPost *newsPost = [subscribeArr objectAtIndex:postIndex];
+        if (![newsPostArr containsObject:newsPost]) {
+            [newsPostArr addObject:newsPost];
+            [newsDict setObject:@{@"like": @0, @"comment": @0} forKey:postId];
+        }
+        NSNumber *likeCount = newsDict[newsPost.objectId][@"like"];
+        NSNumber *commentCount = newsDict[newsPost.objectId][@"comment"];
+        if (newsType.intValue == NewsLikeType) {
+            likeCount = [NSNumber numberWithInt:likeCount.intValue + 1];
+        } else if (newsType.intValue == NewsCommentType) {
+            commentCount = [NSNumber numberWithInt:commentCount.intValue + 1];
+        }
+        [newsDict setObject:@{@"like":likeCount, @"comment":commentCount} forKey:newsPost.objectId];
+    }
 }
 
 @end

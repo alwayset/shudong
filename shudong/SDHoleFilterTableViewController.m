@@ -8,13 +8,14 @@
 
 #import "SDHoleFilterTableViewController.h"
 #import "SDHole.h"
-
+#import "SDUtils.h"
 @interface SDHoleFilterTableViewController ()
 @property NSArray *collegeArr;
 @property NSArray *technicalArr;
 @property NSArray *middleArr;
 @property NSArray *primaryArr;
 @property NSArray *otherArr;
+
 
 @end
 
@@ -70,14 +71,16 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 5;
+    //return 5;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSArray *theArr = [NSArray arrayWithArray:holesDict[[NSNumber numberWithInt:section]]];
-    return theArr.count;
+    //NSArray *theArr = [NSArray arrayWithArray:holesDict[[NSNumber numberWithInt:section]]];
+    //return theArr.count;
+    return [[SDUtils sharedInstance] myHoles].count;
 }
 - (IBAction)confirmSelecting:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
@@ -88,9 +91,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    NSArray *targetArr = holesDict[[NSNumber numberWithInt:indexPath.section]];
-    SDHole *targetHole = targetArr[indexPath.row];
-    cell.textLabel.text = targetHole.name;
+    //NSArray *targetArr = holesDict[[NSNumber numberWithInt:indexPath.section]];
+    //SDHole *targetHole = targetArr[indexPath.row];
+    //cell.textLabel.text = targetHole.name;
+    cell.textLabel.text = ((SDHole*)[[[SDUtils sharedInstance] myHoles] objectAtIndex:indexPath.row]).name;
     return cell;
 }
 
