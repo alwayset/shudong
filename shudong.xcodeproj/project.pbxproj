@@ -65,7 +65,6 @@
 		2B70E2801916758C0058F5BE /* SDHoleFilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B70E27F1916758C0058F5BE /* SDHoleFilterTableViewController.m */; };
 		2B72D648190E37800065D66C /* SDAddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72D647190E37800065D66C /* SDAddPostViewController.m */; };
 		2B880459190D7782002E0191 /* SDPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B880458190D7782002E0191 /* SDPostTableViewCell.m */; };
-		2BD76075190BAFCD00C60FCE /* SDStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */; };
 		2BD76079190BC24700C60FCE /* SDPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD76078190BC24700C60FCE /* SDPost.m */; };
 		2BD7607C190BC34F00C60FCE /* SDHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD7607B190BC34F00C60FCE /* SDHole.m */; };
 		2BD76080190BC73B00C60FCE /* SDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD7607F190BC73B00C60FCE /* SDUtils.m */; };
@@ -1095,7 +1094,6 @@
 		2B72D647190E37800065D66C /* SDAddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAddPostViewController.m; sourceTree = "<group>"; };
 		2B880457190D7782002E0191 /* SDPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPostTableViewCell.h; sourceTree = "<group>"; };
 		2B880458190D7782002E0191 /* SDPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPostTableViewCell.m; sourceTree = "<group>"; };
-		2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SDStoryboard.storyboard; path = ../SDStoryboard.storyboard; sourceTree = "<group>"; };
 		2BD76077190BC24700C60FCE /* SDPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPost.h; sourceTree = "<group>"; };
 		2BD76078190BC24700C60FCE /* SDPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPost.m; sourceTree = "<group>"; };
 		2BD7607A190BC34F00C60FCE /* SDHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDHole.h; sourceTree = "<group>"; };
@@ -2236,7 +2234,6 @@
 				2BD76082190BDE9800C60FCE /* SDTabViewController.m */,
 				2BD76083190BDE9800C60FCE /* SDTabViewController.h */,
 				2BD76076190BC22B00C60FCE /* data model */,
-				2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */,
 				2BEFCD28191A334B00E8BEE4 /* SDPageViewController.h */,
 				2BEFCD29191A334B00E8BEE4 /* SDPageViewController.m */,
 				2BEFCD2B191A349700E8BEE4 /* SDDetailHoleViewController.h */,
@@ -3970,7 +3967,6 @@
 				840F6351191FA47B00082684 /* 331.png in Resources */,
 				840F62F6191FA47B00082684 /* 25.png in Resources */,
 				840F646B191FA47B00082684 /* 586.png in Resources */,
-				2BD76075190BAFCD00C60FCE /* SDStoryboard.storyboard in Resources */,
 				840F6420191FA47B00082684 /* 518.png in Resources */,
 				840F62C0191FA47B00082684 /* 200.png in Resources */,
 				840F6362191FA47B00082684 /* 347.png in Resources */,
