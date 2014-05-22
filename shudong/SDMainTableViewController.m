@@ -49,10 +49,7 @@
     filesInDownload = [[NSMutableDictionary alloc] init];
     firstLoad = YES;
     
-    UIImageView* triangle = [[UIImageView alloc] initWithFrame:CGRectMake(156, 33, 8, 8)];
-    [triangle setImage:[UIImage imageNamed:@"triangle.png"]];
-    [self.navigationController.navigationBar addSubview:triangle];
-    
+       
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -200,7 +197,7 @@
     first.alignment = NSTextAlignmentCenter;
     
     [KxMenu showMenuInView:self.view.window
-                  fromRect:CGRectMake(sender.frame.origin.x, sender.frame.origin.y+12, sender.frame.size.width, sender.frame.size.height)
+                  fromRect:CGRectMake(sender.frame.origin.x, sender.frame.origin.y+8, sender.frame.size.width, sender.frame.size.height)
                  menuItems:menuItems];
 
 }

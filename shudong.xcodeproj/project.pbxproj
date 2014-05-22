@@ -1007,6 +1007,7 @@
 		840F65C019262F5500082684 /* SDAdviseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65BF19262F5500082684 /* SDAdviseViewController.m */; };
 		840F65C7192A2D6D00082684 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65C6192A2D6D00082684 /* KxMenu.m */; };
 		840F65C9192A35E400082684 /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65C8192A35E400082684 /* triangle.png */; };
+		840F65CC192B969600082684 /* SDCategoryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65CB192B969600082684 /* SDCategoryButton.m */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -2064,6 +2065,8 @@
 		840F65C5192A2D6D00082684 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		840F65C6192A2D6D00082684 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
 		840F65C8192A35E400082684 /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = triangle.png; path = images/triangle.png; sourceTree = "<group>"; };
+		840F65CA192B969600082684 /* SDCategoryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCategoryButton.h; sourceTree = "<group>"; };
+		840F65CB192B969600082684 /* SDCategoryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCategoryButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2285,6 +2288,8 @@
 				840F5EE3191E1F4900082684 /* SDSettingViewController.m */,
 				840F65BE19262F5500082684 /* SDAdviseViewController.h */,
 				840F65BF19262F5500082684 /* SDAdviseViewController.m */,
+				840F65CA192B969600082684 /* SDCategoryButton.h */,
+				840F65CB192B969600082684 /* SDCategoryButton.m */,
 			);
 			path = shudong;
 			sourceTree = "<group>";
@@ -4388,6 +4393,7 @@
 				840F5ED7191A6A2100082684 /* SDActitityCell.m in Sources */,
 				2BD76084190BDE9800C60FCE /* SDTabViewController.m in Sources */,
 				840F5EDA191BBCBC00082684 /* SDDiscoverViewController.m in Sources */,
+				840F65CC192B969600082684 /* SDCategoryButton.m in Sources */,
 				2B70E27D19165DA30058F5BE /* SDRootViewController.m in Sources */,
 				2B70E27619163AFE0058F5BE /* SBJsonBase.m in Sources */,
 				840F5ED4191A686500082684 /* SDActivitiesCenterViewController.m in Sources */,
