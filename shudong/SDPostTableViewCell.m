@@ -44,6 +44,12 @@
     containerView.layer.masksToBounds = NO;
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:containerView.bounds];
     containerView.layer.shadowPath = path.CGPath;
+    
+    UIColor *tintColor = [UIColor colorWithRed:252.0/255.0 green:62.0/255.0 blue:73.0/255.0 alpha:1];
+    [[UISlider appearance] setMinimumTrackTintColor:tintColor];
+    [[CERoundProgressView appearance] setTintColor:tintColor];
+    self.likeProgress.trackColor = [UIColor colorWithWhite:0.95 alpha:1.0];
+    self.likeProgress.startAngle = (3.0*M_PI)/2.0;
 
 }
 
@@ -68,6 +74,11 @@
         picture.alpha = 1;
     }completion:^(BOOL finished) {
     }];
+}
+- (IBAction)likeClicked:(id)sender {
+    [self.likeProgress setProgress:0.9 animated:YES];
+
+    
 }
 - (IBAction)like:(id)sender {
     /*

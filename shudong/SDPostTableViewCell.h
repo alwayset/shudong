@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SDPost.h"
 #import "SDLikeButton.h"
+#import "CERoundProgressView.h"
 @interface SDPostTableViewCell : UITableViewCell
 
 
@@ -21,8 +22,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
 @property (strong, nonatomic) NSIndexPath* indexPathInMain;
 @property (nonatomic, strong) SDPost *post;
+@property (strong, nonatomic) IBOutlet CERoundProgressView *likeProgress;
 
 - (void)showPictureWithData:(NSData *)data;
 - (void)setNumbers;
+
 
 @end

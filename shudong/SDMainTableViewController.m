@@ -17,6 +17,7 @@
 #import "SDHoleFilterTableViewController.h"
 #import "SDAddPostViewController.h"
 #import "KxMenu.h"
+#import "CERoundProgressView.h"
 
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
@@ -147,6 +148,7 @@
     }
     [cell setNumbers];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [cell.likeProgress setProgress:0.65 animated:YES];
     return cell;
 }
 
