@@ -34,9 +34,9 @@
 - (void)awakeFromNib
 {
     // Initialization code
-    sourceLabel.font = [UIFont fontWithName:FONT_1 size:13.0];
+    sourceLabel.font = [UIFont fontWithName:FONT_1 size:12.0];
     titleLabel.font = [UIFont fontWithName:FONT_1 size:17.0];
-    text.font = [UIFont fontWithName:FONT_1 size:14.0];
+    text.font = [UIFont fontWithName:FONT_1 size:15.0];
     containerView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
     containerView.layer.shadowOpacity = 0.7f;
     containerView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);

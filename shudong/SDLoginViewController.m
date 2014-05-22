@@ -204,7 +204,7 @@
                 
                 NSError *yearErr;
                 AVQuery *yearQuery = [[existingHole relationforKey:@"years"] query];
-                [yearQuery whereKey:@"name" equalTo:[NSString stringWithFormat:@"%@# %@%@级#", schoolName, degrees[degree], [year substringFromIndex:2]]];
+                [yearQuery whereKey:@"name" equalTo:[NSString stringWithFormat:@"%@%@%@级#", schoolName, degrees[degree], [year substringFromIndex:2]]];
                 AVObject *existingYear = [yearQuery getFirstObject:&yearErr];
                 if (!yearErr) {
                     [[existingHole relationforKey:@"years"] addObject:existingYear];
@@ -214,7 +214,7 @@
                 } else {
                     if (yearErr.code == kAVErrorObjectNotFound) {
                         SDHole *newYear = [SDHole object];
-                        newYear.name = [NSString stringWithFormat:@"%@# %@%@级#", schoolName, degrees[degree], [year substringFromIndex:2]];
+                        newYear.name = [NSString stringWithFormat:@"%@%@%@级#", schoolName, degrees[degree], [year substringFromIndex:2]];
                         newYear.memberCount = @0;
                         [newYear incrementKey:@"memberCount"];
                         newYear.postCount = @0;
@@ -236,7 +236,7 @@
                 
                 NSError *yearDeptErr;
                 AVQuery *yearDeptQuery = [[existingHole relationforKey:@"yearDept"] query];
-                [yearDeptQuery whereKey:@"name" equalTo:[NSString stringWithFormat:@"%@^ %@^# %@%@级#", schoolName, dept, degrees[degree], [year substringFromIndex:2]]];
+                [yearDeptQuery whereKey:@"name" equalTo:[NSString stringWithFormat:@"%@%@%@%@级#", schoolName, dept, degrees[degree], [year substringFromIndex:2]]];
                 AVObject *existingYearDept = [yearDeptQuery getFirstObject:&yearDeptErr];
                 if (!yearDeptErr) {
                     [[existingHole relationforKey:@"yearDept"] addObject:existingYearDept];
@@ -246,7 +246,7 @@
                 } else {
                     if (yearDeptErr.code == kAVErrorObjectNotFound) {
                         SDHole *newYearDept = [SDHole object];
-                        newYearDept.name = [NSString stringWithFormat:@"%@^ %@^# %@%@级#", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
+                        newYearDept.name = [NSString stringWithFormat:@"%@%@%@%@级#", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
                         newYearDept.memberCount = @1;
                         newYearDept.postCount = @0;
                         [newYearDept save];
@@ -278,7 +278,7 @@
                 
                 if (dept.class != [NSNull class] && [self isDeptValid:dept]) {
                     SDHole *newDept = [SDHole object];
-                    newDept.name = [NSString stringWithFormat:@"%@^ %@^", schoolName, dept];
+                    newDept.name = [NSString stringWithFormat:@"%@%@", schoolName, dept];
                     newDept.memberCount = @0;
                     [newDept incrementKey:@"memberCount"];
                     newDept.postCount = @0;
@@ -291,7 +291,7 @@
                 if (year.class != [NSNull class]) {
                     
                     SDHole *newYear = [SDHole object];
-                    newYear.name = [NSString stringWithFormat:@"%@# %@%@级#", schoolName, degrees[degree], [year substringFromIndex:2]];
+                    newYear.name = [NSString stringWithFormat:@"%@%@%@级#", schoolName, degrees[degree], [year substringFromIndex:2]];
                     newYear.memberCount = @0;
                     [newYear incrementKey:@"memberCount"];
                     newYear.postCount = @0;
@@ -304,7 +304,7 @@
                 if (year.class != [NSNull class] && [self isDeptValid:dept]) {
                     
                     SDHole *newYearDept = [SDHole object];
-                    newYearDept.name = [NSString stringWithFormat:@"%@^ %@^# %@%@级#", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
+                    newYearDept.name = [NSString stringWithFormat:@"%@%@%@%@级#", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
                     newYearDept.memberCount = @0;
                     [newYearDept incrementKey:@"memberCount"];
                     newYearDept.postCount = @0;
