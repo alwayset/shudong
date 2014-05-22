@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B1FFFFA1929E0CE0085576C /* 微软vista雅黑.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B1FFFF81929E0CE0085576C /* 微软vista雅黑.ttf */; };
 		2B1FFFFB1929E0CE0085576C /* 微软vista雅黑Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B1FFFF91929E0CE0085576C /* 微软vista雅黑Bold.ttf */; };
+		2B20D2DE192E372100B713D9 /* SDSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20D2DD192E372100B713D9 /* SDSignupViewController.m */; };
 		2B33835A190B94080068962C /* post.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B338351190B94080068962C /* post.png */; };
 		2B33835B190B94080068962C /* post@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B338352190B94080068962C /* post@2x.png */; };
 		2B33835C190B94080068962C /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B338353190B94080068962C /* 123.jpg */; };
@@ -1024,6 +1025,8 @@
 /* Begin PBXFileReference section */
 		2B1FFFF81929E0CE0085576C /* 微软vista雅黑.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "微软vista雅黑.ttf"; sourceTree = "<group>"; };
 		2B1FFFF91929E0CE0085576C /* 微软vista雅黑Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "微软vista雅黑Bold.ttf"; sourceTree = "<group>"; };
+		2B20D2DC192E372100B713D9 /* SDSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSignupViewController.h; sourceTree = "<group>"; };
+		2B20D2DD192E372100B713D9 /* SDSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSignupViewController.m; sourceTree = "<group>"; };
 		2B338351190B94080068962C /* post.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = post.png; path = images/post.png; sourceTree = "<group>"; };
 		2B338352190B94080068962C /* post@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "post@2x.png"; path = "images/post@2x.png"; sourceTree = "<group>"; };
 		2B338353190B94080068962C /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 123.jpg; path = images/123.jpg; sourceTree = "<group>"; };
@@ -2240,6 +2243,8 @@
 				2BD76083190BDE9800C60FCE /* SDTabViewController.h */,
 				2BD76076190BC22B00C60FCE /* data model */,
 				2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */,
+				2B20D2DC192E372100B713D9 /* SDSignupViewController.h */,
+				2B20D2DD192E372100B713D9 /* SDSignupViewController.m */,
 				2BEFCD28191A334B00E8BEE4 /* SDPageViewController.h */,
 				2BEFCD29191A334B00E8BEE4 /* SDPageViewController.m */,
 				2BEFCD2B191A349700E8BEE4 /* SDDetailHoleViewController.h */,
@@ -4380,6 +4385,7 @@
 				2B70E27819163AFE0058F5BE /* SBJsonWriter.m in Sources */,
 				2BDBDC8C190A70D500BEFD09 /* main.m in Sources */,
 				2B880459190D7782002E0191 /* SDPostTableViewCell.m in Sources */,
+				2B20D2DE192E372100B713D9 /* SDSignupViewController.m in Sources */,
 				840A353319138E4B0062458D /* SDCommentCell.m in Sources */,
 				2B70E27319163AFE0058F5BE /* NSObject+SBJSON.m in Sources */,
 				2B572169190FEFD000EE5964 /* SDChooseHoleTableViewController.m in Sources */,

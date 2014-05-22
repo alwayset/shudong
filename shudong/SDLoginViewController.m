@@ -13,7 +13,6 @@
 #import "SBJSON.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
-
 @interface SDLoginViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *logoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
@@ -107,16 +106,12 @@
                               @"SECRET": @"保密"};
     
     
-
-    
     //NSLog(@"requestSuccessWithResponse:%@", [response description]);
     NSLog(@"requestSuccessWithResponse:%@", [[SBJSON new]  stringWithObject:response error:nil]);
     NSLog(@"请求成功:%@", service.type);
-
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.detailsLabelText = @"为你准备内容中";
-    
     
     SDUser *newUser = [SDUser user];
     newUser.username = [NSString stringWithFormat:@"rr%@", response[@"id"]];
@@ -204,7 +199,7 @@
                 
                 NSError *yearErr;
                 AVQuery *yearQuery = [[existingHole relationforKey:@"years"] query];
-                [yearQuery whereKey:@"name" equalTo:[NSString stringWithFormat:@"%@%@%@级#", schoolName, degrees[degree], [year substringFromIndex:2]]];
+                [yearQuery whereKey:@"name" equalTo:[NSString stringWithFormat:@"%@%@%@级", schoolName, degrees[degree], [year substringFromIndex:2]]];
                 AVObject *existingYear = [yearQuery getFirstObject:&yearErr];
                 if (!yearErr) {
                     [[existingHole relationforKey:@"years"] addObject:existingYear];
@@ -214,7 +209,7 @@
                 } else {
                     if (yearErr.code == kAVErrorObjectNotFound) {
                         SDHole *newYear = [SDHole object];
-                        newYear.name = [NSString stringWithFormat:@"%@%@%@级#", schoolName, degrees[degree], [year substringFromIndex:2]];
+                        newYear.name = [NSString stringWithFormat:@"%@%@%@级", schoolName, degrees[degree], [year substringFromIndex:2]];
                         newYear.memberCount = @0;
                         [newYear incrementKey:@"memberCount"];
                         newYear.postCount = @0;
@@ -246,7 +241,7 @@
                 } else {
                     if (yearDeptErr.code == kAVErrorObjectNotFound) {
                         SDHole *newYearDept = [SDHole object];
-                        newYearDept.name = [NSString stringWithFormat:@"%@%@%@%@级#", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
+                        newYearDept.name = [NSString stringWithFormat:@"%@%@%@%@级", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
                         newYearDept.memberCount = @1;
                         newYearDept.postCount = @0;
                         [newYearDept save];
@@ -291,7 +286,7 @@
                 if (year.class != [NSNull class]) {
                     
                     SDHole *newYear = [SDHole object];
-                    newYear.name = [NSString stringWithFormat:@"%@%@%@级#", schoolName, degrees[degree], [year substringFromIndex:2]];
+                    newYear.name = [NSString stringWithFormat:@"%@%@%@级", schoolName, degrees[degree], [year substringFromIndex:2]];
                     newYear.memberCount = @0;
                     [newYear incrementKey:@"memberCount"];
                     newYear.postCount = @0;
@@ -304,7 +299,7 @@
                 if (year.class != [NSNull class] && [self isDeptValid:dept]) {
                     
                     SDHole *newYearDept = [SDHole object];
-                    newYearDept.name = [NSString stringWithFormat:@"%@%@%@%@级#", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
+                    newYearDept.name = [NSString stringWithFormat:@"%@%@%@%@级", schoolName, dept, degrees[degree], [year substringFromIndex:2]];
                     newYearDept.memberCount = @0;
                     [newYearDept incrementKey:@"memberCount"];
                     newYearDept.postCount = @0;
@@ -327,8 +322,6 @@
     [[AVUser currentUser] save];
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
-
-
 }
 
 - (void)rennService:(RennService *)service requestFailWithError:(NSError*)error
