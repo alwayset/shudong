@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NYO-QV-XCf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NYO-QV-XCf">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -209,11 +209,7 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="zvf-Yf-8sc">
                                                             <rect key="frame" x="9" y="144" width="290" height="78"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<<<<<<< HEAD
-                                                            <color key="backgroundColor" patternImage="F96DBC2D-697E-4B9E-A17B-2A032E0AB019" colorSpace="pattern"/>
-=======
-                                                            <color key="backgroundColor" patternImage="7D8574F0-A674-43DF-A599-1EE383A8BFF4" colorSpace="pattern"/>
->>>>>>> origin/五月的晴天闪了肩
+                                                            <color key="backgroundColor" patternImage="17DCA1B4-E52F-4C05-AD95-E832C5610F37" colorSpace="pattern"/>
                                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6DQ-jz-U3a">
@@ -385,7 +381,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" id="j1e-vV-77k" customClass="CERoundProgressView">
-                                                            <rect key="frame" x="238" y="152" width="50" height="50"/>
+                                                            <rect key="frame" x="249" y="166" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xk1-9L-bu3" customClass="SDLikeButton">
@@ -527,11 +523,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" id="V0Z-oQ-LqJ">
                                                     <rect key="frame" x="20" y="132" width="278" height="157"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<<<<<<< HEAD
-                                                    <color key="backgroundColor" patternImage="AB407F39-269B-48FE-8076-E402F1D4714B" colorSpace="pattern"/>
-=======
-                                                    <color key="backgroundColor" patternImage="AB972024-F1D5-479E-8A55-0F370D84E901" colorSpace="pattern"/>
->>>>>>> origin/五月的晴天闪了肩
+                                                    <color key="backgroundColor" patternImage="DF4830B2-210B-432F-8696-18625E35B431" colorSpace="pattern"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
@@ -919,12 +911,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2.jpg" width="640" height="640"/>
-<<<<<<< HEAD
-        <image name="AB407F39-269B-48FE-8076-E402F1D4714B" width="640" height="1136">
-=======
-        <image name="7D8574F0-A674-43DF-A599-1EE383A8BFF4" width="640" height="1136">
->>>>>>> origin/五月的晴天闪了肩
+        <image name="17DCA1B4-E52F-4C05-AD95-E832C5610F37" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -941,11 +928,8 @@ ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
 AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
 </mutableData>
         </image>
-<<<<<<< HEAD
-        <image name="F96DBC2D-697E-4B9E-A17B-2A032E0AB019" width="640" height="1136">
-=======
-        <image name="AB972024-F1D5-479E-8A55-0F370D84E901" width="640" height="1136">
->>>>>>> origin/五月的晴天闪了肩
+        <image name="2.jpg" width="640" height="640"/>
+        <image name="DF4830B2-210B-432F-8696-18625E35B431" width="640" height="1136">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
