@@ -1009,6 +1009,10 @@
 		840F65C7192A2D6D00082684 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65C6192A2D6D00082684 /* KxMenu.m */; };
 		840F65C9192A35E400082684 /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65C8192A35E400082684 /* triangle.png */; };
 		840F65CC192B969600082684 /* SDCategoryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65CB192B969600082684 /* SDCategoryButton.m */; };
+		840F65D2192E34A600082684 /* CERoundProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65CF192E34A600082684 /* CERoundProgressLayer.m */; };
+		840F65D3192E34A600082684 /* CERoundProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65D1192E34A600082684 /* CERoundProgressView.m */; };
+		840F65D6192E35C500082684 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65D4192E35C500082684 /* circle.png */; };
+		840F65D7192E35C500082684 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65D5192E35C500082684 /* circle@2x.png */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -2070,6 +2074,12 @@
 		840F65C8192A35E400082684 /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = triangle.png; path = images/triangle.png; sourceTree = "<group>"; };
 		840F65CA192B969600082684 /* SDCategoryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCategoryButton.h; sourceTree = "<group>"; };
 		840F65CB192B969600082684 /* SDCategoryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCategoryButton.m; sourceTree = "<group>"; };
+		840F65CE192E34A600082684 /* CERoundProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CERoundProgressLayer.h; sourceTree = "<group>"; };
+		840F65CF192E34A600082684 /* CERoundProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CERoundProgressLayer.m; sourceTree = "<group>"; };
+		840F65D0192E34A600082684 /* CERoundProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CERoundProgressView.h; sourceTree = "<group>"; };
+		840F65D1192E34A600082684 /* CERoundProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CERoundProgressView.m; sourceTree = "<group>"; };
+		840F65D4192E35C500082684 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle.png; path = images/circle.png; sourceTree = "<group>"; };
+		840F65D5192E35C500082684 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "circle@2x.png"; path = "images/circle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2234,6 +2244,7 @@
 		2BDBDC85190A70D500BEFD09 /* shudong */ = {
 			isa = PBXGroup;
 			children = (
+				840F65CD192E34A600082684 /* CERoundProgress */,
 				840F65C4192A2D6D00082684 /* KxMenu */,
 				2B1FFFF71929E0CE0085576C /* fonts */,
 				2BEFCD081919438D00E8BEE4 /* custom-tabbar */,
@@ -2362,6 +2373,8 @@
 		840A33CB190A938C0062458D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				840F65D4192E35C500082684 /* circle.png */,
+				840F65D5192E35C500082684 /* circle@2x.png */,
 				840F65C8192A35E400082684 /* triangle.png */,
 				840F65BA19262C0900082684 /* random.png */,
 				840F65BB19262C0900082684 /* random@2x.png */,
@@ -3293,6 +3306,17 @@
 			path = KxMenu;
 			sourceTree = "<group>";
 		};
+		840F65CD192E34A600082684 /* CERoundProgress */ = {
+			isa = PBXGroup;
+			children = (
+				840F65CE192E34A600082684 /* CERoundProgressLayer.h */,
+				840F65CF192E34A600082684 /* CERoundProgressLayer.m */,
+				840F65D0192E34A600082684 /* CERoundProgressView.h */,
+				840F65D1192E34A600082684 /* CERoundProgressView.m */,
+			);
+			path = CERoundProgress;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3637,6 +3661,7 @@
 				840F65A0191FA47B00082684 /* 864.png in Resources */,
 				840F6296191FA47B00082684 /* 163.png in Resources */,
 				840F642F191FA47B00082684 /* 531.png in Resources */,
+				840F65D6192E35C500082684 /* circle.png in Resources */,
 				840F64E5191FA47B00082684 /* 696.png in Resources */,
 				840F6461191FA47B00082684 /* 577.png in Resources */,
 				840F62A8191FA47B00082684 /* 18.png in Resources */,
@@ -3770,6 +3795,7 @@
 				840F648D191FA47B00082684 /* 616.png in Resources */,
 				840F6523191FA47B00082684 /* 751.png in Resources */,
 				840F6545191FA47B00082684 /* 782.png in Resources */,
+				840F65D7192E35C500082684 /* circle@2x.png in Resources */,
 				840F62DA191FA47B00082684 /* 224.png in Resources */,
 				840F63FB191FA47B00082684 /* 485.png in Resources */,
 				840F6264191FA47B00082684 /* 118.png in Resources */,
@@ -4388,6 +4414,7 @@
 				2B20D2DE192E372100B713D9 /* SDSignupViewController.m in Sources */,
 				840A353319138E4B0062458D /* SDCommentCell.m in Sources */,
 				2B70E27319163AFE0058F5BE /* NSObject+SBJSON.m in Sources */,
+				840F65D2192E34A600082684 /* CERoundProgressLayer.m in Sources */,
 				2B572169190FEFD000EE5964 /* SDChooseHoleTableViewController.m in Sources */,
 				2BDBDC96190A70D500BEFD09 /* SDViewController.m in Sources */,
 				2BEFCD0E1919438D00E8BEE4 /* tabbarViewController.m in Sources */,
@@ -4397,6 +4424,7 @@
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,
 				2BEFCD2D191A349700E8BEE4 /* SDDetailHoleViewController.m in Sources */,
 				840F5ED7191A6A2100082684 /* SDActitityCell.m in Sources */,
+				840F65D3192E34A600082684 /* CERoundProgressView.m in Sources */,
 				2BD76084190BDE9800C60FCE /* SDTabViewController.m in Sources */,
 				840F5EDA191BBCBC00082684 /* SDDiscoverViewController.m in Sources */,
 				840F65CC192B969600082684 /* SDCategoryButton.m in Sources */,
