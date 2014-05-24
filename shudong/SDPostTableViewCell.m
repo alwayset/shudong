@@ -37,13 +37,7 @@
     sourceLabel.font = [UIFont fontWithName:FONT_1 size:12.0];
     titleLabel.font = [UIFont fontWithName:FONT_1 size:17.0];
     text.font = [UIFont fontWithName:FONT_1 size:15.0];
-    containerView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
-    containerView.layer.shadowOpacity = 0.7f;
-    containerView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
-    containerView.layer.shadowRadius = 3.0f;
-    containerView.layer.masksToBounds = NO;
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:containerView.bounds];
-    containerView.layer.shadowPath = path.CGPath;
+    
     
     UIColor *tintColor = [UIColor colorWithRed:252.0/255.0 green:62.0/255.0 blue:73.0/255.0 alpha:1];
     [[UISlider appearance] setMinimumTrackTintColor:tintColor];
@@ -52,7 +46,16 @@
     self.likeProgress.startAngle = (3.0*M_PI)/2.0;
 
 }
-
+- (void)setShadow
+{
+    containerView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+    containerView.layer.shadowOpacity = 0.7f;
+    containerView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
+    containerView.layer.shadowRadius = 3.0f;
+    containerView.layer.masksToBounds = NO;
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:containerView.bounds];
+    containerView.layer.shadowPath = path.CGPath;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

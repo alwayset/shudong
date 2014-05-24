@@ -129,6 +129,13 @@
     return dataSource.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SDPost *currentPost = dataSource[indexPath.row];
+    NSString* temp = currentPost.text;
+    CGRect rect = [temp boundingRectWithSize:CGSizeMake(290, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0]} context:nil];
+    return  ((rect.size.height<142)?rect.size.height:142) +138;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -139,7 +146,12 @@
 //    cell.titleLabel.text = @"清华大学北大系";
     cell.sourceLabel.text = @"清华大学北大系";
     [cell.sourceLabel sizeToFit];
+    CGRect rect = [currentPost.text boundingRectWithSize:CGSizeMake(290, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0]} context:nil];
+    [cell.text setFrame:CGRectMake(6, 30, 290, (rect.size.height<142)?rect.size.height:142)];
     cell.text.text = currentPost.text;
+    [cell.likeProgress setFrame:CGRectMake(249, cell.text.frame.size.height+30+20, 50, 50)];
+    [cell.containerView setFrame:CGRectMake(6, 9, 308, cell.frame.size.height-18)];
+    [cell setShadow];
     if (!currentPost.image) {
         cell.picture.image = [UIImage imageNamed:[currentPost.picId.stringValue stringByAppendingString:@".jpg"]];
     } else {

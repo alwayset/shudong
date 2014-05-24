@@ -26,6 +26,6 @@
 
 - (void)showPictureWithData:(NSData *)data;
 - (void)setNumbers;
-
+- (void)setShadow;
 
 @end
