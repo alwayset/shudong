@@ -29,6 +29,8 @@
 #define ShouldShowTabbarNotif @"should_show_tab_bar"
 #define ShouldHideTabbarNotif @"should_hide_tab_bar"
 
+#define ShouldLoadCurrentTerrNotif @"should_load_current_terr"
+
 
 //renren
 #define RR_APP_ID @"267400"

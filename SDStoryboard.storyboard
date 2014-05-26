@@ -30,34 +30,36 @@
             </objects>
             <point key="canvasLocation" x="1288" y="1424"/>
         </scene>
-        <!--Table View Controller - 所在领地-->
+        <!--Current Territory Table View Controller - 所在领地-->
         <scene sceneID="vT7-QD-5mW">
             <objects>
-                <tableViewController id="51X-15-AuV" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" id="0oc-2b-MRE">
+                <tableViewController id="51X-15-AuV" customClass="CurrentTerritoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="128" sectionHeaderHeight="22" sectionFooterHeight="22" id="0oc-2b-MRE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="terri" rowHeight="85" id="Mgp-Py-SCW" customClass="SDTerrTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="85"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="terri" rowHeight="128" id="Mgp-Py-SCW" customClass="SDTerrTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mgp-Py-SCW" id="npk-xj-fT6">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ReE-rH-ooT">
-                                            <rect key="frame" x="210" y="3" width="92" height="77"/>
+                                        <mapView clipsSubviews="YES" alpha="0.5499999999999996" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReE-rH-ooT">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </mapView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="陶沙的窝" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNo-SN-rCN">
-                                            <rect key="frame" x="20" y="10" width="136" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="陶沙的窝" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNo-SN-rCN">
+                                            <rect key="frame" x="172" y="79" width="136" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="1" height="-1"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30头狮子在这里吼了60声" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFM-Td-4vU">
-                                            <rect key="frame" x="20" y="43" width="192" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30头狮子在这里吼了60声" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFM-Td-4vU">
+                                            <rect key="frame" x="116" y="101" width="192" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,7 +82,7 @@
                     <navigationItem key="navigationItem" title="所在领地" id="lYS-fW-tPv">
                         <barButtonItem key="rightBarButtonItem" title="创建领地" id="TDO-j9-qD8">
                             <connections>
-                                <segue destination="dUI-tb-kIV" kind="push" id="U0H-OT-xUn"/>
+                                <segue destination="kfd-GK-avS" kind="modal" id="qMZ-vm-AwV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -88,6 +90,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vni-9U-t9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-670" y="1503"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ape-Gv-eW2">
+            <objects>
+                <navigationController storyboardIdentifier="addterr" definesPresentationContext="YES" id="kfd-GK-avS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZoD-j9-SWX">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dUI-tb-kIV" kind="relationship" relationship="rootViewController" id="Wb1-QX-dv9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ML2-OQ-Nhc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-231" y="1472"/>
         </scene>
         <!--Add Territory View Controller - 创建领地-->
         <scene sceneID="bwS-2J-pX2">
@@ -113,7 +130,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="创建领地" id="Qsq-Rt-qcy"/>
+                    <navigationItem key="navigationItem" title="创建领地" id="Qsq-Rt-qcy">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="9z3-9l-RI0">
+                            <connections>
+                                <action selector="dismissSelf:" destination="dUI-tb-kIV" id="7Yo-ei-4nL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="bNP-1I-WAZ">
+                            <connections>
+                                <action selector="askForName:" destination="dUI-tb-kIV" id="00u-e0-3Qe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mainMap" destination="LrY-la-ymn" id="HPO-iy-THH"/>
                         <outlet property="view" destination="5eZ-Gv-KAl" id="ASN-oB-74p"/>
@@ -127,7 +155,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-159" y="1503"/>
+            <point key="canvasLocation" x="134" y="1480"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="nMQ-6E-G1z">
@@ -320,7 +348,7 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zvf-Yf-8sc">
                                                             <rect key="frame" x="9" y="144" width="290" height="78"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <color key="backgroundColor" patternImage="75248C8F-F3E2-4039-AEEF-9BF3860FDFFA" colorSpace="pattern"/>
+                                                            <color key="backgroundColor" patternImage="BDD8DA9C-2939-47D5-B00F-45AA2DE77055" colorSpace="pattern"/>
                                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="273" translatesAutoresizingMaskIntoConstraints="NO" id="6DQ-jz-U3a">
@@ -1080,10 +1108,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bm1-xk-cEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="h2B-iu-lbJ">
+            <objects>
+                <viewController id="Zej-oE-nqX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PUE-bl-VqW"/>
+                        <viewControllerLayoutGuide type="bottom" id="o0m-pu-6cL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AHq-Ff-HGY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n2v-J3-mgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="2.jpg" width="640" height="640"/>
-        <image name="75248C8F-F3E2-4039-AEEF-9BF3860FDFFA" width="1024" height="671">
+        <image name="BDD8DA9C-2939-47D5-B00F-45AA2DE77055" width="1024" height="671">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz

@@ -13,9 +13,12 @@
 #import "SDTerrTableViewCell.h"
 #import <MapKit/MapKit.h>
 #import "SDTerrAnno.h"
+#import "Constants.h"
+#import "SDAddTerritoryViewController.h"
 
-
-@interface CurrentTerritoryTableViewController ()
+@interface CurrentTerritoryTableViewController () {
+    UIRefreshControl *refresh;
+}
 
 @end
 
@@ -35,11 +38,32 @@
 {
     [super viewDidLoad];
     
+    refresh = [[UIRefreshControl alloc] init];
+    [refresh addTarget:self action:@selector(loadCurrentTerri) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadCurrentTerri) name:ShouldLoadCurrentTerrNotif object:nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    if ([AVLocationManager sharedInstance].lastLocation) {
+        [self loadCurrentTerri];
+    } else {
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"获取位置中";
+        
+        [[AVLocationManager sharedInstance] updateWithBlock:^(AVGeoPoint *geoPoint, NSError *error) {
+            [hud hide:YES];
+            if (!error) {
+                [self loadCurrentTerri];
+            }
+        }];
+    }
     
 }
 
@@ -65,7 +89,7 @@
     return dataSource.count;
 }
 
-- (void)loadCurrentTerri {
+- (IBAction)loadCurrentTerri {
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeText;
@@ -75,8 +99,10 @@
     AVQuery *terriQuery = [AVQuery queryWithClassName:@"Terr"];
     [terriQuery whereKey:@"location" nearGeoPoint:loc withinKilometers:1.5];
     [terriQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [refresh endRefreshing];
         [hud hide:YES];
         if (!error) {
+            dataSource = [NSMutableArray arrayWithArray:objects];
             [self.tableView reloadData];
         } else {
             
@@ -94,13 +120,25 @@
     // Configure the cell...
     cell.terrName.text = dataSource[indexPath.row][@"name"];
     NSNumber *roarCount = dataSource[indexPath.row][@"roarCount"];
-    cell.terrInfo.text = [NSString stringWithFormat:@"%@声吼"];
-    SDTerrAnno *anno = [[SDTerrAnno alloc] init];
+    cell.terrInfo.text = [NSString stringWithFormat:@"%@声吼", roarCount];
     AVGeoPoint *loc = dataSource[indexPath.row][@"location"];
-    anno.coordinate = CLLocationCoordinate2DMake(loc.latitude, loc.longitude);
+    SDTerrAnno *anno = [[SDTerrAnno alloc] initWithCoords:CLLocationCoordinate2DMake(loc.latitude, loc.longitude)];
     [cell.terrLocMap removeAnnotations:cell.terrLocMap.annotations];
     [cell.terrLocMap addAnnotation:anno];
+    
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = anno.coordinate;
+    mapRegion.span.latitudeDelta = 0.001;
+    mapRegion.span.longitudeDelta = 0.001;
+    
+    [cell.terrLocMap setRegion:mapRegion animated: YES];
+    
     return cell;
+}
+
+-(IBAction)addTerr:(id)sender {
+    SDAddTerritoryViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"addterr"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

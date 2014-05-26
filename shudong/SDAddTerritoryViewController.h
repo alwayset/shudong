@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface SDAddTerritoryViewController : UIViewController<MKMapViewDelegate, UIGestureRecognizerDelegate>
+@interface SDAddTerritoryViewController : UIViewController<MKMapViewDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mainMap;
 
 @end

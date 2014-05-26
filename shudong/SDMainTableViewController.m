@@ -148,7 +148,13 @@
     SDPost *currentPost = dataSource[indexPath.row];
     cell.post = currentPost;
     
-    cell.displayNameLabel.text = currentPost.displayName;
+    if (currentPost.displayName) {
+        cell.displayNameLabel.text = currentPost.displayName;
+        cell.displayNameLabel.textColor = [UIColor blackColor];
+    } else {
+        cell.displayNameLabel.textColor = [UIColor lightGrayColor];
+        cell.displayNameLabel.text = @"匿名用户";
+    }
     cell.contentText.text = currentPost.text;
     [cell.contentText sizeToFit];
     

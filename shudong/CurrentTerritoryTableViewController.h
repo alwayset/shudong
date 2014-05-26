@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVOSCloud/AVLocationManager.h>
 
 @interface CurrentTerritoryTableViewController : UITableViewController
 @property (nonatomic, strong) NSMutableArray *dataSource;
