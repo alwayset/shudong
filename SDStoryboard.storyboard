@@ -424,7 +424,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="erictaosha" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="te5-WL-TbB">
-                                                    <rect key="frame" x="20" y="3" width="80" height="21"/>
+                                                    <rect key="frame" x="20" y="3" width="80" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -472,6 +472,15 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                                                 </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U83-YJ-Uvc">
+                                                    <rect key="frame" x="96" y="4" width="156" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" red="0.93725496529999996" green="0.36470589040000001" blue="0.13725490870000001" alpha="1" colorSpace="deviceRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -479,6 +488,7 @@
                                             <outlet property="contentText" destination="FFE-TX-fUC" id="bk2-Ga-UkL"/>
                                             <outlet property="displayNameLabel" destination="te5-WL-TbB" id="YgJ-VD-Oml"/>
                                             <outlet property="likeButton" destination="7Ep-LL-q2S" id="YQy-zZ-kWW"/>
+                                            <outlet property="terrButton" destination="U83-YJ-Uvc" id="Oit-Sw-p2v"/>
                                             <outlet property="timeStampLabel" destination="vOw-6v-HSO" id="N8L-Nz-dxi"/>
                                             <outlet property="toolBar" destination="QNE-aX-Uk2" id="33P-zC-QRj"/>
                                         </connections>

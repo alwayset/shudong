@@ -12,7 +12,6 @@
 
 @implementation SDPostTableViewCell
 
-@synthesize containerView;
 @synthesize contentText;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -48,16 +47,16 @@
     
 
 }
-- (void)setShadow
-{
-    containerView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
-    containerView.layer.shadowOpacity = 0.7f;
-    containerView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
-    containerView.layer.shadowRadius = 3.0f;
-    containerView.layer.masksToBounds = NO;
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:containerView.bounds];
-    containerView.layer.shadowPath = path.CGPath;
-}
+//- (void)setShadow
+//{
+//    containerView.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+//    containerView.layer.shadowOpacity = 0.7f;
+//    containerView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
+//    containerView.layer.shadowRadius = 3.0f;
+//    containerView.layer.masksToBounds = NO;
+//    UIBezierPath *path = [UIBezierPath bezierPathWithRect:containerView.bounds];
+//    containerView.layer.shadowPath = path.CGPath;
+//}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

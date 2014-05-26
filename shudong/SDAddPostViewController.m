@@ -250,7 +250,7 @@
     newPost.commentCount = @0;
     newPost.score =@0;
     if (self.targetTerr) {
-        newPost[@"terr"] = self.targetTerr;
+        newPost.terr = self.targetTerr;
     }
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];

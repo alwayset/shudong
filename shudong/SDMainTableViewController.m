@@ -156,10 +156,15 @@
         cell.displayNameLabel.textColor = [UIColor lightGrayColor];
         cell.displayNameLabel.text = @"匿名用户";
     }
+    
+    if (currentPost.terr) {
+        [cell.terrButton setTitle:currentPost.terr[@"name"] forState:UIControlStateNormal];
+    } else {
+        [cell.terrButton setHidden:YES];
+    }
     cell.contentText.text = currentPost.text;
     [cell.contentText sizeToFit];
     
-    cell.score.text = currentPost.score.stringValue;
     cell.commentButton.titleLabel.text = currentPost.commentCount.stringValue;
     CGRect rect = [currentPost.text boundingRectWithSize:CGSizeMake(280, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
 
@@ -300,7 +305,7 @@
     AVQuery *postQuery = [SDPost query];
     [postQuery orderByDescending:@"createdAt"];
     postQuery.limit = NUMBER_OF_POSTS_PER_LOAD;
-    
+    [postQuery includeKey:@"terr"];
     if (firstLoad) {
         postQuery.cachePolicy = kAVCachePolicyCacheThenNetwork;
         firstLoad = NO;
