@@ -10,6 +10,9 @@
 #import "SDUtils.h"
 #import "Constants.h"
 #import "SDTabViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
+
+
 @interface SDAddPostViewController () {
     
     
@@ -55,7 +58,7 @@
 //    _titleField.layer.borderColor = [UIColor darkGrayColor].CGColor;
     
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardDidChangeFrameNotification object:nil];
-
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     _myHoles =  [NSMutableArray arrayWithArray:[SDUtils sharedInstance].myHoles];
     _isUsingSystemBackground = YES;
@@ -173,6 +176,11 @@
 
 - (void)keyboardWillAppear:(NSNotification *)notification {
     //调整两个按钮的位置
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    
+    
     NSDictionary *userInfo = [notification userInfo];
     
     NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
@@ -204,6 +212,11 @@
 }
 - (void)keyboardWillDisappear:(NSNotification *)notification {
     //调整两个按钮的位置
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+
+    
     [UIView beginAnimations:nil context:nil];
     
     NSDictionary *userInfo = [notification userInfo];
@@ -212,53 +225,64 @@
     [animationDurationValue getValue:&animationDuration];
     
     [UIView setAnimationDuration:animationDuration];
-    
     _toolbar.frame = CGRectMake(0, Screen_Height, Screen_Width, 44);
     _titleField.frame = CGRectMake(15, 64, Screen_Height, _titleField.frame.size.height);
     _contentText.frame = CGRectMake(0, 64 + _titleField.frame.size.height, Screen_Width, Screen_Height - 64 - 44);
     [UIView commitAnimations];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
 
 }
 
 
 -(IBAction)submit:(id)sender {
     SDPost *newPost = [SDPost object];
-    newPost.text = _contentText.text;
-    newPost.poster = [AVUser currentUser];
-    newPost.commentCount = @0;
-//    newPost.likeCount = @0;
-    newPost.score =@0;
-//    newPost.title = _titleField.text;
-    NSDictionary *uploadPackage;
-    if (_isUsingSystemBackground) {
-//        newPost.picId = _selectedPicId;
-        uploadPackage = @{@"post": newPost};
-
-    } else {
-        CGFloat compression = 0.9f;
-        CGFloat maxCompression = 0.1f;
-        int maxFileSize = 70*1024;
-        
-        //original
-        NSData *imageData = UIImageJPEGRepresentation(_background.image, compression);
-        while ([imageData length] > maxFileSize && compression > maxCompression)
-        {
-            compression -= 0.1;
-            imageData = UIImageJPEGRepresentation(_background.image, compression);
-        }
-        AVFile *newFile = [AVFile fileWithData:imageData];
-        uploadPackage = @{@"post": newPost, @"file":newFile};
-        
+    
+    if ([AVUser currentUser]) {
+        newPost.poster = [AVUser currentUser];
+        newPost.displayName = [AVUser currentUser][@"displayName"];
     }
+    newPost.text = _contentText.text;
+    newPost.commentCount = @0;
+    newPost.score =@0;
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = @"发布中";
+    
+    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [hud hide:NO];
+        if (!error) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } else {
+            [SDUtils showErrALertWithText:@"发送失败"];
+        }
+    }];
+    
+    //    if (_isUsingSystemBackground) {
+////        newPost.picId = _selectedPicId;
+//        uploadPackage = @{@"post": newPost};
+//
+//    } else {
+//        CGFloat compression = 0.9f;
+//        CGFloat maxCompression = 0.1f;
+//        int maxFileSize = 70*1024;
+//        
+//        //original
+//        NSData *imageData = UIImageJPEGRepresentation(_background.image, compression);
+//        while ([imageData length] > maxFileSize && compression > maxCompression)
+//        {
+//            compression -= 0.1;
+//            imageData = UIImageJPEGRepresentation(_background.image, compression);
+//        }
+//        AVFile *newFile = [AVFile fileWithData:imageData];
+//        uploadPackage = @{@"post": newPost, @"file":newFile};
+//        
+//    }
     //myHoles is not validated
 //    for (SDHole *eachHole in [SDUtils sharedInstance].myHoles) {
 //        [newPost.holes addObject:eachHole];
 //    }
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:DidFinishPostingNotif object:nil];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:DidFinishPostingNotif object:nil];
 }
 
 
@@ -272,15 +296,12 @@
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+
     return YES;
 }
 
+
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView {
-    
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 
     return YES;
     

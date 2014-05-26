@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0A319C19332490001270A2 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B0A319A19332490001270A2 /* down.png */; };
+		2B0A319D19332490001270A2 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B0A319B19332490001270A2 /* up.png */; };
+		2B0A31A01933261E001270A2 /* SDAddTerritoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0A319F1933261E001270A2 /* SDAddTerritoryViewController.m */; };
+		2B0A31A619332828001270A2 /* CurrentTerritoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0A31A519332828001270A2 /* CurrentTerritoryTableViewController.m */; };
+		2B0A31A919332BA4001270A2 /* SDTerrTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0A31A819332BA4001270A2 /* SDTerrTableViewCell.m */; };
+		2B0A31AC19332E1B001270A2 /* SDTerrAnno.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0A31AB19332E1B001270A2 /* SDTerrAnno.m */; };
+		2B0A31AE19333217001270A2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0A31AD19333217001270A2 /* MapKit.framework */; };
 		2B1FFFFA1929E0CE0085576C /* 微软vista雅黑.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B1FFFF81929E0CE0085576C /* 微软vista雅黑.ttf */; };
 		2B20D2DE192E372100B713D9 /* SDSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B20D2DD192E372100B713D9 /* SDSignupViewController.m */; };
 		2B20D2E0192E792F00B713D9 /* matches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2B20D2DF192E792F00B713D9 /* matches.jpg */; };
@@ -1027,6 +1034,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B0A319A19332490001270A2 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = down.png; path = images/down.png; sourceTree = "<group>"; };
+		2B0A319B19332490001270A2 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = up.png; path = images/up.png; sourceTree = "<group>"; };
+		2B0A319E1933261E001270A2 /* SDAddTerritoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAddTerritoryViewController.h; sourceTree = "<group>"; };
+		2B0A319F1933261E001270A2 /* SDAddTerritoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAddTerritoryViewController.m; sourceTree = "<group>"; };
+		2B0A31A419332828001270A2 /* CurrentTerritoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentTerritoryTableViewController.h; sourceTree = "<group>"; };
+		2B0A31A519332828001270A2 /* CurrentTerritoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentTerritoryTableViewController.m; sourceTree = "<group>"; };
+		2B0A31A719332BA4001270A2 /* SDTerrTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTerrTableViewCell.h; sourceTree = "<group>"; };
+		2B0A31A819332BA4001270A2 /* SDTerrTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTerrTableViewCell.m; sourceTree = "<group>"; };
+		2B0A31AA19332E1B001270A2 /* SDTerrAnno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDTerrAnno.h; sourceTree = "<group>"; };
+		2B0A31AB19332E1B001270A2 /* SDTerrAnno.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDTerrAnno.m; sourceTree = "<group>"; };
+		2B0A31AD19333217001270A2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2B1FFFF81929E0CE0085576C /* 微软vista雅黑.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "微软vista雅黑.ttf"; sourceTree = "<group>"; };
 		2B20D2DC192E372100B713D9 /* SDSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSignupViewController.h; sourceTree = "<group>"; };
 		2B20D2DD192E372100B713D9 /* SDSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSignupViewController.m; sourceTree = "<group>"; };
@@ -2087,6 +2105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B0A31AE19333217001270A2 /* MapKit.framework in Frameworks */,
 				2B70E27A19163AFE0058F5BE /* RennSDK.framework in Frameworks */,
 				2B63EE77190B859D00E30B09 /* libsqlite3.0.dylib in Frameworks */,
 				2BDBDC82190A70D500BEFD09 /* CoreGraphics.framework in Frameworks */,
@@ -2229,6 +2248,7 @@
 		2BDBDC7E190A70D500BEFD09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B0A31AD19333217001270A2 /* MapKit.framework */,
 				2B70E26219163AFE0058F5BE /* RENREN-SDK */,
 				2B63EE76190B859D00E30B09 /* libsqlite3.0.dylib */,
 				2BDBDC7F190A70D500BEFD09 /* Foundation.framework */,
@@ -2243,6 +2263,8 @@
 		2BDBDC85190A70D500BEFD09 /* shudong */ = {
 			isa = PBXGroup;
 			children = (
+				2B0A31A419332828001270A2 /* CurrentTerritoryTableViewController.h */,
+				2B0A31A519332828001270A2 /* CurrentTerritoryTableViewController.m */,
 				840F65CD192E34A600082684 /* CERoundProgress */,
 				840F65C4192A2D6D00082684 /* KxMenu */,
 				2B1FFFF71929E0CE0085576C /* fonts */,
@@ -2253,6 +2275,12 @@
 				2BD76083190BDE9800C60FCE /* SDTabViewController.h */,
 				2BD76076190BC22B00C60FCE /* data model */,
 				2BD76074190BAFCD00C60FCE /* SDStoryboard.storyboard */,
+				2B0A31A719332BA4001270A2 /* SDTerrTableViewCell.h */,
+				2B0A31A819332BA4001270A2 /* SDTerrTableViewCell.m */,
+				2B0A31AA19332E1B001270A2 /* SDTerrAnno.h */,
+				2B0A31AB19332E1B001270A2 /* SDTerrAnno.m */,
+				2B0A319E1933261E001270A2 /* SDAddTerritoryViewController.h */,
+				2B0A319F1933261E001270A2 /* SDAddTerritoryViewController.m */,
 				2B20D2DC192E372100B713D9 /* SDSignupViewController.h */,
 				2B20D2DD192E372100B713D9 /* SDSignupViewController.m */,
 				2BEFCD28191A334B00E8BEE4 /* SDPageViewController.h */,
@@ -2372,6 +2400,8 @@
 		840A33CB190A938C0062458D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2B0A319A19332490001270A2 /* down.png */,
+				2B0A319B19332490001270A2 /* up.png */,
 				2B20D2DF192E792F00B713D9 /* matches.jpg */,
 				840F65D4192E35C500082684 /* circle.png */,
 				840F65D5192E35C500082684 /* circle@2x.png */,
@@ -3437,6 +3467,7 @@
 				840F6563191FA47B00082684 /* 809.png in Resources */,
 				840F6356191FA47B00082684 /* 336.png in Resources */,
 				840F65A3191FA47B00082684 /* 867.png in Resources */,
+				2B0A319C19332490001270A2 /* down.png in Resources */,
 				840F6283191FA47B00082684 /* 146.png in Resources */,
 				840F6517191FA47B00082684 /* 740.png in Resources */,
 				840F62BE191FA47B00082684 /* 2.png in Resources */,
@@ -3982,6 +4013,7 @@
 				840F64CE191FA47B00082684 /* 675.png in Resources */,
 				840F62D6191FA47B00082684 /* 220.png in Resources */,
 				840F648E191FA47B00082684 /* 617.png in Resources */,
+				2B0A319D19332490001270A2 /* up.png in Resources */,
 				840F6484191FA47B00082684 /* 608.png in Resources */,
 				840F64C4191FA47B00082684 /* 666.png in Resources */,
 				840F6255191FA47B00082684 /* 104.png in Resources */,
@@ -4421,11 +4453,14 @@
 				2B70E27419163AFE0058F5BE /* NSString+SBJSON.m in Sources */,
 				840F5EE4191E1F4900082684 /* SDSettingViewController.m in Sources */,
 				840A35381918B9930062458D /* SDLikeButton.m in Sources */,
+				2B0A31AC19332E1B001270A2 /* SDTerrAnno.m in Sources */,
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,
 				2BEFCD2D191A349700E8BEE4 /* SDDetailHoleViewController.m in Sources */,
 				840F5ED7191A6A2100082684 /* SDActitityCell.m in Sources */,
+				2B0A31A619332828001270A2 /* CurrentTerritoryTableViewController.m in Sources */,
 				840F65D3192E34A600082684 /* CERoundProgressView.m in Sources */,
 				2BD76084190BDE9800C60FCE /* SDTabViewController.m in Sources */,
+				2B0A31A919332BA4001270A2 /* SDTerrTableViewCell.m in Sources */,
 				840F5EDA191BBCBC00082684 /* SDDiscoverViewController.m in Sources */,
 				840F65CC192B969600082684 /* SDCategoryButton.m in Sources */,
 				2B70E27D19165DA30058F5BE /* SDRootViewController.m in Sources */,
@@ -4444,6 +4479,7 @@
 				840F65C7192A2D6D00082684 /* KxMenu.m in Sources */,
 				2BEFCD2A191A334B00E8BEE4 /* SDPageViewController.m in Sources */,
 				2BD76079190BC24700C60FCE /* SDPost.m in Sources */,
+				2B0A31A01933261E001270A2 /* SDAddTerritoryViewController.m in Sources */,
 				2BEFCD0D1919438D00E8BEE4 /* tabbarView.m in Sources */,
 				2BD7607C190BC34F00C60FCE /* SDHole.m in Sources */,
 			);

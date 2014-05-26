@@ -11,6 +11,7 @@
 #import "SDLikeButton.h"
 #import "CERoundProgressView.h"
 @interface SDPostTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIView *toolBar;
 
 
 //@property (strong, nonatomic) IBOutlet UIImageView *picture;

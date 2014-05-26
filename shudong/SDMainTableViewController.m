@@ -39,7 +39,7 @@
     
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadMyHoles) name:DidLoadMyHolesNotif object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadPosts) name:DidLoadPostsNotif object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPostingNotif object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPostingNotif object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLike:) name:LikedAPostNotif object:nil];
     
     refresh = [[UIRefreshControl alloc] init];
@@ -62,30 +62,33 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+//    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = YES;
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
-
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    
+    
+    [self loadPosts];
 
-
-    if (![AVUser currentUser]) {
-        SDLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
-        [self presentViewController:vc animated:NO completion:^{
-            //do nothing for now
-        }];
-    } else {
-        if (firstLoad) {
-            [refresh beginRefreshing];
-            [[SDUtils sharedInstance] loadPosts];
-            [[SDUtils sharedInstance] loadNewsArr];
-            
-            firstLoad = NO;
-        } else {
-        }
-
-    }
+//    if (![AVUser currentUser]) {
+//        SDLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
+//        [self presentViewController:vc animated:NO completion:^{
+//            //do nothing for now
+//        }];
+//    } else {
+////        if (firstLoad) {
+////            [refresh beginRefreshing];
+////            [[SDUtils sharedInstance] loadPosts];
+////            [[SDUtils sharedInstance] loadNewsArr];
+////            firstLoad = NO;
+////        } else {
+////        }
+//
+//    }
+    
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -133,8 +136,8 @@
 {
     SDPost *currentPost = dataSource[indexPath.row];
     NSString* temp = currentPost.text;
-    CGRect rect = [temp boundingRectWithSize:CGSizeMake(268, 120) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
-    return  rect.size.height + 80;
+    CGRect rect = [temp boundingRectWithSize:CGSizeMake(280, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
+    return  rect.size.height + 68;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -148,6 +151,15 @@
     cell.displayNameLabel.text = currentPost.displayName;
     cell.contentText.text = currentPost.text;
     [cell.contentText sizeToFit];
+    
+    cell.score.text = currentPost.score.stringValue;
+    cell.commentButton.titleLabel.text = currentPost.commentCount.stringValue;
+    CGRect rect = [currentPost.text boundingRectWithSize:CGSizeMake(280, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
+
+    
+    
+    cell.toolBar.frame = CGRectMake(0, rect.size.height + 68 - cell.toolBar.frame.size.height, 320, cell.toolBar.frame.size.height);
+    
 //    cell.titleLabel.text = currentPost[@"title"];
 //    cell.titleLabel.text = @"清华大学北大系";
 //    [cell.sourceLabel sizeToFit];
@@ -156,8 +168,7 @@
 //    cell.text.text = currentPost.text;
 //    [cell.likeProgress setFrame:CGRectMake(249, cell.text.frame.size.height+30+20, 50, 50)];
     
-//    [cell.containerView setFrame:CGRectMake(6, 9, 308, cell.frame.size.height-18)];
-    [cell setShadow];
+//    [cell setShadow];
 //    if (!currentPost.image) {
 //        cell.picture.image = [UIImage imageNamed:[currentPost.picId.stringValue stringByAppendingString:@".jpg"]];
 //    } else {
@@ -258,7 +269,7 @@
     */
     
 }
-/*
+
 - (void)loadPosts {
     if ([SDUtils sharedInstance].myHoles != nil) {
         [refresh beginRefreshing];
@@ -293,42 +304,42 @@
     return postQuery;
 }
 
-*/
+
 
 #pragma mark notification Methods
 
 
--(void)didFinishPreparingNewPostToUpload:(NSNotification *)notif {
-    NSDictionary *package = notif.object;
-    SDPost *newPost = package[@"post"];
-    AVFile *newFile = package[@"file"];
-
-    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            if (newFile != nil) {
-                [newFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    if (succeeded) {
-//                        newPost.image = newFile;
-                        [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                            if (succeeded) {
-                                [[SDUtils sharedInstance] loadPosts];
-                            } else {
-                                [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
-                            }
-                        }];
-                    } else {
-                        [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
-                    }
-                }];
-            }
-            [[[AVUser currentUser] relationforKey:@"subscribe"] addObject:newPost];
-            [[AVUser currentUser] saveEventually];
-            [[SDUtils sharedInstance] loadPosts];
-        } else {
-            [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
-        }
-    }];
-}
+//-(void)didFinishPreparingNewPostToUpload:(NSNotification *)notif {
+//    NSDictionary *package = notif.object;
+//    SDPost *newPost = package[@"post"];
+//    AVFile *newFile = package[@"file"];
+//
+//    [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            if (newFile != nil) {
+//                [newFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                    if (succeeded) {
+////                        newPost.image = newFile;
+//                        [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                            if (succeeded) {
+//                                [[SDUtils sharedInstance] loadPosts];
+//                            } else {
+//                                [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
+//                            }
+//                        }];
+//                    } else {
+//                        [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
+//                    }
+//                }];
+//            }
+//            [[[AVUser currentUser] relationforKey:@"subscribe"] addObject:newPost];
+//            [[AVUser currentUser] saveEventually];
+//            [[SDUtils sharedInstance] loadPosts];
+//        } else {
+//            [SDUtils showErrALertWithText:@"发布失败,请检查网络"];
+//        }
+//    }];
+//}
 
 
 
