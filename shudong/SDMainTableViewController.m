@@ -160,7 +160,7 @@
     [cell.contentText sizeToFit];
     
     cell.score.text = currentPost.score.stringValue;
-    cell.commentButton.titleLabel.text = currentPost.commentCount.stringValue;
+    cell.commentButton.titleLabel.text = [@" " stringByAppendingString:currentPost.commentCount.stringValue];
     CGRect rect = [currentPost.text boundingRectWithSize:CGSizeMake(280, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
 
     
@@ -168,6 +168,7 @@
     cell.toolBar.frame = CGRectMake(0, rect.size.height + 68 - cell.toolBar.frame.size.height, 320, cell.toolBar.frame.size.height);
     [cell.likeButton setText:[currentPost.likeCount stringValue]];
     [cell.likeButton initRedHeart:[[[SDUtils sharedInstance] myLikes] containsObject:currentPost]];
+    cell.parentVC = self;
 //    cell.titleLabel.text = currentPost[@"title"];
 //    cell.titleLabel.text = @"清华大学北大系";
 //    [cell.sourceLabel sizeToFit];
