@@ -324,80 +324,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-<<<<<<< HEAD
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="post" rowHeight="250" id="aMV-XK-lnR" customClass="SDPostTableViewCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="250"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aMV-XK-lnR" id="bOm-k5-6sS">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LzZ-my-uIB" userLabel="container">
-                                                    <rect key="frame" x="6" y="9" width="308" height="231"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="南京大学" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo8-RO-3N0">
-                                                            <rect key="frame" x="63" y="12" width="182" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <color key="shadowColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                            <size key="shadowOffset" width="1" height="1"/>
-                                                        </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zvf-Yf-8sc">
-                                                            <rect key="frame" x="9" y="144" width="290" height="78"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <color key="backgroundColor" patternImage="3A930DB5-C0B7-453B-B666-14C64F59D46F" colorSpace="pattern"/>
-                                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </imageView>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="        小的时候，很多人嘲笑我，我非常难过，我觉得，胖不是我的错，他们为什么要嘲笑我。这些嘲笑，谩骂给我留下了心理阴影，直到老师让我们求阴影部分面积。" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="273" translatesAutoresizingMaskIntoConstraints="NO" id="6DQ-jz-U3a">
-                                                            <rect key="frame" x="18" y="44" width="273" height="89"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzU-D3-XEP" userLabel="source">
-                                                            <rect key="frame" x="0.0" y="0.0" width="79" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <size key="shadowOffset" width="1" height="-1"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXz-bq-wOi" customClass="SDLikeButton">
-                                                            <rect key="frame" x="228" y="180" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                            <connections>
-                                                                <action selector="like:" destination="aMV-XK-lnR" eventType="touchUpInside" id="4nJ-hd-SOo"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvK-zg-Wss">
-                                                            <rect key="frame" x="160" y="180" width="60" height="40"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <state key="normal" title="  0" image="comment.png">
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                </view>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="commentButton" destination="BvK-zg-Wss" id="aRE-MP-dDD"/>
-                                            <outlet property="likeButton" destination="eXz-bq-wOi" id="CVz-HZ-oK2"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-=======
->>>>>>> origin/五月的晴天闪了臀
                                 <connections>
                                     <outlet property="dataSource" destination="ep5-NL-USI" id="4Yy-Dw-AYK"/>
                                     <outlet property="delegate" destination="ep5-NL-USI" id="MS1-qA-LFj"/>
@@ -1053,26 +979,6 @@
     </scenes>
     <resources>
         <image name="2.jpg" width="640" height="640"/>
-<<<<<<< HEAD
-        <image name="3A930DB5-C0B7-453B-B666-14C64F59D46F" width="1024" height="671">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGPD1YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
-GR4fJSYtMDY5VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
-V05TQ29sb3KAAoAMEiTAAACAA4AKW3sxMDI0LCA2NzF90hUKFhhaTlMub2JqZWN0c6EXgASACdIVChoY
-ohscgAWABoAJEAXTIAohIiMkV05TLmJhc2VbTlMucmVsYXRpdmWAAIAIgAdfENdmaWxlOi8vL0FwcGxp
-Y2F0aW9ucy9YY29kZS5hcHAvQ29udGVudHMvRGV2ZWxvcGVyL1BsYXRmb3Jtcy9pUGhvbmVTaW11bGF0
-b3IucGxhdGZvcm0vRGV2ZWxvcGVyL0xpYnJhcnkvWGNvZGUvUHJpdmF0ZVBsdWdJbnMvSURFSW50ZXJm
-YWNlQnVpbGRlckNvY29hVG91Y2hJbnRlZ3JhdGlvbi5pZGVwbHVnaW4vQ29udGVudHMvUmVzb3VyY2Vz
-L0lCVUlNaXNzaW5nSW1hZ2UudGlmZtInKCkqWiRjbGFzc25hbWVYJGNsYXNzZXNVTlNVUkyiKyxVTlNV
-UkxYTlNPYmplY3TSJyguL1dOU0FycmF5oi4s0zEyCjM0NVdOU1doaXRlXE5TQ29sb3JTcGFjZUQwIDAA
-EAOAC9InKDc4V05TQ29sb3KiNyzSJyg6O1dOU0ltYWdlojosXxAPTlNLZXllZEFyY2hpdmVy0T4/VHJv
-b3SAAQAIABEAGgAjAC0AMgA3AEUASwBWAF0AZABxAHgAgACCAIQAiQCLAI0AmQCeAKkAqwCtAK8AtAC3
-ALkAuwC9AL8AxgDOANoA3ADeAOABugG/AcoB0wHZAdwB4gHrAfAB+AH7AgICCgIXAhwCHgIgAiUCLQIw
-AjUCPQJAAlICVQJaAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAlw
-</mutableData>
-        </image>
-=======
->>>>>>> origin/五月的晴天闪了臀
         <image name="activity.png" width="22" height="22"/>
         <image name="face.png" width="60" height="60"/>
         <image name="home.png" width="22" height="22"/>
