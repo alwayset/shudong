@@ -11,6 +11,9 @@
 #import "Constants.h"
 #import "SDTabViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <AVOSCloud/AVLocationManager.h>
+#import <AVOSCloud/AVOSCloud.h>
+#import <MapKit/MapKit.h>
 
 
 @interface SDAddPostViewController () {
@@ -26,6 +29,8 @@
 @property (strong, nonatomic) NSNumber *selectedPicId;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
+
+@property (nonatomic, strong) AVObject *targetTerr;
 
 @end
 
@@ -73,6 +78,7 @@
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+    [self loadMostUpdatedTerr];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -309,6 +315,46 @@
 - (IBAction)dismissKeyboard:(id)sender {
     [self.view endEditing:YES];
 }
+
+- (IBAction)addTerr:(id)sender {
+    
+}
+
+
+- (void)loadMostUpdatedTerr {
+    AVQuery *query = [AVQuery queryWithClassName:@"Terr"];
+    [query orderByDescending:@"updatedAt"];
+    
+    
+    if ([AVLocationManager sharedInstance].lastLocation) {
+        [query whereKey:@"location" nearGeoPoint:[AVGeoPoint geoPointWithLatitude:[AVLocationManager sharedInstance].lastLocation.coordinate.latitude longitude:[AVLocationManager sharedInstance].lastLocation.coordinate.longitude] withinKilometers:500];
+        [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+            if (!error) {
+                self.targetTerr = object;
+                [self.terrButton setTitle:[NSString stringWithFormat:@"当前领地:%@",object[@"name"]] forState:UIControlStateNormal];
+            } else if (error.code == kAVErrorObjectNotFound) {
+                [self.terrButton setTitle:@"创建新的领地" forState:UIControlStateNormal];
+            }
+        }];
+    } else {
+        [[AVLocationManager sharedInstance] updateWithBlock:^(AVGeoPoint *geoPoint, NSError *error) {
+            if (!error) {
+                [query whereKey:@"location" nearGeoPoint:[AVGeoPoint geoPointWithLatitude:[AVLocationManager sharedInstance].lastLocation.coordinate.latitude longitude:[AVLocationManager sharedInstance].lastLocation.coordinate.longitude] withinKilometers:500];
+                [query getFirstObjectInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+                    if (!error) {
+                        self.targetTerr = object;
+                        [self.terrButton setTitle:[NSString stringWithFormat:@"当前领地:%@",object[@"name"]] forState:UIControlStateNormal];
+                    } else if (error.code == kAVErrorObjectNotFound) {
+                        [self.terrButton setTitle:@"创建新的领地" forState:UIControlStateNormal];
+                    }
+                }];
+            }
+        }];
+    }
+    
+    
+}
+         
 
 //- (UIStatusBarStyle)preferredStatusBarStyle
 //{

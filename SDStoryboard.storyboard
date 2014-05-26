@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="NYO-QV-XCf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="NYO-QV-XCf">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -745,7 +745,7 @@
             </objects>
             <point key="canvasLocation" x="864" y="-74"/>
         </scene>
-        <!--Add Post View Controller - 吼一发-->
+        <!--Add Post View Controller - 发布内容-->
         <scene sceneID="Vd8-tH-NNY">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="8or-Vl-YPP" customClass="SDAddPostViewController" sceneMemberID="viewController">
@@ -770,13 +770,15 @@
                                 </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0C-sA-2Y0">
-                                <rect key="frame" x="36" y="529" width="249" height="30"/>
+                                <rect key="frame" x="20" y="529" width="280" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="选择领地">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="载入领地中..">
+                                    <color key="titleColor" red="0.93725496529999996" green="0.36470589040000001" blue="0.13725490870000001" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="51X-15-AuV" kind="push" id="met-rp-fMe"/>
+                                    <segue destination="51X-15-AuV" kind="push" id="Rzl-pv-HGc"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="匿名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z2z-Wf-nM4">
@@ -808,7 +810,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="吼一发" id="R2P-a3-s3k">
+                    <navigationItem key="navigationItem" title="发布内容" id="R2P-a3-s3k">
                         <barButtonItem key="rightBarButtonItem" title="发布" id="Nxj-A3-9uX">
                             <connections>
                                 <action selector="submit:" destination="8or-Vl-YPP" id="uT8-oF-1fe"/>
@@ -818,6 +820,7 @@
                     <connections>
                         <outlet property="contentText" destination="jFI-GD-YVl" id="rnk-sz-wpw"/>
                         <outlet property="postButton" destination="Nxj-A3-9uX" id="nUr-0h-Gu5"/>
+                        <outlet property="terrButton" destination="N0C-sA-2Y0" id="T3E-ca-B67"/>
                         <outlet property="titleField" destination="z2z-Wf-nM4" id="uKT-Al-pyK"/>
                         <outlet property="toolbar" destination="tjQ-GQ-kWI" id="0DM-FQ-wJb"/>
                     </connections>
