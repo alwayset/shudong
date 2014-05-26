@@ -39,7 +39,7 @@
     
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadMyHoles) name:DidLoadMyHolesNotif object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadPosts) name:DidLoadPostsNotif object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPreparingWithNewPostNotif object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPostingNotif object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLike:) name:LikedAPostNotif object:nil];
     
     refresh = [[UIRefreshControl alloc] init];
@@ -129,47 +129,65 @@
     return dataSource.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SDPost *currentPost = dataSource[indexPath.row];
+    NSString* temp = currentPost.text;
+    CGRect rect = [temp boundingRectWithSize:CGSizeMake(268, 120) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
+    return  rect.size.height + 80;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SDPostTableViewCell *cell = (SDPostTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"post" forIndexPath:indexPath];
+
+    
+    SDPostTableViewCell *cell = (SDPostTableViewCell *  )[tableView dequeueReusableCellWithIdentifier:@"post" forIndexPath:indexPath];
     SDPost *currentPost = dataSource[indexPath.row];
     cell.post = currentPost;
-    cell.titleLabel.text = currentPost[@"title"];
+    
+    cell.displayNameLabel.text = currentPost.displayName;
+    cell.contentText.text = currentPost.text;
+    [cell.contentText sizeToFit];
+//    cell.titleLabel.text = currentPost[@"title"];
 //    cell.titleLabel.text = @"清华大学北大系";
-    cell.sourceLabel.text = @"清华大学北大系";
-    [cell.sourceLabel sizeToFit];
-    cell.text.text = currentPost.text;
-    if (!currentPost.image) {
-        cell.picture.image = [UIImage imageNamed:[currentPost.picId.stringValue stringByAppendingString:@".jpg"]];
-    } else {
-        cell.picture.image = nil;
-        [self startLoading:currentPost forIndexPath:indexPath cell:cell];
-    }
-    [cell setNumbers];
+//    [cell.sourceLabel sizeToFit];
+//    CGRect rect = [currentPost.text boundingRectWithSize:CGSizeMake(290, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18.0]} context:nil];
+//    [cell.text setFrame:CGRectMake(23, 30, 274, (rect.size.height<142)?rect.size.height:75)];
+//    cell.text.text = currentPost.text;
+//    [cell.likeProgress setFrame:CGRectMake(249, cell.text.frame.size.height+30+20, 50, 50)];
+    
+//    [cell.containerView setFrame:CGRectMake(6, 9, 308, cell.frame.size.height-18)];
+    [cell setShadow];
+//    if (!currentPost.image) {
+//        cell.picture.image = [UIImage imageNamed:[currentPost.picId.stringValue stringByAppendingString:@".jpg"]];
+//    } else {
+//        cell.picture.image = nil;
+//        [self startLoading:currentPost forIndexPath:indexPath cell:cell];
+//    }
+//    [cell setNumbers];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [cell.likeProgress setProgress:0.65 animated:YES];
+//    [cell.likeProgress setProgress:0.65 animated:YES];
     return cell;
 }
 
-- (void)startLoading:(SDPost *)post forIndexPath:(NSIndexPath *)indexpath cell:(SDPostTableViewCell *)targetCell {
-    AVFile *fileToDownload = [filesInDownload objectForKey:indexpath];
-    if (fileToDownload == nil)
-    {
-        fileToDownload = post.image;
-        [filesInDownload setObject:fileToDownload forKey:indexpath];
-        [fileToDownload getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            if (!error) {
-                SDPostTableViewCell *cell = (SDPostTableViewCell *)[self.tableview cellForRowAtIndexPath:indexpath];
-                if (cell == nil && [targetCell.post.objectId isEqualToString:post.objectId]) {
-                    cell = targetCell;
-                }
-                [cell showPictureWithData:data];
-                [filesInDownload removeObjectForKey:indexpath];
-            }
-        }];
-    }
-}
+//- (void)startLoading:(SDPost *)post forIndexPath:(NSIndexPath *)indexpath cell:(SDPostTableViewCell *)targetCell {
+//    AVFile *fileToDownload = [filesInDownload objectForKey:indexpath];
+//    if (fileToDownload == nil)
+//    {
+//        fileToDownload = post.image;
+//        [filesInDownload setObject:fileToDownload forKey:indexpath];
+//        [fileToDownload getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+//            if (!error) {
+//                SDPostTableViewCell *cell = (SDPostTableViewCell *)[self.tableview cellForRowAtIndexPath:indexpath];
+//                if (cell == nil && [targetCell.post.objectId isEqualToString:post.objectId]) {
+//                    cell = targetCell;
+//                }
+//                [cell showPictureWithData:data];
+//                [filesInDownload removeObjectForKey:indexpath];
+//            }
+//        }];
+//    }
+//}
 
 
 - (IBAction)categoryClicked:(UIButton*)sender {
@@ -290,7 +308,7 @@
             if (newFile != nil) {
                 [newFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                     if (succeeded) {
-                        newPost.image = newFile;
+//                        newPost.image = newFile;
                         [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                             if (succeeded) {
                                 [[SDUtils sharedInstance] loadPosts];

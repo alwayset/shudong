@@ -124,12 +124,12 @@
     //cell.postTimeLabel.font = [UIFont fontWithName:FONT_1 size:11.0f];
     
     //[cell fit];
-    if (!post.image) {
-        cell.imageview.image = [UIImage imageNamed:[post.picId.stringValue stringByAppendingString:@".jpg"]];
-    } else {
-        cell.imageview.image = nil;
-        [self startLoading:post forIndexPath:indexPath cell:cell collectionView:cv];
-    }
+//    if (!post.image) {
+//        cell.imageview.image = [UIImage imageNamed:[post.picId.stringValue stringByAppendingString:@".jpg"]];
+//    } else {
+//        cell.imageview.image = nil;
+//        [self startLoading:post forIndexPath:indexPath cell:cell collectionView:cv];
+//    }
     
     return cell;
     
@@ -163,39 +163,39 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)clearImagesInDownload {
-    for (AVFile *fileToCancel in filesInDownload) {
-        [fileToCancel cancel];
-    }
-    
-    [filesInDownload removeAllObjects];
-}
-- (void)startLoading:(SDPost *)post forIndexPath:(NSIndexPath *)indexpath cell:(SDActitityCell *)targetCell collectionView:(UICollectionView *)cv {
-    AVFile *fileToDownload = [filesInDownload objectForKey:indexpath];
-    
-    if (fileToDownload == nil)
-    {
-        fileToDownload = post.image;
-        [filesInDownload setObject:fileToDownload forKey:indexpath];
-        [fileToDownload getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            if (!error ){ //&& [PaDataManager isJPEGValid:data]) {
-                SDActitityCell *cell = (SDActitityCell *)[cv cellForItemAtIndexPath:indexpath];
-                if (cell == nil && [targetCell.post.objectId isEqualToString:post.objectId]) {
-                    cell = targetCell;
-                }
-                [cell showThumbnailWithData:data];
-                [filesInDownload removeObjectForKey:indexpath];
-            }
-        } progressBlock:^(NSInteger percentDone) {
-            //SDActitityCell *cell = (SDActitityCell *)[cv cellForItemAtIndexPath:indexpath];
-            //if (percentDone != 100) {
-                //cell.progressHud.hidden = NO;
-                //[cell.progressHud show:NO];
-                //cell.progressHud.progress = percentDone / 100.0;
-            //} else {
-                //cell.progressHud.hidden = YES;
-            //}
-        }];
-    }
-}
+//- (void)clearImagesInDownload {
+//    for (AVFile *fileToCancel in filesInDownload) {
+//        [fileToCancel cancel];
+//    }
+//    
+//    [filesInDownload removeAllObjects];
+//}
+//- (void)startLoading:(SDPost *)post forIndexPath:(NSIndexPath *)indexpath cell:(SDActitityCell *)targetCell collectionView:(UICollectionView *)cv {
+//    AVFile *fileToDownload = [filesInDownload objectForKey:indexpath];
+//    
+//    if (fileToDownload == nil)
+//    {
+//        fileToDownload = post.image;
+//        [filesInDownload setObject:fileToDownload forKey:indexpath];
+//        [fileToDownload getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+//            if (!error ){ //&& [PaDataManager isJPEGValid:data]) {
+//                SDActitityCell *cell = (SDActitityCell *)[cv cellForItemAtIndexPath:indexpath];
+//                if (cell == nil && [targetCell.post.objectId isEqualToString:post.objectId]) {
+//                    cell = targetCell;
+//                }
+//                [cell showThumbnailWithData:data];
+//                [filesInDownload removeObjectForKey:indexpath];
+//            }
+//        } progressBlock:^(NSInteger percentDone) {
+//            //SDActitityCell *cell = (SDActitityCell *)[cv cellForItemAtIndexPath:indexpath];
+//            //if (percentDone != 100) {
+//                //cell.progressHud.hidden = NO;
+//                //[cell.progressHud show:NO];
+//                //cell.progressHud.progress = percentDone / 100.0;
+//            //} else {
+//                //cell.progressHud.hidden = YES;
+//            //}
+//        }];
+//    }
+//}
 @end

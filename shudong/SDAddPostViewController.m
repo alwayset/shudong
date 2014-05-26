@@ -228,11 +228,12 @@
     newPost.text = _contentText.text;
     newPost.poster = [AVUser currentUser];
     newPost.commentCount = @0;
-    newPost.likeCount = @0;
-    newPost.title = _titleField.text;
+//    newPost.likeCount = @0;
+    newPost.score =@0;
+//    newPost.title = _titleField.text;
     NSDictionary *uploadPackage;
     if (_isUsingSystemBackground) {
-        newPost.picId = _selectedPicId;
+//        newPost.picId = _selectedPicId;
         uploadPackage = @{@"post": newPost};
 
     } else {
@@ -252,11 +253,11 @@
         
     }
     //myHoles is not validated
-    for (SDHole *eachHole in [SDUtils sharedInstance].myHoles) {
-        [newPost.holes addObject:eachHole];
-    }
+//    for (SDHole *eachHole in [SDUtils sharedInstance].myHoles) {
+//        [newPost.holes addObject:eachHole];
+//    }
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:DidFinishPreparingWithNewPostNotif object:uploadPackage];
+    [[NSNotificationCenter defaultCenter] postNotificationName:DidFinishPostingNotif object:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

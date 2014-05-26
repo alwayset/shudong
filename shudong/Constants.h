@@ -16,7 +16,12 @@
 #define DidLoadMyHolesNotif @"did_load_my_holes"
 #define DidLoadPostsNotif @"did_load_posts"
 #define LikeArrLoadedNotif @"like_array_loaded"
-#define DidFinishPreparingWithNewPostNotif @"did_finish_preparing_with_new_post"
+//#define DidFinishPreparingWithNewPostNotif @"did_finish_preparing_with_new_post"
+
+#define DidFinishPostingNotif @"did_finish_posting"
+
+
+
 #define LikedAPostNotif @"liked_a_post"
 #define NewsArrLoadedNotif @"news_array_loaded"
 
