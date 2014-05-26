@@ -44,7 +44,8 @@
     
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"评论";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [inputView setFrame:CGRectMake(0, Screen_Height-44, 320, 44)];
@@ -90,9 +91,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section ==0 ) {
-        NSString* temp = parentPost.text;
-        CGRect rect = [temp boundingRectWithSize:CGSizeMake(290, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0]} context:nil];
-        return  rect.size.height + 138;
+//        NSString* temp = parentPost.text;
+//        CGRect rect = [temp boundingRectWithSize:CGSizeMake(290, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0]} context:nil];
+        return  205;
     } else {
         SDComment* comment = [parentPost.commentsArr objectAtIndex:indexPath.row];
         NSString* temp = comment.text;
@@ -105,24 +106,7 @@
 {
     switch (indexPath.section) {
         case 0: {
-            SDPostTableViewCell *cell = (SDPostTableViewCell *)[tv dequeueReusableCellWithIdentifier:@"post" forIndexPath:indexPath];
-            cell.post = parentPost;
-//            cell.text.text = parentPost.text;
-            /*
-            if (parentPost.picId) {
-                cell.picture.image = [UIImage imageNamed:[parentPost.picId.stringValue stringByAppendingString:@".jpg"]];
-            } else {
-                cell.picture.image = [UIImage imageWithData:parentPost.image.getData];
-            }
-             */
-//            cell.sourceLabel.text = @"清华大学北大系";
-//            [cell.sourceLabel sizeToFit];
-            CGRect rect = [parentPost.text boundingRectWithSize:CGSizeMake(290, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0]} context:nil];
-//            [cell.text setFrame:CGRectMake(12, 30, 290, rect.size.height)];
-//            [cell.likeProgress setFrame:CGRectMake(249, cell.text.frame.size.height+30+20, 50, 50)];
-            [cell.containerView setFrame:CGRectMake(0, 9, 320, cell.frame.size.height-18)];
-            //[cell setNumbers];
-            cell.indexPathInMain = self.indexPathInMain;
+            UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"map" forIndexPath:indexPath];
             return cell;
             break;
         }

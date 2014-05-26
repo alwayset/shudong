@@ -16,7 +16,7 @@
 
 //@property (strong, nonatomic) IBOutlet UIImageView *picture;
 //@property (strong, nonatomic) IBOutlet UILabel *text;
-//@property (strong, nonatomic) IBOutlet SDLikeButton *likeButton;
+@property (strong, nonatomic) IBOutlet SDLikeButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 //@property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
 @property (strong, nonatomic) NSIndexPath* indexPathInMain;

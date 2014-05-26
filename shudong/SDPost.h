@@ -17,7 +17,7 @@
 //@property (nonatomic, copy) NSString *title;
 //@property (nonatomic) AVFile *image;
 @property (nonatomic) AVUser *poster;
-//@property (nonatomic) NSNumber *likeCount;
+@property (nonatomic) NSNumber *likeCount;
 @property (nonatomic) NSNumber *commentCount;
 @property (nonatomic) NSNumber *score;
 
