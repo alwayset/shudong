@@ -9,6 +9,7 @@
 #import "SDPostTableViewCell.h"
 #import "SDUtils.h"
 #import "Constants.h"
+#import "SDViewPictureViewController.h"
 
 @implementation SDPostTableViewCell
 
@@ -78,6 +79,14 @@
 //        picture.alpha = 1;
 //    }completion:^(BOOL finished) {
 //    }];
+}
+- (IBAction)comment:(id)sender {
+    //[[NSNotificationCenter defaultCenter] postNotificationName:ShouldHideTabbarNotif object:nil];
+    
+    SDViewPictureViewController *vc = [self.parentVC.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
+    vc.parentPost = self.post;
+    vc.indexPathInMain = self.indexPathInMain;
+    [self.parentVC.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)like:(id)sender {
