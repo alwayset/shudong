@@ -14,6 +14,6 @@
 @property (nonatomic, retain) UILabel* label;
 @property (nonatomic) CGRect imageRect;
 - (void)setText:(NSString*)text;
-- (void)setRedHeart:(BOOL)like;
+- (void)setRedHeart:(BOOL)like WithText:(NSString*)text;
 - (void)initRedHeart:(BOOL)like;
 @end

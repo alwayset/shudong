@@ -12,7 +12,7 @@
 @implementation SDPost
 
 @dynamic text, poster;
-@dynamic score, commentCount;
+@dynamic score, commentCount,likeCount;
 @dynamic comments;
 @synthesize commentsArr;
 

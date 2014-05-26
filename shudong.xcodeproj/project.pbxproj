@@ -1020,6 +1020,7 @@
 		840F65D3192E34A600082684 /* CERoundProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65D1192E34A600082684 /* CERoundProgressView.m */; };
 		840F65D6192E35C500082684 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65D4192E35C500082684 /* circle.png */; };
 		840F65D7192E35C500082684 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65D5192E35C500082684 /* circle@2x.png */; };
+		840F65DA19336E7E00082684 /* SDMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65D919336E7D00082684 /* SDMapCell.m */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -2098,6 +2099,8 @@
 		840F65D1192E34A600082684 /* CERoundProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CERoundProgressView.m; sourceTree = "<group>"; };
 		840F65D4192E35C500082684 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle.png; path = images/circle.png; sourceTree = "<group>"; };
 		840F65D5192E35C500082684 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "circle@2x.png"; path = "images/circle@2x.png"; sourceTree = "<group>"; };
+		840F65D819336E7D00082684 /* SDMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMapCell.h; sourceTree = "<group>"; };
+		840F65D919336E7D00082684 /* SDMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMapCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2317,6 +2320,8 @@
 				840A34EF190E908D0062458D /* SDLoginViewController.m */,
 				840A3519191233FC0062458D /* SDViewPictureViewController.h */,
 				840A351A191233FC0062458D /* SDViewPictureViewController.m */,
+				840F65D819336E7D00082684 /* SDMapCell.h */,
+				840F65D919336E7D00082684 /* SDMapCell.m */,
 				840A353119138E4B0062458D /* SDCommentCell.h */,
 				840A353219138E4B0062458D /* SDCommentCell.m */,
 				840A35361918B9930062458D /* SDLikeButton.h */,
@@ -4468,6 +4473,7 @@
 				840F5ED4191A686500082684 /* SDActivitiesCenterViewController.m in Sources */,
 				2B338365190B94570068962C /* SDMainTableViewController.m in Sources */,
 				2B57216C191006BF00EE5964 /* SDUser.m in Sources */,
+				840F65DA19336E7E00082684 /* SDMapCell.m in Sources */,
 				2B72D648190E37800065D66C /* SDAddPostViewController.m in Sources */,
 				2B70E2801916758C0058F5BE /* SDHoleFilterTableViewController.m in Sources */,
 				840A34F0190E908D0062458D /* SDLoginViewController.m in Sources */,

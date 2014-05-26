@@ -80,67 +80,51 @@
 //    }completion:^(BOOL finished) {
 //    }];
 }
-- (IBAction)likeClicked:(id)sender {
-//    [self.likeProgress setProgress:0.9 animated:YES];
-}
-//- (IBAction)like:(id)sender {
-//    /*
-//    [self.likeButton.imageView setImage:[UIImage imageNamed:@"liked.png"]];
-//    [self.likeButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateNormal];
-//    [self.likeButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateReserved];
-//    [self.likeButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateSelected];
-//     */
+
+- (IBAction)like:(id)sender {
+
+    
+    
 //    BOOL liked = false;
 //    for (SDPost* i in [[SDUtils sharedInstance] myLikes])
 //        if ([i.objectId isEqualToString:self.post.objectId]) {
 //            liked = true;break;
 //        }
-//    if ([[[SDUtils sharedInstance] myLikes] containsObject:self.post]) {
-//        [self.post incrementKey:@"likeCount" byAmount:[NSNumber numberWithInt:-1]];
-//        [[[SDUtils sharedInstance] myLikes] removeObject:self.post];
-//        [[self.post relationforKey:@"likedBy"] removeObject:[AVUser currentUser]];
-//        [self.likeButton setRedHeart:NO];
-//        
-//    } else {
-//        [self.post incrementKey:@"likeCount" byAmount:[NSNumber numberWithInt:1]];
-//        [[[SDUtils sharedInstance] myLikes] addObject:self.post];
-//        [[self.post relationforKey:@"likedBy"] addObject:[AVUser currentUser]];
-//        [self.likeButton setRedHeart:YES];
-//    }
+    if ([[[SDUtils sharedInstance] myLikes] containsObject:self.post]) {
+        [self.post incrementKey:@"likeCount" byAmount:[NSNumber numberWithInt:-1]];
+        [[[SDUtils sharedInstance] myLikes] removeObject:self.post];
+        [[self.post relationforKey:@"likedBy"] removeObject:[AVUser currentUser]];
+        [self.likeButton setRedHeart:NO WithText:[self.post.likeCount stringValue]];
+        
+    } else {
+        [self.post incrementKey:@"likeCount" byAmount:[NSNumber numberWithInt:1]];
+        [[[SDUtils sharedInstance] myLikes] addObject:self.post];
+        [[self.post relationforKey:@"likedBy"] addObject:[AVUser currentUser]];
+        [self.likeButton setRedHeart:YES WithText:[self.post.likeCount stringValue]];
+    }
 //    [self.likeButton setText:[self.post.likeCount stringValue]];
-//    [self.post saveEventually:^(BOOL succeeded, NSError *error) {
-//        /*
-//        if (succeeded) {
-//            AVStatus *likeStatus = [[AVStatus alloc] init];
-//            AVQuery *query = [AVUser query];
-//            [query whereKey:@"objectId" equalTo:self.post.poster.objectId];
-//            [likeStatus setQuery:query];
-//            likeStatus.type = @"news";
-//            likeStatus.data = @{@"text":@"有人赞了你的秘密", @"type":[NSNumber numberWithInt:NewsLikeType], @"postObjectId":self.post.objectId};
-//            [likeStatus sendInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                //do something;
-//                if (error) {
-//                    NSLog(@"like status error: %@", error);
-//                }
-//            }];
-//
-//        }
-//         */
-//    }];
-//    if (self.indexPathInMain) [[NSNotificationCenter defaultCenter] postNotificationName:LikedAPostNotif object:self.indexPathInMain];
+    [self.post saveEventually:^(BOOL succeeded, NSError *error) {
+        /*
+        if (succeeded) {
+            AVStatus *likeStatus = [[AVStatus alloc] init];
+            AVQuery *query = [AVUser query];
+            [query whereKey:@"objectId" equalTo:self.post.poster.objectId];
+            [likeStatus setQuery:query];
+            likeStatus.type = @"news";
+            likeStatus.data = @{@"text":@"有人赞了你的秘密", @"type":[NSNumber numberWithInt:NewsLikeType], @"postObjectId":self.post.objectId};
+            [likeStatus sendInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                //do something;
+                if (error) {
+                    NSLog(@"like status error: %@", error);
+                }
+            }];
+
+        }
+         */
+    }];
+    if (self.indexPathInMain) [[NSNotificationCenter defaultCenter] postNotificationName:LikedAPostNotif object:self.indexPathInMain];
 //    
-//    /*
-//    [UIView animateWithDuration:0.3
-//                     animations:^{
-//                         [self.likeButton.imageView setAlpha:0];
-//                     } completion:^(BOOL finished) {
-//                         [self.likeButton setImage:[UIImage imageNamed:@"liked.png"] forState:UIControlStateNormal];
-//                         [UIView animateWithDuration:0.2
-//                                          animations:^{
-//                                              [self.likeButton.imageView setAlpha:1];
-//                                          }];
-//                     }];
-//     */
-//}
+
+}
 
 @end

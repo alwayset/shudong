@@ -18,6 +18,7 @@
 #import "SDAddPostViewController.h"
 #import "KxMenu.h"
 #import "CERoundProgressView.h"
+#import "SDLikeButton.h"
 
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
@@ -136,7 +137,7 @@
 {
     SDPost *currentPost = dataSource[indexPath.row];
     NSString* temp = currentPost.text;
-    CGRect rect = [temp boundingRectWithSize:CGSizeMake(280, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
+    CGRect rect = [temp boundingRectWithSize:CGSizeMake(280, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
     return  rect.size.height + 68;
 }
 
@@ -159,7 +160,8 @@
     
     
     cell.toolBar.frame = CGRectMake(0, rect.size.height + 68 - cell.toolBar.frame.size.height, 320, cell.toolBar.frame.size.height);
-    
+    [cell.likeButton setText:[currentPost.likeCount stringValue]];
+    [cell.likeButton initRedHeart:[[[SDUtils sharedInstance] myLikes] containsObject:currentPost]];
 //    cell.titleLabel.text = currentPost[@"title"];
 //    cell.titleLabel.text = @"清华大学北大系";
 //    [cell.sourceLabel sizeToFit];
