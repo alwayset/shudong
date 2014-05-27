@@ -138,7 +138,7 @@
     SDPost *currentPost = dataSource[indexPath.row];
     NSString* temp = currentPost.text;
     CGRect rect = [temp boundingRectWithSize:CGSizeMake(280, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
-    return  rect.size.height + 68;
+    return  rect.size.height + 74;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -157,15 +157,15 @@
         cell.displayNameLabel.text = @"匿名用户";
     }
     cell.contentText.text = currentPost.text;
-    [cell.contentText sizeToFit];
+    //[cell.contentText sizeToFit];
     
     cell.score.text = currentPost.score.stringValue;
     cell.commentButton.titleLabel.text = [@" " stringByAppendingString:currentPost.commentCount.stringValue];
-    CGRect rect = [currentPost.text boundingRectWithSize:CGSizeMake(280, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
+    CGRect rect = [currentPost.text boundingRectWithSize:CGSizeMake(280, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
 
+    [cell.contentText setFrame:CGRectMake(20, 26, 280, rect.size.height+8)];
     
-    
-    cell.toolBar.frame = CGRectMake(0, rect.size.height + 68 - cell.toolBar.frame.size.height, 320, cell.toolBar.frame.size.height);
+    cell.toolBar.frame = CGRectMake(0, rect.size.height + 42 , 320, cell.toolBar.frame.size.height);
     [cell.likeButton setText:[currentPost.likeCount stringValue]];
     [cell.likeButton initRedHeart:[[[SDUtils sharedInstance] myLikes] containsObject:currentPost]];
     cell.parentVC = self;
