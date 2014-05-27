@@ -21,14 +21,9 @@
     
 }
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *postButton;
-@property (strong, nonatomic) IBOutlet UIImageView *background;
 @property (strong, nonatomic) IBOutlet UITextView *contentText;
 @property (strong, nonatomic) NSMutableArray *myHoles;
 
-@property BOOL isUsingSystemBackground;
-@property (strong, nonatomic) NSNumber *selectedPicId;
-
-@property (weak, nonatomic) IBOutlet UITextField *titleField;
 
 @property (nonatomic, strong) AVObject *targetTerr;
 
@@ -49,14 +44,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
     
-    _background.userInteractionEnabled = YES;
-    [_background addGestureRecognizer:[[UIGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)]];
-    
-    _selectedPicId = @5;
-    _background.image = [UIImage imageNamed:[_selectedPicId.stringValue stringByAppendingString:@".jpg"]];
+
     
     _toolbar.frame = CGRectMake(0, Screen_Height, 320, 44);
 //    _titleField.layer.borderWidth = 2.0f;
@@ -66,7 +57,12 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     _myHoles =  [NSMutableArray arrayWithArray:[SDUtils sharedInstance].myHoles];
-    _isUsingSystemBackground = YES;
+    
+    self.contentText.layer.cornerRadius = 4.0f;
+    self.contentText.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.contentText.layer.borderWidth = 1.0f;
+    self.contentText.frame = CGRectMake(14, 35, 292, Screen_Height - 35 - 216 - 40);
+
 }
 
 - (void)hideKeyboard {
@@ -76,9 +72,20 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    NSNumber *registered = [AVUser currentUser][@"registered"];
+
+    if (registered) {
+        [self setPostToAnnoymous:NO];
+    } else {
+        [self setPostToAnnoymous:YES];
+    }
+    
+    
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
     [self loadMostUpdatedTerr];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -109,17 +116,17 @@
     
     
 }
-- (IBAction)changeSystemBgRandomly:(id)sender {
-    
-    NSInteger pictureId = (rand() % 30);
-    if ([[NSNumber numberWithInt:pictureId] isEqualToNumber:_selectedPicId]) {
-        [self changeSystemBgRandomly:nil];
-    }
-    
-    _selectedPicId = [NSNumber numberWithInt:pictureId];
-    _background.image = [UIImage imageNamed:[_selectedPicId.stringValue stringByAppendingString:@".jpg"]];
-    
-}
+//- (IBAction)changeSystemBgRandomly:(id)sender {
+//    
+//    NSInteger pictureId = (rand() % 30);
+//    if ([[NSNumber numberWithInt:pictureId] isEqualToNumber:_selectedPicId]) {
+//        [self changeSystemBgRandomly:nil];
+//    }
+//    
+//    _selectedPicId = [NSNumber numberWithInt:pictureId];
+//    _background.image = [UIImage imageNamed:[_selectedPicId.stringValue stringByAppendingString:@".jpg"]];
+//    
+//}
 
 /*
 #pragma mark - Navigation
@@ -135,108 +142,108 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+//
+//#pragma mark UIImagePicker Delegate methods
+//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+//    [picker dismissViewControllerAnimated:YES completion:nil];
+//    UIImage *pickedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+//    _background.image = pickedImage;
+//    _isUsingSystemBackground = NO;
+//}
+//
+//-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+//    [self dismissViewControllerAnimated:NO completion:nil];
+//}
 
-#pragma mark UIImagePicker Delegate methods
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    UIImage *pickedImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    _background.image = pickedImage;
-    _isUsingSystemBackground = NO;
-}
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:NO completion:nil];
-}
+//#pragma mark UIActionSheet delegate methods 
+//-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    if (actionSheet.tag == 1) {
+//        switch (buttonIndex) {
+//            case 0: { //from library
+//                UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//                picker.allowsEditing = YES;
+//                picker.delegate = self;
+//                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//                [self presentViewController:picker animated:YES completion:nil];
+//                break;
+//            }
+//            case 1: {
+//                UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//                picker.allowsEditing = YES;
+//                picker.delegate = self;
+//                BOOL hasCamera = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];//判断照相机是否可用（是否有摄像头）
+//                if (hasCamera) {
+//                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//                    [self presentViewController:picker animated:YES completion:nil];
+//
+//                } else {
+//                }
+//
+//            }
+//            default:
+//                break;
+//        }
+//    }
+//}
 
-
-#pragma mark UIActionSheet delegate methods 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (actionSheet.tag == 1) {
-        switch (buttonIndex) {
-            case 0: { //from library
-                UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-                picker.allowsEditing = YES;
-                picker.delegate = self;
-                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                [self presentViewController:picker animated:YES completion:nil];
-                break;
-            }
-            case 1: {
-                UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-                picker.allowsEditing = YES;
-                picker.delegate = self;
-                BOOL hasCamera = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];//判断照相机是否可用（是否有摄像头）
-                if (hasCamera) {
-                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                    [self presentViewController:picker animated:YES completion:nil];
-
-                } else {
-                }
-
-            }
-            default:
-                break;
-        }
-    }
-}
-
-- (void)keyboardWillAppear:(NSNotification *)notification {
-    //调整两个按钮的位置
-    
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-    
-    
-    NSDictionary *userInfo = [notification userInfo];
-    
-    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-    CGRect keyboardRect = [aValue CGRectValue];
-    
-    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSTimeInterval animationDuration;
-    [animationDurationValue getValue:&animationDuration];
-    
-    
-    [UIView animateWithDuration:animationDuration animations:^{
-        _contentText.frame = CGRectMake(0, _toolbar.frame.size.height, Screen_Width, Screen_Height - _toolbar.frame.size.height - keyboardRect.size.height);
-        _toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
-        _titleField.frame = CGRectMake(15, 0, Screen_Width, 44);
-
-    } completion:^(BOOL finished) {
-        
-    }];
-    
+//- (void)keyboardWillAppear:(NSNotification *)notification {
+//    //调整两个按钮的位置
+//    
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+//    
+//    
+//    NSDictionary *userInfo = [notification userInfo];
+//    
+//    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+//    CGRect keyboardRect = [aValue CGRectValue];
+//    
+//    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+//    NSTimeInterval animationDuration;
+//    [animationDurationValue getValue:&animationDuration];
+//    
+//    
+//    [UIView animateWithDuration:animationDuration animations:^{
+//        _contentText.frame = CGRectMake(0, _toolbar.frame.size.height, Screen_Width, Screen_Height - _toolbar.frame.size.height - keyboardRect.size.height);
+//        _toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
+//        _titleField.frame = CGRectMake(15, 0, Screen_Width, 44);
+//
+//    } completion:^(BOOL finished) {
+//        
+//    }];
+//    
+////    [UIView beginAnimations:nil context:nil];
+////    [UIView setAnimationDuration:animationDuration];
+//    
+////    _toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
+////    _toolbar.frame = CGRectMake(0, 200, 320, _toolbar.frame.size.height);
+//
+////    [UIView commitAnimations];
+//    
+//    
+//}
+//- (void)keyboardWillDisappear:(NSNotification *)notification {
+//    //调整两个按钮的位置
+//    
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+//
+//    
 //    [UIView beginAnimations:nil context:nil];
+//    
+//    NSDictionary *userInfo = [notification userInfo];
+//    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+//    NSTimeInterval animationDuration;
+//    [animationDurationValue getValue:&animationDuration];
+//    
 //    [UIView setAnimationDuration:animationDuration];
-    
-//    _toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
-//    _toolbar.frame = CGRectMake(0, 200, 320, _toolbar.frame.size.height);
-
+//    _toolbar.frame = CGRectMake(0, Screen_Height, Screen_Width, 44);
+//    _titleField.frame = CGRectMake(15, 64, Screen_Height, _titleField.frame.size.height);
+//    _contentText.frame = CGRectMake(0, 64 + _titleField.frame.size.height, Screen_Width, Screen_Height - 64 - 44);
 //    [UIView commitAnimations];
-    
-    
-}
-- (void)keyboardWillDisappear:(NSNotification *)notification {
-    //调整两个按钮的位置
-    
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-
-    
-    [UIView beginAnimations:nil context:nil];
-    
-    NSDictionary *userInfo = [notification userInfo];
-    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-    NSTimeInterval animationDuration;
-    [animationDurationValue getValue:&animationDuration];
-    
-    [UIView setAnimationDuration:animationDuration];
-    _toolbar.frame = CGRectMake(0, Screen_Height, Screen_Width, 44);
-    _titleField.frame = CGRectMake(15, 64, Screen_Height, _titleField.frame.size.height);
-    _contentText.frame = CGRectMake(0, 64 + _titleField.frame.size.height, Screen_Width, Screen_Height - 64 - 44);
-    [UIView commitAnimations];
-
-}
+//
+//}
 
 
 -(IBAction)submit:(id)sender {
@@ -296,11 +303,11 @@
 
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    if ([text isEqualToString:@"\n"]) {
-        
-        [textView resignFirstResponder];
-        return NO;
-    }
+//    if ([text isEqualToString:@"\n"]) {
+//        
+//        [textView resignFirstResponder];
+//        return NO;
+//    }
     return YES;
 }
 
@@ -319,9 +326,6 @@
     [self.view endEditing:YES];
 }
 
-- (IBAction)addTerr:(id)sender {
-    
-}
 
 
 - (void)loadMostUpdatedTerr {
@@ -356,6 +360,28 @@
     }
     
     
+}
+
+- (void)setPostToAnnoymous:(BOOL)boo {
+    if (boo) {
+        [UIView animateWithDuration:0.65 animations:^{
+            self.displayNameButton.backgroundColor = [UIColor darkGrayColor];
+            [self.displayNameButton setTitle:@"匿名发布" forState:UIControlStateNormal];
+            self.displayNameButton.titleLabel.textColor = [UIColor lightTextColor];
+        }];
+    } else {
+        [UIView animateWithDuration:0.65 animations:^{
+            self.displayNameButton.backgroundColor = [UIColor whiteColor];
+            [self.displayNameButton setTitle:[AVUser currentUser][@"displayName"] forState:UIControlStateNormal];
+            self.displayNameButton.titleLabel.textColor = [UIColor darkGrayColor];
+        }];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        //do something;
+    }
 }
          
 

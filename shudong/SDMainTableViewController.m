@@ -19,6 +19,7 @@
 #import "KxMenu.h"
 #import "CERoundProgressView.h"
 #import "SDLikeButton.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface SDMainTableViewController () {
     NSMutableArray *dataSource;
@@ -38,9 +39,16 @@
     
     [super viewDidLoad];
     
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadMyHoles) name:DidLoadMyHolesNotif object:nil];
+    
+    if (![AVUser currentUser]) {
+        [self signup];
+    }
+    
+    
+    
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadPosts) name:DidLoadPostsNotif object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPreparingNewPostToUpload:) name:DidFinishPostingNotif object:nil];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLike:) name:LikedAPostNotif object:nil];
     
     refresh = [[UIRefreshControl alloc] init];
@@ -58,8 +66,47 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
 }
+
+
+-(void)signup {
+    
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = @"初始化中..";
+    
+    
+    NSError *err;
+    
+    AVUser * user = [AVUser user];
+    user.username = [self genRandStringLength];
+    AVQuery *usernameAvailabilityQuery = [AVUser query];
+    [usernameAvailabilityQuery whereKey:@"username" equalTo:user.username];
+    [usernameAvailabilityQuery getFirstObject:&err];
+    if (err.code == kAVErrorObjectNotFound) { //随机生成的用户没有被注册
+        user.password = @"888888";
+        user[@"score"] = @0;
+        user[@"postCount"] = @0;
+        user[@"registered"] = [NSNumber numberWithBool:NO];
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [hud hide:YES];
+            if (succeeded) {
+            } else {
+            }
+            return;
+        }];
+    } else if (err) { //网不好
+        [hud hide:YES];
+        [SDUtils showErrALertWithText:@"网络不好"];
+        return;
+    } else {  //随机生成的用户名有重复，这极不可能发生
+        [hud hide:YES];
+        [self signup];
+        return;
+    }
+}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -163,18 +210,18 @@
         [cell.terrButton setHidden:YES];
     }
     cell.contentText.text = currentPost.text;
-    [cell.contentText sizeToFit];
+//    [cell.contentText sizeToFit];
     
 
     cell.commentButton.titleLabel.text = [@" " stringByAppendingString:currentPost.commentCount.stringValue];
-    CGRect rect = [currentPost.text boundingRectWithSize:CGSizeMake(280, 200) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
-
-    
+    CGRect rect = [currentPost.text boundingRectWithSize:CGSizeMake(280, 120) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
+    cell.contentText.frame = CGRectMake(15, 22, rect.size.width, rect.size.height + 10);
     
     cell.toolBar.frame = CGRectMake(0, rect.size.height + 68 - cell.toolBar.frame.size.height, 320, cell.toolBar.frame.size.height);
     [cell.likeButton setText:[currentPost.likeCount stringValue]];
     [cell.likeButton initRedHeart:[[[SDUtils sharedInstance] myLikes] containsObject:currentPost]];
     cell.parentVC = self;
+    
 //    cell.titleLabel.text = currentPost[@"title"];
 //    cell.titleLabel.text = @"清华大学北大系";
 //    [cell.sourceLabel sizeToFit];
@@ -420,6 +467,17 @@
     // Pass the selected object to the new view controller.
 }
 
+
+-(NSString *) genRandStringLength {
+    
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity:20];
+    
+    for (int i=0; i<20; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random() % [letters length]]];
+    }
+    return randomString;
+}
 
 
 
