@@ -88,6 +88,20 @@
     vc.indexPathInMain = self.indexPathInMain;
     [self.parentVC.navigationController pushViewController:vc animated:YES];
 }
+- (IBAction)follow:(id)sender {
+    [[AVUser currentUser] follow:self.post.poster.objectId andCallback:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"关注成功"
+                                                            message:nil
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        } else {
+        
+        }
+    }];
+}
 
 - (IBAction)like:(id)sender {
 

@@ -7,7 +7,7 @@
 //
 
 #import "SDDiscoverViewController.h"
-
+#import "SDFriendCell.h"
 @interface SDDiscoverViewController ()
 
 @end
@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadFollow];
     // Do any additional setup after loading the view.
 }
 
@@ -43,7 +44,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return self.follows.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -52,8 +53,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"friend"];
+    SDFriendCell* cell = [tableView dequeueReusableCellWithIdentifier:@"friend"];
+    AVUser* current = [self.follows objectAtIndex:indexPath.row];
+    cell.displayName.text =current[@"username"];
     return cell;
+}
+- (void)loadFollow {
+    AVUser* currentUser = [AVUser currentUser];
+    AVQuery* query = [currentUser followeeQuery];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.follows = [NSMutableArray arrayWithArray:objects];
+            [self.tableView reloadData];
+        } else {
+            
+        }
+        
+    }];
 }
 /*
 #pragma mark - Navigation

@@ -1021,6 +1021,7 @@
 		840F65D6192E35C500082684 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65D4192E35C500082684 /* circle.png */; };
 		840F65D7192E35C500082684 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F65D5192E35C500082684 /* circle@2x.png */; };
 		840F65DA19336E7E00082684 /* SDMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65D919336E7D00082684 /* SDMapCell.m */; };
+		840F65DD1934D0C300082684 /* SDFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F65DC1934D0C300082684 /* SDFriendCell.m */; };
 		9E5C4E9B7A974BB0AF9B7B87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DE6D10F85344DDBFC9682B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -2101,6 +2102,8 @@
 		840F65D5192E35C500082684 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "circle@2x.png"; path = "images/circle@2x.png"; sourceTree = "<group>"; };
 		840F65D819336E7D00082684 /* SDMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMapCell.h; sourceTree = "<group>"; };
 		840F65D919336E7D00082684 /* SDMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMapCell.m; sourceTree = "<group>"; };
+		840F65DB1934D0C200082684 /* SDFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDFriendCell.h; sourceTree = "<group>"; };
+		840F65DC1934D0C300082684 /* SDFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDFriendCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2338,6 +2341,8 @@
 				840F65BF19262F5500082684 /* SDAdviseViewController.m */,
 				840F65CA192B969600082684 /* SDCategoryButton.h */,
 				840F65CB192B969600082684 /* SDCategoryButton.m */,
+				840F65DB1934D0C200082684 /* SDFriendCell.h */,
+				840F65DC1934D0C300082684 /* SDFriendCell.m */,
 			);
 			path = shudong;
 			sourceTree = "<group>";
@@ -4457,6 +4462,7 @@
 				2BEFCD0E1919438D00E8BEE4 /* tabbarViewController.m in Sources */,
 				2B70E27419163AFE0058F5BE /* NSString+SBJSON.m in Sources */,
 				840F5EE4191E1F4900082684 /* SDSettingViewController.m in Sources */,
+				840F65DD1934D0C300082684 /* SDFriendCell.m in Sources */,
 				840A35381918B9930062458D /* SDLikeButton.m in Sources */,
 				2B0A31AC19332E1B001270A2 /* SDTerrAnno.m in Sources */,
 				2BDBDC90190A70D500BEFD09 /* SDAppDelegate.m in Sources */,

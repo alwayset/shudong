@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <AVOSCloud/AVOSCloud.h>
 @interface SDDiscoverViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong, nonatomic) NSMutableArray* follows;
 @end
