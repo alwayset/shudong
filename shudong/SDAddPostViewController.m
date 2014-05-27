@@ -255,6 +255,7 @@
     }
     newPost.text = _contentText.text;
     newPost.commentCount = @0;
+    newPost.likeCount = @0;
     newPost.score =@0;
     if (self.targetTerr) {
         newPost.terr = self.targetTerr;

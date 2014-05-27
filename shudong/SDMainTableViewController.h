@@ -10,7 +10,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import "SDUtils.h"
 #import "SDPost.h"
-@interface SDMainTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
+@interface SDMainTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,UITextViewDelegate> {
     
     
 }

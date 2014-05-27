@@ -184,6 +184,7 @@
 {
     SDPost *currentPost = dataSource[indexPath.row];
     NSString* temp = currentPost.text;
+    //CGSize size = [temp sizeWithFont:[UIFont systemFontOfSize:16.0] constrainedToSize:CGSizeMake(320,500) lineBreakMode:UILineBreakModeWordWrap];
     CGRect rect = [temp boundingRectWithSize:CGSizeMake(280, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
     return  rect.size.height + 68;
 }
@@ -215,7 +216,8 @@
 
     cell.commentButton.titleLabel.text = [@" " stringByAppendingString:currentPost.commentCount.stringValue];
     CGRect rect = [currentPost.text boundingRectWithSize:CGSizeMake(280, 120) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16.0]} context:nil];
-    cell.contentText.frame = CGRectMake(15, 22, rect.size.width, rect.size.height + 10);
+    cell.contentText.frame = CGRectMake(15, 22, 280, rect.size.height+6);
+    [cell.contentText setContentInset:UIEdgeInsetsMake(-5, -5, 0, -15)];
     
     cell.toolBar.frame = CGRectMake(0, rect.size.height + 68 - cell.toolBar.frame.size.height, 320, cell.toolBar.frame.size.height);
     [cell.likeButton setText:[currentPost.likeCount stringValue]];
