@@ -44,8 +44,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
     
 
     
@@ -61,7 +61,8 @@
     self.contentText.layer.cornerRadius = 4.0f;
     self.contentText.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.contentText.layer.borderWidth = 1.0f;
-    self.contentText.frame = CGRectMake(14, 35, 292, Screen_Height - 35 - 216 - 40);
+    [self.contentText becomeFirstResponder];
+    //self.contentText.frame = CGRectMake(14, 35, 292, Screen_Height - 35 - 216 - 40);
 
 }
 
@@ -187,63 +188,68 @@
 //    }
 //}
 
-//- (void)keyboardWillAppear:(NSNotification *)notification {
-//    //调整两个按钮的位置
-//    
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-//    
-//    
-//    NSDictionary *userInfo = [notification userInfo];
-//    
-//    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-//    CGRect keyboardRect = [aValue CGRectValue];
-//    
-//    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-//    NSTimeInterval animationDuration;
-//    [animationDurationValue getValue:&animationDuration];
-//    
-//    
-//    [UIView animateWithDuration:animationDuration animations:^{
-//        _contentText.frame = CGRectMake(0, _toolbar.frame.size.height, Screen_Width, Screen_Height - _toolbar.frame.size.height - keyboardRect.size.height);
-//        _toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
-//        _titleField.frame = CGRectMake(15, 0, Screen_Width, 44);
-//
-//    } completion:^(BOOL finished) {
-//        
-//    }];
-//    
-////    [UIView beginAnimations:nil context:nil];
-////    [UIView setAnimationDuration:animationDuration];
-//    
-////    _toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
-////    _toolbar.frame = CGRectMake(0, 200, 320, _toolbar.frame.size.height);
-//
-////    [UIView commitAnimations];
-//    
-//    
-//}
-//- (void)keyboardWillDisappear:(NSNotification *)notification {
-//    //调整两个按钮的位置
-//    
-//    [self.navigationController setNavigationBarHidden:NO animated:YES];
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-//
-//    
+- (void)keyboardWillAppear:(NSNotification *)notification {
+    //调整两个按钮的位置
+    
+    //[self.navigationController setNavigationBarHidden:YES animated:YES];
+    //[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    
+    
+    NSDictionary *userInfo = [notification userInfo];
+    
+    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    
+    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration;
+    [animationDurationValue getValue:&animationDuration];
+    
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        _contentText.frame = CGRectMake(14, 107, 292, keyboardRect.origin.y - 33 - 107);
+        _terrButton.frame = CGRectMake(26, keyboardRect.origin.y-33, 280, 33);
+        //_toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
+        //_titleField.frame = CGRectMake(15, 0, Screen_Width, 44);
+
+    } completion:^(BOOL finished) {
+        
+    }];
+    
 //    [UIView beginAnimations:nil context:nil];
-//    
-//    NSDictionary *userInfo = [notification userInfo];
-//    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
-//    NSTimeInterval animationDuration;
-//    [animationDurationValue getValue:&animationDuration];
-//    
 //    [UIView setAnimationDuration:animationDuration];
-//    _toolbar.frame = CGRectMake(0, Screen_Height, Screen_Width, 44);
-//    _titleField.frame = CGRectMake(15, 64, Screen_Height, _titleField.frame.size.height);
-//    _contentText.frame = CGRectMake(0, 64 + _titleField.frame.size.height, Screen_Width, Screen_Height - 64 - 44);
+    
+//    _toolbar.frame = CGRectMake(0, keyboardRect.origin.y - _toolbar.frame.size.height, 320, _toolbar.frame.size.height);
+//    _toolbar.frame = CGRectMake(0, 200, 320, _toolbar.frame.size.height);
+
 //    [UIView commitAnimations];
-//
-//}
+    
+    
+}
+- (void)keyboardWillDisappear:(NSNotification *)notification {
+    //调整两个按钮的位置
+    
+    //[self.navigationController setNavigationBarHidden:NO animated:YES];
+    //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+
+    
+    [UIView beginAnimations:nil context:nil];
+    
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration;
+    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    [animationDurationValue getValue:&animationDuration];
+    
+    
+    [UIView setAnimationDuration:animationDuration];
+    //_toolbar.frame = CGRectMake(0, Screen_Height, Screen_Width, 44);
+    //_titleField.frame = CGRectMake(15, 64, Screen_Height, _titleField.frame.size.height);
+    _contentText.frame = CGRectMake(14, 107, 292, keyboardRect.origin.y - 33 - 107);
+    _terrButton.frame = CGRectMake(26, keyboardRect.origin.y-33, 280, 33);
+    [UIView commitAnimations];
+
+}
 
 
 -(IBAction)submit:(id)sender {
@@ -268,7 +274,7 @@
     [newPost saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [hud hide:NO];
         if (!error) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             [SDUtils showErrALertWithText:@"发送失败"];
         }

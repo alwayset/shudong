@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *commentButton;
 @property (strong, nonatomic) NSIndexPath* indexPathInMain;
 @property (nonatomic, strong) SDPost *post;
+@property (strong, nonatomic) IBOutlet UILabel *textLabel;
 @property (strong, nonatomic) IBOutlet UITextView *contentText;
 @property (strong, nonatomic) IBOutlet UILabel *displayNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeStampLabel;
