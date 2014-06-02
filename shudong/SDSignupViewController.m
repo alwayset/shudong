@@ -7,7 +7,7 @@
 //
 
 #import "SDSignupViewController.h"
-
+#import <AVOSCloud/AVOSCloud.h>
 @interface SDSignupViewController ()
 
 @end
@@ -39,6 +39,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)signup:(id)sender {
+    AVUser* user = [AVUser user];
+    user.username = self.username.text;
+    user.password = self.password.text;
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            
+        }
+    }];
 }
 
 /*

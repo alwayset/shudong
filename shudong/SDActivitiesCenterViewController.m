@@ -35,7 +35,8 @@
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLoadNewsArr) name:NewsArrLoadedNotif object:nil];
     refresh = [[UIRefreshControl alloc] init];
-    [self.collectionView addSubview:refresh];
+    //[self.collectionView addSubview:refresh];
+    [self.tableView addSubview:refresh];
     [refresh addTarget:[SDUtils sharedInstance] action:@selector(loadNewsArr) forControlEvents:UIControlEventValueChanged];
 
 }
@@ -58,10 +59,103 @@
 */
 - (void)didLoadNewsArr
 {
-    [self.collectionView reloadData];
+    //[self.collectionView reloadData];
+    [self.tableView reloadData];
     [refresh endRefreshing];
 }
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
+
+//- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//    SDActitityCell *cell = (SDActitityCell *)[cv dequeueReusableCellWithReuseIdentifier:@"activity" forIndexPath:indexPath];
+//    
+//    [cell.newsView removeFromSuperview];
+//    cell.newsView = nil;
+//    SDPost* post = [[SDUtils sharedInstance].newsPostArr objectAtIndex:indexPath.item];
+//        
+//    UIView *newsInfoView = [[UIView alloc] initWithFrame:cell.bounds];
+//    newsInfoView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
+//    newsInfoView.userInteractionEnabled = YES;
+//    
+//    NSDictionary *counts = [[SDUtils sharedInstance].newsDict objectForKey:post.objectId];
+//    NSNumber *likeCount = counts[@"like"];
+//    NSNumber *commentCount = counts[@"comment"];
+//        if (likeCount.intValue > 0) {
+//            UILabel *likeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 52, 158.5, 20)];
+//            //likeLabel.font = [UIFont fontWithName:FONT_1 size:14.0f];
+//            likeLabel.font = [UIFont systemFontOfSize:14.0f];
+//            likeLabel.textColor = [UIColor blackColor];
+//            likeLabel.textAlignment = NSTextAlignmentCenter;
+//            likeLabel.text = [NSString stringWithFormat:@"%@个赞", likeCount];
+//            [newsInfoView addSubview:likeLabel];
+//        }
+//        
+//        if (commentCount.intValue > 0) {
+//            UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 82, 158.5, 20)];
+//            //commentLabel.font = [UIFont fontWithName:FONT_1 size:14.0f];
+//            commentLabel.font = [UIFont systemFontOfSize:14.0f];
+//            commentLabel.textColor = [UIColor blackColor];
+//            commentLabel.textAlignment = NSTextAlignmentCenter;
+//            commentLabel.text = [NSString stringWithFormat:@"%@个回复", commentCount];
+//            [newsInfoView addSubview:commentLabel];
+//        }
+//        
+//    cell.newsView = newsInfoView;
+//    [cell addSubview:cell.newsView];
+//    cell.post = post;
+//    
+//    //cell.likesCountLabel.text = [NSString stringWithFormat:@"%@",object.likesCount];
+//    //if (object.commentCount) cell.commentsCountLabel.text = [NSString stringWithFormat:@"%@",object.commentCount];
+//    //else cell.commentsCountLabel.text = @"0";
+//    //cell.postTimeLabel.text = [PaDataManager getTimeStr:object.createdAt];
+//    //cell.postTimeLabel.font = [UIFont fontWithName:FONT_1 size:11.0f];
+//    
+//    //[cell fit];
+////    if (!post.image) {
+////        cell.imageview.image = [UIImage imageNamed:[post.picId.stringValue stringByAppendingString:@".jpg"]];
+////    } else {
+////        cell.imageview.image = nil;
+////        [self startLoading:post forIndexPath:indexPath cell:cell collectionView:cv];
+////    }
+//    
+//    return cell;
+//    
+//}
+//
+//-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    SDActitityCell *selectedCell = (SDActitityCell *)[collectionView cellForItemAtIndexPath:indexPath];
+//    
+//    //NSMutableArray *sourceArray = [SDUtils sharedInstance].newsPostArr;
+//        
+//    SDPost *selected = selectedCell.post;
+//    NSString *postObjectId = selected.objectId;
+//        //        [manager.newsWODict removeObjectForKey:wallObjectObjectId];
+//    NSMutableArray *tempNewsArray = [NSMutableArray arrayWithArray:[SDUtils sharedInstance].newsArr];
+//    for (AVStatus *eachStatus in tempNewsArray) {
+//        NSString *temp = (NSString *)eachStatus.data[@"postObjectId"];
+//        if ([temp isEqualToString:postObjectId]) {
+//            [AVStatus deleteStatusWithID:eachStatus.objectId andCallback:nil];
+//            [[SDUtils sharedInstance].newsArr removeObject:eachStatus];
+//        }
+//    }
+//    [[SDUtils sharedInstance] updateNewsDict];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:NewsArrLoadedNotif object:nil];
+//    //[[SlideNavigationController sharedInstance] showPictureAtIndex:indexPath.item fromSource:[NSMutableArray arrayWithArray:sourceArray] bounds:originalBounds];
+//    //[AVAnalytics event:@"view" label:@"enlarge"];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:ShouldHideTabbarNotif object:nil];
+//    
+//    SDViewPictureViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
+//    vc.parentPost = selectedCell.post;
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     nothingTipView.hidden = YES;
     if ([SDUtils sharedInstance].newsPostArr.count == 0) {
@@ -72,97 +166,24 @@
     }
     return 0;
 }
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 1; //1 for now.
+    return 44;
 }
-- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath
+
+- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    SDActitityCell *cell = (SDActitityCell *)[cv dequeueReusableCellWithReuseIdentifier:@"activity" forIndexPath:indexPath];
-    
-    [cell.newsView removeFromSuperview];
-    cell.newsView = nil;
     SDPost* post = [[SDUtils sharedInstance].newsPostArr objectAtIndex:indexPath.item];
-        
-    UIView *newsInfoView = [[UIView alloc] initWithFrame:cell.bounds];
-    newsInfoView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
-    newsInfoView.userInteractionEnabled = YES;
-    
     NSDictionary *counts = [[SDUtils sharedInstance].newsDict objectForKey:post.objectId];
-    NSNumber *likeCount = counts[@"like"];
     NSNumber *commentCount = counts[@"comment"];
-        if (likeCount.intValue > 0) {
-            UILabel *likeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 52, 158.5, 20)];
-            //likeLabel.font = [UIFont fontWithName:FONT_1 size:14.0f];
-            likeLabel.font = [UIFont systemFontOfSize:14.0f];
-            likeLabel.textColor = [UIColor blackColor];
-            likeLabel.textAlignment = NSTextAlignmentCenter;
-            likeLabel.text = [NSString stringWithFormat:@"%@个赞", likeCount];
-            [newsInfoView addSubview:likeLabel];
-        }
-        
-        if (commentCount.intValue > 0) {
-            UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 82, 158.5, 20)];
-            //commentLabel.font = [UIFont fontWithName:FONT_1 size:14.0f];
-            commentLabel.font = [UIFont systemFontOfSize:14.0f];
-            commentLabel.textColor = [UIColor blackColor];
-            commentLabel.textAlignment = NSTextAlignmentCenter;
-            commentLabel.text = [NSString stringWithFormat:@"%@个回复", commentCount];
-            [newsInfoView addSubview:commentLabel];
-        }
-        
-    cell.newsView = newsInfoView;
-    [cell addSubview:cell.newsView];
-    cell.post = post;
-    
-    //cell.likesCountLabel.text = [NSString stringWithFormat:@"%@",object.likesCount];
-    //if (object.commentCount) cell.commentsCountLabel.text = [NSString stringWithFormat:@"%@",object.commentCount];
-    //else cell.commentsCountLabel.text = @"0";
-    //cell.postTimeLabel.text = [PaDataManager getTimeStr:object.createdAt];
-    //cell.postTimeLabel.font = [UIFont fontWithName:FONT_1 size:11.0f];
-    
-    //[cell fit];
-//    if (!post.image) {
-//        cell.imageview.image = [UIImage imageNamed:[post.picId.stringValue stringByAppendingString:@".jpg"]];
-//    } else {
-//        cell.imageview.image = nil;
-//        [self startLoading:post forIndexPath:indexPath cell:cell collectionView:cv];
-//    }
-    
+    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"activity"];
+    if (commentCount.intValue > 0) {
+        cell.textLabel.text = [post.text stringByAppendingFormat:@" %@个回复", commentCount];
+    }
+   
     return cell;
     
 }
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    SDActitityCell *selectedCell = (SDActitityCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    
-    //NSMutableArray *sourceArray = [SDUtils sharedInstance].newsPostArr;
-        
-    SDPost *selected = selectedCell.post;
-    NSString *postObjectId = selected.objectId;
-        //        [manager.newsWODict removeObjectForKey:wallObjectObjectId];
-    NSMutableArray *tempNewsArray = [NSMutableArray arrayWithArray:[SDUtils sharedInstance].newsArr];
-    for (AVStatus *eachStatus in tempNewsArray) {
-        NSString *temp = (NSString *)eachStatus.data[@"postObjectId"];
-        if ([temp isEqualToString:postObjectId]) {
-            [AVStatus deleteStatusWithID:eachStatus.objectId andCallback:nil];
-            [[SDUtils sharedInstance].newsArr removeObject:eachStatus];
-        }
-    }
-    [[SDUtils sharedInstance] updateNewsDict];
-    [[NSNotificationCenter defaultCenter] postNotificationName:NewsArrLoadedNotif object:nil];
-    //[[SlideNavigationController sharedInstance] showPictureAtIndex:indexPath.item fromSource:[NSMutableArray arrayWithArray:sourceArray] bounds:originalBounds];
-    //[AVAnalytics event:@"view" label:@"enlarge"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:ShouldHideTabbarNotif object:nil];
-    
-    SDViewPictureViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewPicture"];
-    vc.parentPost = selectedCell.post;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
 //- (void)clearImagesInDownload {
 //    for (AVFile *fileToCancel in filesInDownload) {
 //        [fileToCancel cancel];

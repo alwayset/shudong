@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SDActivitiesCenterViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@interface SDActivitiesCenterViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIView *nothingTipView;
 @property (nonatomic,retain) IBOutlet UILabel* nothingTipLabel;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableDictionary *filesInDownload;
 @property (strong, nonatomic) UIRefreshControl *refresh;
 @end

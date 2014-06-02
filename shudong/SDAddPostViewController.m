@@ -14,6 +14,7 @@
 #import <AVOSCloud/AVLocationManager.h>
 #import <AVOSCloud/AVOSCloud.h>
 #import <MapKit/MapKit.h>
+#import "SDSignupViewController.h"
 
 
 @interface SDAddPostViewController () {
@@ -76,10 +77,11 @@
     
     NSNumber *registered = [AVUser currentUser][@"registered"];
 
-    if (registered) {
+    if (registered.boolValue) {
         [self setPostToAnnoymous:NO];
     } else {
         [self setPostToAnnoymous:YES];
+        [self.displayNameButton addTarget:self action:@selector(signup:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     
@@ -142,7 +144,10 @@
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+- (IBAction)signup:(id)sender {
+    SDSignupViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"signup"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 //
 //#pragma mark UIImagePicker Delegate methods
 //-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -370,19 +375,19 @@
 }
 
 - (void)setPostToAnnoymous:(BOOL)boo {
-    if (boo) {
+    //if (boo) {
         [UIView animateWithDuration:0.65 animations:^{
             self.displayNameButton.backgroundColor = [UIColor darkGrayColor];
             [self.displayNameButton setTitle:@"匿名发布" forState:UIControlStateNormal];
             self.displayNameButton.titleLabel.textColor = [UIColor lightTextColor];
         }];
-    } else {
-        [UIView animateWithDuration:0.65 animations:^{
-            self.displayNameButton.backgroundColor = [UIColor whiteColor];
-            [self.displayNameButton setTitle:[AVUser currentUser][@"displayName"] forState:UIControlStateNormal];
-            self.displayNameButton.titleLabel.textColor = [UIColor darkGrayColor];
-        }];
-    }
+//    } else {
+//        [UIView animateWithDuration:0.65 animations:^{
+//            self.displayNameButton.backgroundColor = [UIColor whiteColor];
+//            [self.displayNameButton setTitle:[AVUser currentUser][@"displayName"] forState:UIControlStateNormal];
+//            self.displayNameButton.titleLabel.textColor = [UIColor darkGrayColor];
+//        }];
+//    }
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
